@@ -1,23 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-04-30T18:53:10-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa-triangles/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2018-04-28T00:00:00-04:00</published><updated>2018-04-28T00:00:00-04:00</updated><id>/blog/mona-lisa-triangles</id><content type="html" xml:base="/blog/mona-lisa-triangles/">&lt;h2 id=&quot;how-to-use-this-theme&quot;&gt;How to Use This Theme&lt;/h2&gt;
-&lt;p&gt;Just go ahead and read up on &lt;a href=&quot;https://jekyllrb.com/&quot;&gt;how to install Jekyll&lt;/a&gt;. It’s not too hard I promise!&lt;/p&gt;
-
-&lt;p&gt;Download this repository &lt;a href=&quot;https://github.com/iwiedenm/jekyll-theme-massively&quot;&gt;here&lt;/a&gt; and save it to any folder you want.&lt;/p&gt;
-
-&lt;p&gt;Open a terminal window or a command line and &lt;code class=&quot;highlighter-rouge&quot;&gt;cd&lt;/code&gt; to that location.&lt;/p&gt;
-
-&lt;p&gt;Then enter: &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec jekyll serve&lt;/code&gt;. You can now access your new Jekyll site from &lt;a href=&quot;http://127.0.0.1:4000/&quot;&gt;http://127.0.0.1:4000/&lt;/a&gt;. Have fun exploring your new site!&lt;/p&gt;
-
-&lt;h2 id=&quot;features&quot;&gt;Features&lt;/h2&gt;
-&lt;h3 id=&quot;auto-generating-sitemap&quot;&gt;Auto-Generating Sitemap&lt;/h3&gt;
-&lt;p&gt;The sitemap is auto generated! Just simply change the front matter of each site. It looks like so…&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sitemap:
-    priority: 0.7
-    lastmod: 2018-04-28
-    changefreq: weekly
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h3 id=&quot;formspring-integration&quot;&gt;Formspring integration&lt;/h3&gt;
-&lt;p&gt;The contact form below each page on the footer actually collects information! Just change your email address in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file!&lt;/p&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa.jpg" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-04-30T19:13:59-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;Disclaimer: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;, but the implementation/algorithms are mine. Additionally, I used the bare-bones SFML library which required
+significant image processing and filtering methods to be developed; this has been done on purpose for my own education!&lt;/p&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa.jpg" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
 gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
 each of which are worth up to $10,000.
