@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  --><html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<title>Plinko</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/assets/icon/manifest.json">
+<link rel="mask-icon" href="/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">R.F. Obrecht</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="/">Home</a></li>
+  <li class=""><a href="/about/">About</a></li>
+  <li class=" active "><a href="/blog/">Blog</a></li>
+  <li class=""><a href="/elements/">Useful References</a></li>
+</ul>
+
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">27 Aug 2017</span>
+      	    <h1>Plinko</h1>
+      	    <p>Simulating the famous plinko game.</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p></p>
+<h2 id="objective">Objective</h2>
+<p>Plinko is a popular game perhaps due to “The Price is Right”. A contestant
+gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
+each of which are worth up to $10,000.
+The idea then is quite simple; the contestant chooses an initial starting point at the top
+of the board and releases the plinko chip, and hopes to win some money
+($0, $100, $500, $1k, $10k are possible outcomes). The fun part, though, is watching
+the chip traverse the plinko board. The board is an array of metal pegs,
+each row is offset by half a lattice spacing, which forces the chip to change its
+trajectory many times. The bin where the chip ends up dictates
+how much money is awarded, if any at all, to the contestant. On the show, there are
+9 bins and the center bin is the $10k prize. Naively, the odds of obtaining
+the big bucks are 1/9, but the odds are initial-condition dependent as we will see.</p>
+
+<figure>
+  <img src="/images/plinko/plinko_summary_scaled.png" alt="" height="99%" width="99%">
+  <figcaption>Fig. 1 - Results of the plinko simulation for a varying number of attempts.
+  From top to bottom and left to right, the number of simulations
+  is 10<sup>2</sup>, 10<sup>3</sup>, 10<sup>4</sup>, 10<sup>5</sup>,
+  and 10<sup>6</sup>. Note that the initial condition is the same.</figcaption>
+</figure>
+
+<p></p>
+<h2 id="simulation">Simulation</h2>
+<p>The simulation setup is summarized by Fig. 1 in which an NxN lattice is generated
+where every other row is horizontally offset by half a lattice spacing. The initial
+condition is chosen to be roughly the center as it provides the most interesting
+results visually. I initially wanted to do the simulation using billiard ball
+collisions and forces (momentum and energy conservation, etc.), but
+the situation can be dramatically simplified. When a plinko chip encounters a peg,
+let's randomly choose a direction to go, left or right, and  propagate this strategy
+down the plinko board. If we repeat the game many times then
+we've achieved a simple Monte Carlo simulation. The situation
+is actually identical to a one-dimensional random walk (or drunken walk)
+which follows a binomial distribution. After many steps,
+the binomial may be well approximated by a Gaussian, and
+the most probable ending spot for the 1D drunkard is exactly where he started.
+Therefore, a naive expectation for the plinko simulation is the chip end-bin
+distribution to look like a Gaussian with a mean corresponding to the starting
+position and a standard deviation that depends on the lattice size or granularity
+of the board.</p>
+
+<p><span class="image left"><img src="/images/plinko/ssplinko_nsim_350.jpg" alt=""></span>
+The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
+We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
+be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
+A simple radius clustering search may be used, but we are only interested in the two closest pegs
+<i>below</i> as they dictate where the chip will move next. Lastly, the path of the chip needs to be traced, where
+a path consists of many line segments that connect the left/right decisions throughout the board.
+Since we are dealing with coordinates in a lattice,
+I Gaussian-smeared the line segment coordinates to avoid an overlap of many paths in addition to
+giving the path a more fluid feel. This is what gives the horizontal spread in the observed paths, and explains
+why a path occasionally crosses a peg.</p>
+
+<p>The end-bin plinko chip distribution is plotted within Fig. 2 where the bin size corresponds
+to the lattice spacing in the simulation. The left (right) panel throws 100 (10<sup>4</sup>)
+plinko chips, and essentially a perfect Gaussian distribution is observed if the number
+of events is large as expected.
+Therefore, the ideal starting-position to get the 10k per chip
+on "The Price is Right" is the bin that aligns with the 10k bin. Note that I actually did
+watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see 
+<a href="https://www.youtube.com/watch?v=naUppHrHJpI">this youtube video</a>, and won
+$31.5k!</p>
+
+<figure>
+  <img src="/images/plinko/plinko_results.png" alt="" height="99%" width="99%">
+  <figcaption>Fig. 2 - The plinko chip distribution for two simulations
+  of 100 (left) and 10<sup>4</sup> (right) attempts. Dividing each bin by the total number
+  of events yields a probability distribution.</figcaption>
+</figure>
+
+      	</section>
+
+        <div class="comments-wrapper">
+          <div id="disqus_thread"></div>
+          <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+
+            var disqus_config = function () {
+            this.page.url = '/blog/plinko/';  /*Replace PAGE_URL with your page's canonical URL variable*/
+            this.page.identifier = '/blog/plinko/'; /*Replace PAGE_IDENTIFIER with your page's unique identifier variable*/
+            };
+
+            (function() {  /* dont endit below this line */
+            var d = document, s = d.createElement('script');
+
+            s.src = 'https://default.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+        </div>
+<!-- /.comments-wrapper -->
+
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="/blog/" class="button">Our Blog</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message"></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Phone</h3>
+      <p><a href="tel:"></a></p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+    <section>
+      <h3>Social</h3>
+      <ul class="icons alt">
+        <li><a href="https://twitter.com/default" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a></li>
+        <li><a href="https://facebook.com/default" class="icon fa-facebook" rel="nofollow"><span class="label">Facebook</span></a></li>
+        <li><a href="https://instagram.com/default" class="icon fa-instagram" rel="nofollow"><span class="label">Instagram</span></a></li>
+        <li><a href="https://github.com/default" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a></li>
+      </ul>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>
+<li>© HTML5 UP</li>
+<li>Design by <a href="https://html5up.net" rel="nofollow">HTML5 UP</a>
+</li>
+<li>Jekyll Integration by <a href="https://soundgrail.com">SoundGrail</a>
+</li>
+</ul>
+</div>
+
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+
+  </body>
+</html>

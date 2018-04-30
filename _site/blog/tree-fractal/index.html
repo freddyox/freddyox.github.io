@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  --><html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<title>Tree Fractal</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/assets/icon/manifest.json">
+<link rel="mask-icon" href="/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">R.F. Obrecht</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="/">Home</a></li>
+  <li class=""><a href="/about/">About</a></li>
+  <li class=" active "><a href="/blog/">Blog</a></li>
+  <li class=""><a href="/elements/">Useful References</a></li>
+</ul>
+
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">08 May 2016</span>
+      	    <h1>Tree Fractal</h1>
+      	    <p>Generation and visualization of a Pythagoras tree</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p><figure>
+  <img src="/images/tree_fractal/fractal_tree_multi.jpg" alt="" height="99%" width="99%">
+  <figcaption>Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
+  and 60 (right) degrees.</figcaption>
+</figure>
+
+</p>
+<h2 id="generating-and-animating-the-fractal">Generating and Animating the Fractal</h2>
+<p>There are many ways to generate a simple tree fractal. A quick google search gives many variations
+and patterns, symmetric and asymmetric, as even small changes to the initial length and/or
+angle gives interesting results. I will only describe <i>my</i> fractal as I am not a
+fractal expert; the goal for me was to generate a symmetric tree fractal,
+and then to tweak parameters and make an animation.</p>
+
+<p>The fractal starts with a tree trunk of length <i>l</i>, and think of
+the top of the trunk as a node where we will connect branches. Fractals
+are iterative objects, so in this case the trunk is referred to as level zero.
+Each time we increment the level, 2 branches will be connected to each node
+of the previous level resulting in 2<sup><i>n</i></sup> new branches where <i>n</i>
+represents the level. A branch is just a line defined by two coordinates.
+The first level of the fractal, then, generates two branches,
+both assigned a length <i>al</i> where <i>a</i> is some fraction to be defined by the coder,
+with the trunk node as the starting coordinate; the end coordinate depends on the fractal generation
+angle. If I choose an angle of say 23 degrees as in Fig. 1, then the first level
+branches have end points that are plus/minus 23 degrees with respect to the vertical, or
+more generally the directional vector of the trunk (or branch of the previous level).
+Level two branches (there are 2<sup>2</sup>=4)
+use level 1 nodes as input where the length is now <i>a<sup>2</sup>l</i>, and the end points
+are defined <i>relative</i> to the level 1 branch directional vectors. The process
+is iterated to as many levels as one wants, but note that the length of level <i>n</i>
+branches are reduced relative to the trunk by a factor of <i>a<sup>n</sup></i>. For example,
+if we choose <i>a</i>=0.7, then the length of level 7 branches is 0.7<sup>7</sup>=0.08
+or 8% of the trunk's length which quickly becomes difficult to visualize.
+Additionally, the tree fractal naturally gives rise to a curling
+or rotational effect which yields often unexpected behavior, <i>e.g.</i> the
+right panel of Fig. 1.</p>
+
+<p>
+I used a value of <i>a</i>=0.65 and <i>n</i>=15, and incrementally changed the color of branches
+as the algorithm progresses to higher branch levels, hence the variations of green
+and the red/pink buds. Obviously a great deal of time could be invested tweaking
+various parameters and checking the result; the tweaking can be intensified by
+considering asymmetric parameters for left/right branch generation at any particular node.
+The algorithm can easily be extended to scan over a range of branch generation angles,
+say 0 to 360 degrees, and the output can be stringed together to create a .gif using
+conventional linux facilities. The results of such a procedure may be seen by Fig. 2.
+Fractal analysis can be performed on the output, but I stopped here.
+</p>
+
+<figure>
+<img src="/images/tree_fractal/fractal2.gif" alt="" title="Tree fractal animation" width="99%">
+<figcaption>Fig. 2 - Scanning over branch generation angles of 0 to 360 degrees in 1 degree
+increments, and stitching all the images together to create an animation.</figcaption>
+</figure>
+
+      	</section>
+
+        <div class="comments-wrapper">
+          <div id="disqus_thread"></div>
+          <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+            */
+
+            var disqus_config = function () {
+            this.page.url = '/blog/tree-fractal/';  /*Replace PAGE_URL with your page's canonical URL variable*/
+            this.page.identifier = '/blog/tree-fractal/'; /*Replace PAGE_IDENTIFIER with your page's unique identifier variable*/
+            };
+
+            (function() {  /* dont endit below this line */
+            var d = document, s = d.createElement('script');
+
+            s.src = 'https://default.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+        </div>
+<!-- /.comments-wrapper -->
+
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="/blog/" class="button">Our Blog</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message"></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Phone</h3>
+      <p><a href="tel:"></a></p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+    <section>
+      <h3>Social</h3>
+      <ul class="icons alt">
+        <li><a href="https://twitter.com/default" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a></li>
+        <li><a href="https://facebook.com/default" class="icon fa-facebook" rel="nofollow"><span class="label">Facebook</span></a></li>
+        <li><a href="https://instagram.com/default" class="icon fa-instagram" rel="nofollow"><span class="label">Instagram</span></a></li>
+        <li><a href="https://github.com/default" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a></li>
+      </ul>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>
+<li>© HTML5 UP</li>
+<li>Design by <a href="https://html5up.net" rel="nofollow">HTML5 UP</a>
+</li>
+<li>Jekyll Integration by <a href="https://soundgrail.com">SoundGrail</a>
+</li>
+</ul>
+</div>
+
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+
+  </body>
+</html>

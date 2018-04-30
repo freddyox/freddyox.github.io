@@ -1,0 +1,136 @@
+---
+layout: null
+title: Obrecht Projects
+description: 
+sitemap:
+priority: 1.0
+lastmod: 2018-04-28
+changefreq: weekly
+---
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+  <head>
+    {% include head.html %}
+
+
+  </head>
+  <body class="is-loading">
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Intro -->
+      <div id="intro">
+        <h1>{{site.title}}</h1>
+	<h2>Projects and Research Interests</h2>
+	<p>Programming based projects during my years as a physics graduate student.</p>
+	<ul class="actions">
+	  <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+	</ul>
+      </div>
+
+      <!-- Header -->
+      <header id="header">
+	<a href="{{ "/" | absolute_url }}" class="logo">{{site.title}}</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+
+        {% include nav.html %}
+
+	<!--<ul class="icons">
+          <li><a href="https://twitter.com/{{site.twitter}}" class="icon fa-twitter" rel="nofollow"><span class="label">Twitter</span></a></li>
+          <li><a href="https://facebook.com/{{site.facebook}}" class="icon fa-facebook" rel="nofollow"><span class="label">Facebook</span></a></li>
+          <li><a href="https://instagram.com/{{site.instagram}}" class="icon fa-instagram" rel="nofollow"><span class="label">Instagram</span></a></li>
+          <li><a href="https://github.com/{{site.github}}" class="icon fa-github" rel="nofollow"><span class="label">GitHub</span></a></li>
+	</ul>-->
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+	<!-- Featured Post -->
+	<article class="post featured">
+	  <header class="major">
+	    <h2>Exploring the Nucleon</h2>
+	    <p>An overview of my research interests as a Ph.D. student, and a description of the many side-projects.</p>
+	  </header>
+	  <img src="{{ "/images/ECal_crookedview_white.png" | absolute_url }}" alt="" class="center" />
+          <p>The overwhelming majority of visible matter is composed of nucleons making
+	    it arguably the most important strongly interacting system to study.
+	    Nature's most prominent particle may naively be thought of as a composite object
+	    built out of three non-interacting sub-objects, known as quarks, in the large
+	    energy limit; however, the structure of the nucleon is much more complicated,
+	    and consequently far richer, than a simple valence-quark picture. 
+	    There are sea quarks in addition to valence quarks that interact strongly
+	    via the exchange of gluons resulting in a complex vacuum structure, 
+	    and all of which must collectively give rise to the observed
+	    properties of the nucleon, <i>e.g.</i> the radius and mass.
+	    The nucleon is perhaps the most well-studied
+	    hadron and yet there are still difficulties associated with
+	    the prediction of fundamental properties from first principles;
+	    <i>this represents a central problem in nuclear physics</i>. The theoretical difficulty with 
+	    the nucleon requires intensive experimentation, which is steadily
+	    increasing our knowledge of hadron structure and the strong interaction.
+	    My research interests revolve around utilizing fundamental scattering
+	    interactions to probe the nucleon structure in order to
+	    contribute towards a complete understanding of the nucleon.</p>
+
+	  <p>My Ph.D. analysis required computational and programming skills that I wanted to acquire.
+	    In order to quickly learn, I started working on often physics-inspired projects during my spare time,
+	    and eventually developed new passion.
+	    The purpose of this site is to organize all my <q>side-projects</q> for my own
+	    satisfaction, and for any one else that
+	    may find the projects interesting. While a deeper analysis may be performed on most problems,
+	    I consider a problem complete based on boredom and time considerations. The programming language
+	    of choice is typically C++ (not that it matters), and I make heavy
+	    use of CERN's scientific framework  <a href="https://root.cern.ch/">ROOT</a> and
+	    the multimedia library <a href="https://www.sfml-dev.org/">SFML</a>. Many visualization
+	    algorithms and tools are developed from scratch using barebone libraries, e.g. SFML provides
+	    powerful low-level tools giving the user significant flexibility.</p>
+	    
+	</article>
+	<!-- Posts -->
+	<section class="posts">
+          {% for post in site.posts limit:10 %}
+          {% assign mod3 = forloop.index | modulo: 3 %}
+  	  <article>
+  	    <header>
+  	      <span class="date">{{ post.date | date_to_string }}</span>
+  	      <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
+  	    </header>
+  	    <a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.cimage | absolute_url }}" alt="" /></a>
+  	    <p>{{ post.excerpt }}</p>
+  	    <ul class="actions">
+  	      <li><a href="{{ post.url | absolute_url }}" class="button">More info</a></li>
+  	    </ul>
+  	  </article>
+          {% endfor %}
+
+	</section>
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="{{ "/blog/" | absolute_url }}" class="button">Blog</a></li>
+          </ul>
+	</footer>
+
+      </div>
+
+      <!-- Footer -->
+      {% include foot.html %}
+
+    </div>
+
+    <!-- Scripts -->
+    {% include scripts-main.html %}
+    {% include tracking.html %}
+
+  </body>
+</html>

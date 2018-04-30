@@ -1,0 +1,79 @@
+---
+layout: post
+title:  "Plinko"
+date:   2017-08-27
+excerpt: "Simulating the famous plinko game."
+image: ""
+cimage: "/images/plinko_sample_v3.jpg"
+---
+
+## Objective
+Plinko is a popular game perhaps due to "The Price is Right". A contestant
+gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
+each of which are worth up to $10,000.
+The idea then is quite simple; the contestant chooses an initial starting point at the top
+of the board and releases the plinko chip, and hopes to win some money
+($0, $100, $500, $1k, $10k are possible outcomes). The fun part, though, is watching
+the chip traverse the plinko board. The board is an array of metal pegs,
+each row is offset by half a lattice spacing, which forces the chip to change its
+trajectory many times. The bin where the chip ends up dictates
+how much money is awarded, if any at all, to the contestant. On the show, there are
+9 bins and the center bin is the $10k prize. Naively, the odds of obtaining
+the big bucks are 1/9, but the odds are initial-condition dependent as we will see.
+
+ <figure>
+  <img src="/images/plinko_summary_scaled.png" alt="test image size" height="99%" width="99%">
+  <figcaption>Fig 1. - Results of the plinko simulation for a varying number of attempts.
+  From top to bottom and left to right, the number of simulations
+  is 10<sup>2</sup>, 10<sup>3</sup>, 10<sup>4</sup>, 10<sup>5</sup>,
+  and 10<sup>6</sup>. Note that the initial condition is the same.</figcaption>
+</figure>
+
+<p></p>
+## Simulation
+<p>The simulation setup is summarized by Fig. 1 in which an NxN lattice is generated
+where every other row is horizontally offset by half a lattice spacing. The initial
+condition is chosen to be roughly the center as it provides the most interesting
+results visually. I initially wanted to do the simulation using billiard ball
+collisions and forces (momentum and energy conservation, etc.), but
+the situation can be dramatically simplified. When a plinko chip encounters a peg,
+let's randomly choose a direction to go, left or right, and  propagate this strategy
+down the plinko board. If we repeat the game many times then
+we've achieved a simple Monte Carlo simulation. The situation
+is actually identical to a one-dimensional random walk (or drunken walk)
+which follows a binomial distribution. After many steps,
+the binomial may be well approximated by a Gaussian, and
+the most probable ending spot for the 1D drunkard is exactly where he started.
+Therefore, a naive expectation for the plinko simulation is the chip end-bin
+distribution to look like a Gaussian with a mean corresponding to the starting
+position and a standard deviation that depends on the lattice size or granularity
+of the board.</p>
+
+<p><span class="image left"><img src="{{ "/images/ssplinko_nsim_350.jpg" | absolute_url }}" alt="" /></span>
+The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
+We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
+be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
+A simple radius clustering search may be used, but we are only interested in the two closest pegs
+<i>below</i> as they dictate where the chip will move next. Lastly, the path of the chip needs to be traced, where
+a path consists of many line segments that connect the left/right decisions throughout the board.
+Since we are dealing with coordinates in a lattice,
+I Gaussian-smeared the line segment coordinates to avoid an overlap of many paths in addition to
+giving the path a more fluid feel. This is what gives the horizontal spread in the observed paths, and explains
+why a path occasionally crosses a peg.</p>
+
+<p>The end-bin plinko chip distribution is plotted within Fig. 2 where the bin size corresponds
+to the lattice spacing in the simulation. The left (right) panel throws 100 (10<sup>4</sup>)
+plinko chips, and essentially a perfect Gaussian distribution is observed if the number
+of events is large as expected.
+Therefore, the ideal starting-position to get the 10k per chip
+on "The Price is Right" is the bin that aligns with the 10k bin. Note that I actually did
+watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see 
+<a href="https://www.youtube.com/watch?v=naUppHrHJpI">this youtube video</a>, and won
+$31.5k!</p>
+
+ <figure>
+  <img src="/images/plinko_results.png" alt="test image size" height="99%" width="99%">
+  <figcaption>Fig 2. - The plinko chip distribution for two simulations
+  of 100 (left) and 10<sup>4</sup> (right) attempts. Dividing each bin by the total number
+  of events yields a probability distribution.</figcaption>
+</figure>
