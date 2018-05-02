@@ -83,10 +83,11 @@ changefreq: weekly
   	      <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
   	    </header>
   	    <a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.cimage | absolute_url }}" alt="" /></a>
-  	    <p>{{ post.excerpt }}</p>
-  	    <ul class="actions">
+  	    <p style="text-align:center">{{ post.excerpt }}</p> <!--style is css command, html5 has obsolete commands, found on google-->
+	    <!--
+	    <ul class="actions">
   	      <li><a href="{{ post.url | absolute_url }}" class="button">More info</a></li>
-  	    </ul>
+  	    </ul>-->
   	  </article>
           {% endfor %}
 
