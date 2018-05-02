@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-01T18:57:19-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-02T19:42:33-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
@@ -31,7 +31,47 @@ Basically you have a matrix is applied to each pixel ( think of a 3x3 matrix and
 The animated result of my simulation with a gaussian blur applied may be seen by mona_lisa_rs.gif. The reason you see random triangles popping up in the end is b/c I have to draw the mutated image so that I can take a screenshot (in code of course), then do my analysis. I would have to code another window that only plots the best image for it to be even smoother, but its irrelevant now.
 
 I think the guy with the original idea has more sophisticated image processing techniques because you can barley see triangle boundaries. He claims to have 50 triangles and I find this hard to believe. 
-&lt;/p&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/"></content><summary type="html">A variation of the Koch snowflake.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;/p&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/koch_snowflake/idea.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+I worked on this project immediately after the tree fractal. Admittedly, the geometry is more
+difficult but the fractal generation concept is the same; find a base operation, and apply
+it iteratively. The fractal begins by defining an
+equilateral triangle, and let's refer to this as iteration 0. Iteration 1 is
+formed by taking each line segment making up the base triangle, splitting it into thirds,
+removing the center segment, and then building a smaller equilateral (with one side missing)
+with two additional line segments. The result is a star.
+Therefore, the base operation of the fractal consists of accepting one line segment
+and returning four in the proper orientation. Repeat the iteration process until satisfied, but
+practically only the first 6 iterations or so make noticeable changes without magnification.
+An animation of my Koch snowflake may be seen by Fig. 2. The area of the fractal
+quickly converges, but the perimeter tends towards infinity; see Fig. 3 for my results.
+Note that the number of line segments to consider grows rapidly: &lt;i&gt;3*4&lt;sup&gt;n&lt;/sup&gt;&lt;/i&gt;
+where &lt;i&gt;n&lt;/i&gt; is the iteration number. Therefore, the animation displays the first
+10 iterations resulting in a fractal with &lt;i&gt;3.14*10&lt;sup&gt;6&lt;/sup&gt;&lt;/i&gt; line segments.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; /&gt;
+&lt;figcaption&gt;Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
+the area of the fractal converges rapidly, the perimeter tends towards infinity; see
+Fig. 3.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; /&gt;
+&lt;figcaption&gt;Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
+animation). The area converges quickly while the perimeter diverges towards infinity.
+The convergence of the fractal area is suppose to be 8/5 times the original
+area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
 gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
 each of which are worth up to $10,000.
