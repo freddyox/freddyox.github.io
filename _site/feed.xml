@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-02T19:42:33-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-02T22:05:03-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
@@ -7,31 +7,47 @@ While the results are pleasing, the algorithm is not practical (at least mine),
 &lt;/p&gt;
 
 &lt;h2 id=&quot;concept&quot;&gt;Concept&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/mona_lisa/original.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The goal is to mimick or replicate an input image using &lt;i&gt;N&lt;/i&gt; randomly generated polygons.
+&lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;/images/mona_lisa/original.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The goal is to mimick or replicate an input image using polygons, or triangles in this case.
+The main components of the algorithm are as follows:
+&lt;ol&gt;
+&lt;li&gt;Have an input image that we wish to copy, &lt;i&gt;e.g.&lt;/i&gt; the Mona Lisa&lt;/li&gt;
+&lt;li&gt;Generate an initial set of &lt;i&gt;N&lt;/i&gt; triangles randomly, typically 50-500&lt;/li&gt;
+&lt;li&gt;Define an appropriate &amp;chi;&lt;sup&gt;2&lt;/sup&gt; function, often referred to as a loss or fitness function, which
+    will allow us to quantify the difference between the triangle image and the input image &lt;/li&gt; 
+&lt;li&gt;Apply a &lt;q&gt;mutation&lt;/q&gt;, &lt;i&gt;i.e.&lt;/i&gt; randomly tweak a characteristic of the triangle like a vertex
+    coordinate or an rgba value&lt;/li&gt;
+&lt;li&gt;Calculate the &amp;chi;&lt;sup&gt;2&lt;/sup&gt; between the mutated image and the input; if the function determines
+    that the mutatation is more similar to the input then accept the change. Otherwise, discard it, and apply another mutation.&lt;/li&gt;
+&lt;li&gt;Repeat until the loss function does not change significantly.&lt;/li&gt;
+&lt;/ol&gt;
 
-The guy calls it a genetic algorithm, but I do not see how. The idea is somewhat simple, and note
-that we will be at the pixel level. Each pixel has a coordinate and color, and each color has an rgba component where a is the transparency.
+The &amp;chi;&lt;sup&gt;2&lt;/sup&gt; function is defined to be the square difference of r,g,b,a components for all pixels between the input
+and mutated image, and is normalized by &lt;i&gt;(N pixels)*4*256*256&lt;/i&gt; such that
+the loss function &lt;i&gt;L = 1-&lt;/i&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt; yields a number less than or equal to 1 where 1 is a perfect match.
+This can be computationally slow if you have large images as the code is simply brute force.
+The input image is put into a look-up table in order to handle the color components of
+all pixels.  
+The mutation rate, &lt;i&gt;i.e.&lt;/i&gt; the number of accepted mutations over the total number of mutation attempts,
+at first is acceptable but then quickly becomes linear resulting in a slow algorithm (still fun though).&lt;/p&gt;
 
-Here are the main components of the algorithm:
-1) Have an input image like the Mona Lisa
-2) Draw N triangles randomly, typically it is 50-500, and &quot;mutate&quot; it. In other words, randomly adjust the triangle vertex positions or the triangle's color components (r,g,b,a). There are some difficulties that arise here....there are a lot of choices...and how much should I wiggle each thing? I realized it is very easy to get stuck in local minima, so the random numbers need to have some freedom which definitely changes the rate of convergence.
-3) Compare the triangle image to the input image with a chi^2 function (defined below).
-4) If the chi^2 function determines that the mutated image is more similar to the input image than the previous, keep the mutation. Otherwise discard it.
-5) Continue....
+&lt;figure&gt;
+  &lt;img src=&quot;/images/mona_lisa/mutation_rate.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 1 - The fitness (normalized 1-&amp;chi;&lt;sup&gt;2&lt;/sup&gt;) as a function of mutation number.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt; &lt;/p&gt;
 
-The chi^2 function is the square difference of r,g,b,a components for all pixels between the input and mutated image. It can be normalized by the (number of pixels*4*256*256), therefore 1-\chi^2 yields a number less than or equal to 1 where 1 is a perfect match. This can be computationally slow if you have large images and the code is simply brute force. Even though a pixel array is technically row by column, a double for-loop is NOT necessary. Also, the input image can be put into some map or hash table (lookup table). The rate of convergence **at first** is acceptable but then it quickly becomes linear in which the slope is damn slow, see image.
+&lt;p&gt;In order to make convergence faster, I gridded up the input image and found the average color of each grid.
+I generated 300 triangles with randomly placed vertices, and calculated the vertex coordinate average which dictates
+the initial color that is assigned to the triangle. I let the code do 1e6 mutation attempts (as opposed to successes)
+in which only 23,721 mutations were accepted, which is a mutation rate of 2.4% if I assume linearity.
+The best normalized 1-&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=0.9966, and it remained this way for quite some time as the slope is so small.
+The quality of the image does converge, meaning that more computational time is most likely futile. &lt;/p&gt;
 
-
-So, I gridded up the input image, and found the average color of each grid. Then I generated 300 triangles with randomly placed vertices, and the initial color is determined by the grid location of the vertex coordinate average. I let the code do 1e6 mutation attempts (as opposed to successes) in which only 23,721 mutations were accepted =&amp;gt; mutation rate of 2.4% if I assume linearity. The best (1-\chi^2)=0.9966, and it remained this way for quite some time as the slope is so small. The quality of the image does converge, so it is not like I can let my computer run for 10+ hours and have a perfect copy.
-
-The result is the 2nd row of comparison.pdf. It became clear by examining my outputs that the ONLY way to make them look better is to process the images. I then spent a great deal of time learning how to apply filters, i.e. gaussian blurs, edge detection, etc. The bottom row is a gaussian blurred result (the blurring is very very minimal), and made smaller to make the imperfections less apparent. The filters are so useful and trivial to learn: https://en.wikipedia.org/wiki/Kernel_(image_processing) or even better http://lodev.org/cgtutor/filtering.html
-Basically you have a matrix is applied to each pixel ( think of a 3x3 matrix and the center of the matrix is the pixel ). The neighbor pixels get multiplied by the matrix on an element by element basis, and the results are stunning. See the edge detection which is simply a different matrix, or the emboss which looks sick.
-
-The animated result of my simulation with a gaussian blur applied may be seen by mona_lisa_rs.gif. The reason you see random triangles popping up in the end is b/c I have to draw the mutated image so that I can take a screenshot (in code of course), then do my analysis. I would have to code another window that only plots the best image for it to be even smoother, but its irrelevant now.
-
-I think the guy with the original idea has more sophisticated image processing techniques because you can barley see triangle boundaries. He claims to have 50 triangles and I find this hard to believe. 
-&lt;/p&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/mona_lisa/mona_lisa_rs.gif&quot; alt=&quot;&quot; height=&quot;30%&quot; width=&quot;30%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 2 - An animation of mutations attempts and successes.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
 &lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; /&gt;
 &lt;/figure&gt;
 
