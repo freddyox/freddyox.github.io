@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-05T11:08:02-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-05T17:57:08-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/"></content><summary type="html">An interactive word search game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill-climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
@@ -75,7 +75,7 @@ convolution matrices or image masks (google kernel image processing).
   &lt;img src=&quot;/images/mona_lisa/mona_lisa_rs.gif&quot; alt=&quot;&quot; height=&quot;30%&quot; width=&quot;30%&quot; /&gt;
   &lt;figcaption&gt;Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
   as I currently do not know how to control/pause the .gif.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
 gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
 each of which are worth up to $10,000.
@@ -144,7 +144,7 @@ $31.5k!&lt;/p&gt;
   &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
   of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
   of events yields a probability distribution.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
 &lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; /&gt;
 &lt;/figure&gt;
 
@@ -184,7 +184,7 @@ Fig. 3.&lt;/figcaption&gt;
 animation). The area converges quickly while the perimeter diverges towards infinity.
 The convergence of the fractal area is suppose to be 8/5 times the original
 area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/fractal_tree_multi.jpg&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
   and 60 (right) degrees.&lt;/figcaption&gt;
@@ -228,23 +228,47 @@ various parameters and checking the result; the tweaking can be intensified by
 considering asymmetric parameters for left/right branch generation at any particular node.
 The algorithm can easily be extended to scan over a range of branch generation angles,
 say 0 to 360 degrees, and the output can be stringed together to create a .gif using
-conventional linux facilities. The results of such a procedure may be seen by Fig. 2.
-Fractal analysis can be performed on the output, but I stopped here.
+conventional linux facilities. The results of such a procedure may be seen by Fig. 2,
+and if the .gif does not work then see the video on my
+&lt;a href=&quot;https://youtu.be/7bijV3FGrBk&quot;&gt;youtube channel&lt;/a&gt;.
+Fractal analysis can be performed on the output, but I stopped here. See
+&lt;a href=&quot;https://www.youtube.com/watch?v=Ec8Q1q9cbbo&quot;&gt;this video&lt;/a&gt; for
+a spectacular demonstration of the variety of tree fractals.
 &lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;/images/tree_fractal/fractal2.gif&quot; alt=&quot;&quot; title=&quot;Tree fractal animation&quot; width=&quot;99%&quot; /&gt;
 &lt;figcaption&gt;Fig. 2 - Scanning over branch generation angles of 0 to 360 degrees in 1 degree
 increments, and stitching all the images together to create an animation.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/double_pend/double_pend.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
-The double pendulum is a canonical classical mechanics problem, and a simulation does not
-require much explanation. First, find the equations of motion using forces or
+&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Collisions</title><link href="/blog/brownian/" rel="alternate" type="text/html" title="Collisions" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/brownian</id><content type="html" xml:base="/blog/brownian/">&lt;figure&gt;
+&lt;img src=&quot;/images/brownian/brownian.png&quot; alt=&quot;&quot; /&gt;
+&lt;figcaption&gt;
+Fig. 1 - The double pendulum simulation for two different initial conditions.
+&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating many collisions (close to brownian motion)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;figure&gt;
+&lt;img src=&quot;/images/double_pend/double_pend_v3.png&quot; alt=&quot;&quot; /&gt;
+&lt;figcaption&gt;
+Fig. 1 - The double pendulum simulation for two different initial conditions.
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;
+The double pendulum is a canonical classical mechanics problem to introduce
+the concept of chaos; the description will therefore be brief.
+First, find the equations of motion using forces or
 the Lagrangian method; this describes the angles and angular velocities of the two masses.
+No attempt will be made to derive the EOM as I've done it many times and do not have
+an interest in latexing classical mechanics.
 The masses and pendula arm-lengths can be different which gives rise to interesting behavior.
+The initial angles are chosen with a flat random number generator.
 The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
 otherwise known as RK4. The last piece of the project is the visualization, so we need
 a method to update the angles and angular velocities using a time variable. I added a simple
-tracer routine to follow the position of the second mass. A small video displaying
+tracer routine to follow the position of the masses, and the alpha component
+decays as a function of time. Additionally, it is a simple extension to change
+the tracer color as a function of time or coordinates.
+A small video displaying
 the simulation output may be seen on my
-&lt;a href=&quot;https://www.youtube.com/watch?v=N2kSgbwq8nc&quot;&gt;youtube channel&lt;/a&gt;.
+&lt;a href=&quot;https://youtu.be/CuhPbDQs3eY&quot;&gt;youtube channel&lt;/a&gt;. Note that with very little
+effort, the double pendulum simulation may be used as a spirograph generator.
 &lt;/p&gt;</content><summary type="html">Simulating the double pendulum using RK4.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>

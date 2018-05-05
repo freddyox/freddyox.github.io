@@ -50,8 +50,12 @@ various parameters and checking the result; the tweaking can be intensified by
 considering asymmetric parameters for left/right branch generation at any particular node.
 The algorithm can easily be extended to scan over a range of branch generation angles,
 say 0 to 360 degrees, and the output can be stringed together to create a .gif using
-conventional linux facilities. The results of such a procedure may be seen by Fig. 2.
-Fractal analysis can be performed on the output, but I stopped here.
+conventional linux facilities. The results of such a procedure may be seen by Fig. 2,
+and if the .gif does not work then see the video on my
+<a href="https://youtu.be/7bijV3FGrBk">youtube channel</a>.
+Fractal analysis can be performed on the output, but I stopped here. See
+<a href="https://www.youtube.com/watch?v=Ec8Q1q9cbbo">this video</a> for
+a spectacular demonstration of the variety of tree fractals.
 </p>
 
 <figure>
