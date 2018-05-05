@@ -1,10 +1,10 @@
-{% if page.comments != false and jekyll.environment == "production" %}
-
+{% if page.comments %}
   <div id="disqus_thread"></div>
   <script>
+    <!--var disqus_developer = 1;-->
     var disqus_config = function () {
       this.page.url = '{{ page.url | absolute_url }}';
-      this.page.identifier = '{{ page.url | absolute_url }}';
+      this.page.identifier = '{{ page.url }}';
     };
     (function() {
       var d = document, s = d.createElement('script');
