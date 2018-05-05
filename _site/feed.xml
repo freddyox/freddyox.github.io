@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-02T22:05:03-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
-but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill climbing
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-05T11:08:02-04:00</updated><id>/</id><title type="html">R.F. Obrecht</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill-climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
 significant image processing and filtering methods to be developed; this has been done on purpose for my own education!
-While the results are pleasing, the algorithm is not practical (at least mine),
+While the results are pleasing, the algorithm is not practical (at least mine). An animation of the algorithm is located at the bottom.
 &lt;/p&gt;
 
 &lt;h2 id=&quot;concept&quot;&gt;Concept&lt;/h2&gt;
@@ -12,82 +12,70 @@ While the results are pleasing, the algorithm is not practical (at least mine),
 The main components of the algorithm are as follows:
 &lt;ol&gt;
 &lt;li&gt;Have an input image that we wish to copy, &lt;i&gt;e.g.&lt;/i&gt; the Mona Lisa&lt;/li&gt;
-&lt;li&gt;Generate an initial set of &lt;i&gt;N&lt;/i&gt; triangles randomly, typically 50-500&lt;/li&gt;
+&lt;li&gt;Randomly generate an initial set of &lt;i&gt;N&lt;/i&gt; triangles, typically 50-500&lt;/li&gt;
 &lt;li&gt;Define an appropriate &amp;chi;&lt;sup&gt;2&lt;/sup&gt; function, often referred to as a loss or fitness function, which
     will allow us to quantify the difference between the triangle image and the input image &lt;/li&gt; 
 &lt;li&gt;Apply a &lt;q&gt;mutation&lt;/q&gt;, &lt;i&gt;i.e.&lt;/i&gt; randomly tweak a characteristic of the triangle like a vertex
-    coordinate or an rgba value&lt;/li&gt;
+    coordinate or an RGBA value&lt;/li&gt;
 &lt;li&gt;Calculate the &amp;chi;&lt;sup&gt;2&lt;/sup&gt; between the mutated image and the input; if the function determines
-    that the mutatation is more similar to the input then accept the change. Otherwise, discard it, and apply another mutation.&lt;/li&gt;
+    that the mutatation is more similar to the input then accept the change. Otherwise, discard it, and apply another mutation&lt;/li&gt;
 &lt;li&gt;Repeat until the loss function does not change significantly.&lt;/li&gt;
 &lt;/ol&gt;
 
-The &amp;chi;&lt;sup&gt;2&lt;/sup&gt; function is defined to be the square difference of r,g,b,a components for all pixels between the input
+&lt;p&gt;With low-level C++ libraries, the difficulty here is to develop the appropriate routines to handle the image processing.
+For example, &lt;i&gt;N&lt;/i&gt; triangles are randomly generated in which there is significant overlap; therefore, RGBA values
+are being added together in a complicated manner. While more sophisticated methods can be developed,
+I chose to draw the triangles on a canvas in order to visually see
+the result of a mutation (for example, a coordinate mutation can affect a significant fraction of the RGBA of the mutation image).
+In order to process the mutated image, the code takes a screen shot of the mutation and then breaks it apart into
+a vector such that the RGBA components may be easily compared to the input image.&lt;/p&gt;
+
+&lt;p&gt;Let's define the word &lt;i&gt;mutation&lt;/i&gt; clearly. A mutation only applies to the triangle image, and in general
+represents some random tweaking of triangle attributes. In this case, one triangle has three vertices and each
+vertex has two coordinates and an RGBA value; this is 6 parameters per vertex for a grand total of 18 per triangle! Therefore,
+the number of parameters to tweak making up the triangle image goes like &lt;i&gt;N*18&lt;/i&gt; where &lt;i&gt;N&lt;/i&gt; is the number
+of triangles. The difficulty is to decide how much to randomly tweak a parameter. If the mutation is too small then
+it is easy for the code to get stuck in a local minima, but if it is too large then the mutation rate is compromised.
+I used a flat random number generator for all parameters, and kept the coordinate mutations loose while keeping tight
+mutations on the color components. There is a lot of room for improvement in these choices, I think.&lt;/p&gt;
+
+The &amp;chi;&lt;sup&gt;2&lt;/sup&gt; function is defined to be the square difference of R,G,B,A components for all pixels between the input
 and mutated image, and is normalized by &lt;i&gt;(N pixels)*4*256*256&lt;/i&gt; such that
 the loss function &lt;i&gt;L = 1-&lt;/i&gt;&amp;chi;&lt;sup&gt;2&lt;/sup&gt; yields a number less than or equal to 1 where 1 is a perfect match.
-This can be computationally slow if you have large images as the code is simply brute force.
-The input image is put into a look-up table in order to handle the color components of
-all pixels.  
+This can be computationally slow if you have large images as the code is simply brute force. The heart of the
+algorithm depends on this function as the newly mutated image gets compared to the input image via the loss function. If
+the loss function is calculated to be better than the previous triangle image, then the mutation is kept; otherwise,
+the code will discard the mutation and randomly try again.
 The mutation rate, &lt;i&gt;i.e.&lt;/i&gt; the number of accepted mutations over the total number of mutation attempts,
 at first is acceptable but then quickly becomes linear resulting in a slow algorithm (still fun though).&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/images/mona_lisa/mutation_rate.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - The fitness (normalized 1-&amp;chi;&lt;sup&gt;2&lt;/sup&gt;) as a function of mutation number.&lt;/figcaption&gt;
+  &lt;figcaption&gt;Fig. 1 - The normalized loss (L=1-&amp;chi;&lt;sup&gt;2&lt;/sup&gt;) as a function of mutation number.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt; &lt;/p&gt;
 
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
 &lt;p&gt;In order to make convergence faster, I gridded up the input image and found the average color of each grid.
-I generated 300 triangles with randomly placed vertices, and calculated the vertex coordinate average which dictates
-the initial color that is assigned to the triangle. I let the code do 1e6 mutation attempts (as opposed to successes)
+I generated 300 triangles with randomly placed vertices and calculated the vertex coordinate average which dictates
+the triangle's initial color based off the average grid colors.
+I let the code do 1e6 mutation attempts (as opposed to successes)
 in which only 23,721 mutations were accepted, which is a mutation rate of 2.4% if I assume linearity.
-The best normalized 1-&amp;chi;&lt;sup&gt;2&lt;/sup&gt;=0.9966, and it remained this way for quite some time as the slope is so small.
-The quality of the image does converge, meaning that more computational time is most likely futile. &lt;/p&gt;
+The best loss is L=0.9966, and it remained this way for quite some time as the slope is so small (see Fig. 1 at large mutations).
+The quality of the image does converge, meaning that more computational time is most likely futile. The results
+of this project may be seen by the animation in Fig. 2.
+The results may be greatly improved by considering polygons (I've seen ellipses too), but the number of parameters
+to tweak is now &lt;i&gt;N*V*6&lt;/i&gt; where &lt;i&gt;V&lt;/i&gt; is the number of vertices..
+Also, the use of triangles leads to sharp edges in the output image. This can be smoothed out by developing
+filtering techniques, &lt;i&gt;e.g.&lt;/i&gt; a Gaussian blur, and I spent a great deal of time learning how to apply
+convolution matrices or image masks (google kernel image processing). 
+&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/images/mona_lisa/mona_lisa_rs.gif&quot; alt=&quot;&quot; height=&quot;30%&quot; width=&quot;30%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 2 - An animation of mutations attempts and successes.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; /&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/koch_snowflake/idea.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;
-I worked on this project immediately after the tree fractal. Admittedly, the geometry is more
-difficult but the fractal generation concept is the same; find a base operation, and apply
-it iteratively. The fractal begins by defining an
-equilateral triangle, and let's refer to this as iteration 0. Iteration 1 is
-formed by taking each line segment making up the base triangle, splitting it into thirds,
-removing the center segment, and then building a smaller equilateral (with one side missing)
-with two additional line segments. The result is a star.
-Therefore, the base operation of the fractal consists of accepting one line segment
-and returning four in the proper orientation. Repeat the iteration process until satisfied, but
-practically only the first 6 iterations or so make noticeable changes without magnification.
-An animation of my Koch snowflake may be seen by Fig. 2. The area of the fractal
-quickly converges, but the perimeter tends towards infinity; see Fig. 3 for my results.
-Note that the number of line segments to consider grows rapidly: &lt;i&gt;3*4&lt;sup&gt;n&lt;/sup&gt;&lt;/i&gt;
-where &lt;i&gt;n&lt;/i&gt; is the iteration number. Therefore, the animation displays the first
-10 iterations resulting in a fractal with &lt;i&gt;3.14*10&lt;sup&gt;6&lt;/sup&gt;&lt;/i&gt; line segments.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; /&gt;
-&lt;figcaption&gt;Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
-the area of the fractal converges rapidly, the perimeter tends towards infinity; see
-Fig. 3.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; /&gt;
-&lt;figcaption&gt;Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
-animation). The area converges quickly while the perimeter diverges towards infinity.
-The convergence of the fractal area is suppose to be 8/5 times the original
-area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+  &lt;figcaption&gt;Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
+  as I currently do not know how to control/pause the .gif.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
 &lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
 gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
 each of which are worth up to $10,000.
@@ -156,7 +144,47 @@ $31.5k!&lt;/p&gt;
   &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
   of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
   of events yields a probability distribution.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/koch_snowflake/idea.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+I worked on this project immediately after the tree fractal. Admittedly, the geometry is more
+difficult but the fractal generation concept is the same; find a base operation, and apply
+it iteratively. The fractal begins by defining an
+equilateral triangle, and let's refer to this as iteration 0. Iteration 1 is
+formed by taking each line segment making up the base triangle, splitting it into thirds,
+removing the center segment, and then building a smaller equilateral (with one side missing)
+with two additional line segments. The result is a star.
+Therefore, the base operation of the fractal consists of accepting one line segment
+and returning four in the proper orientation. Repeat the iteration process until satisfied, but
+practically only the first 6 iterations or so make noticeable changes without magnification.
+An animation of my Koch snowflake may be seen by Fig. 2. The area of the fractal
+quickly converges, but the perimeter tends towards infinity; see Fig. 3 for my results.
+Note that the number of line segments to consider grows rapidly: &lt;i&gt;3*4&lt;sup&gt;n&lt;/sup&gt;&lt;/i&gt;
+where &lt;i&gt;n&lt;/i&gt; is the iteration number. Therefore, the animation displays the first
+10 iterations resulting in a fractal with &lt;i&gt;3.14*10&lt;sup&gt;6&lt;/sup&gt;&lt;/i&gt; line segments.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;80%&quot; /&gt;
+&lt;figcaption&gt;Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
+the area of the fractal converges rapidly, the perimeter tends towards infinity, see
+Fig. 3.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; /&gt;
+&lt;figcaption&gt;Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
+animation). The area converges quickly while the perimeter diverges towards infinity.
+The convergence of the fractal area is suppose to be 8/5 times the original
+area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/fractal_tree_multi.jpg&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
   and 60 (right) degrees.&lt;/figcaption&gt;
@@ -208,4 +236,15 @@ Fractal analysis can be performed on the output, but I stopped here.
 &lt;img src=&quot;/images/tree_fractal/fractal2.gif&quot; alt=&quot;&quot; title=&quot;Tree fractal animation&quot; width=&quot;99%&quot; /&gt;
 &lt;figcaption&gt;Fig. 2 - Scanning over branch generation angles of 0 to 360 degrees in 1 degree
 increments, and stitching all the images together to create an animation.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/double_pend/double_pend.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
+The double pendulum is a canonical classical mechanics problem, and a simulation does not
+require much explanation. First, find the equations of motion using forces or
+the Lagrangian method; this describes the angles and angular velocities of the two masses.
+The masses and pendula arm-lengths can be different which gives rise to interesting behavior.
+The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
+otherwise known as RK4. The last piece of the project is the visualization, so we need
+a method to update the angles and angular velocities using a time variable. I added a simple
+tracer routine to follow the position of the second mass. A small video displaying
+the simulation output may be seen on my
+&lt;a href=&quot;https://www.youtube.com/watch?v=N2kSgbwq8nc&quot;&gt;youtube channel&lt;/a&gt;.
+&lt;/p&gt;</content><summary type="html">Simulating the double pendulum using RK4.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>

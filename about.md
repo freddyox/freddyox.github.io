@@ -10,6 +10,8 @@ sitemap:
 ## Overview
 I am currently a nuclear/particle physics Ph.D. student expecting to graduate over the summer of 2018.
 While I am a student at U.Conn., I am stationed at <a href="https://www.jlab.org/">Jefferson Laboratory</a> in Newport News, VA.
+<p>Thesis: <i>Electric form factor ratio of the neutron at Q<sup>2</sup>=1.16 GeV<sup>2</sup>
+from asymmetry measurements</i></p>
 
 ## Ph.D. Research Interests
 <span class="image right"><img src="{{ "/images/ECal_crookedview_white.png" | absolute_url }}" alt="" /></span>
