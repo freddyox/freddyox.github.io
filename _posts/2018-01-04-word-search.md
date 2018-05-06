@@ -6,5 +6,6 @@ excerpt: "An interactive word search game"
 comments: true
 image:  ""
 cimage: "/images/word_search/word_search_thumbnail.png"
+categories: games
 ---
 

@@ -27,7 +27,7 @@ changefreq: weekly
       <!-- Intro -->
       <div id="intro">
         <h1>{{site.title}}</h1>
-	<h2>Projects and Research Interests</h2>
+	<h2>Richard F. Obrecht</h2>
 	<p>Programming based projects during my years as a physics graduate student.</p>
 	<ul class="actions">
 	  <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
@@ -53,35 +53,47 @@ changefreq: weekly
 	    <h2>Overview of Projects</h2>
 	    <p>Programming based projects during my years as a physics graduate student.</p>
 	  </header>
-	  <p>My Ph.D. analysis required computational and programming skills that I wanted to acquire.
-	    In order to quickly learn, I started working on often physics-inspired projects during my spare time,
-	    and eventualy developed new passion.
+	  <p>My Ph.D. analysis required computational and programming skills that I
+	    wanted to acquire.  In order to quickly learn, I started working on often
+	    physics-inspired projects during my spare time, and eventualy developed new passion.
 	    The purpose of this site is to organize all my <q>side-projects</q> for my own
-	    satisfaction, and for any one else that
-	    may find the projects interesting. While a deeper analysis may be performed on most problems,
-	    I consider a problem to be complete based on boredom and time considerations. The programming language
-	    of choice is typically C++ (not that it matters), and I make heavy
-	    use of CERN's scientific framework <a href="https://root.cern.ch/">ROOT</a> and
-	    the multimedia library <a href="https://www.sfml-dev.org/">SFML</a>. The visualization and user-interaction
-	    algorithms are typically developed from scratch using bare-bones libraries, e.g. SFML provides
-	    powerful low-level tools giving the user significant flexibility. I prefer to do it this way
-	    for my own education.</p> 
+	    satisfaction, and for any one else that may find the projects interesting.
+	    While a deeper analysis may be performed on most problems,
+	    I consider a problem to be complete based on boredom and time considerations.
+	    The programming language of choice is typically C++ (not that it matters but C++ is common
+	    in my field), and I make heavy use of CERN's scientific framework
+	    <a href="https://root.cern.ch/">ROOT</a> and the multimedia library
+	    <a href="https://www.sfml-dev.org/">SFML</a>.
+	    All algorithms including visualization and user-interaction are my own work
+	    (even if the idea is not) and exploit bare-bones SFML libraries.
+	    While other higher level tools exist, I chose to do it this
+	    way for my own education and curiosity.
+	    The most recent posts are below, and the full list may be
+	    found <a href="{{ "/blog/" | absolute_url }}">here</a></p> 
 	</article>
 	<!-- Posts -->
+	
 	<section class="posts">
-          {% for post in site.posts limit:10 %}
-          {% assign mod3 = forloop.index | modulo: 3 %}
+          {% for post in site.posts limit:6 %}
   	  <article>
   	    <header>
   	      <span class="date">{{ post.date | date_to_string }}</span>
   	      <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
   	    </header>
-  	    <a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.cimage | absolute_url }}" alt="" /></a>
-  	    <p style="text-align:center">{{ post.excerpt }}</p> <!--style is css command, html5 has obsolete commands, found on google-->
-	    <!--
-	    <ul class="actions">
-  	      <li><a href="{{ post.url | absolute_url }}" class="button">More info</a></li>
-  	    </ul>-->
+  	    <a href="{{ post.url | absolute_url }}"
+	       class="image fit"><img src="{{ post.cimage | absolute_url }}" alt="" /></a>
+  	    <p style="text-align:center">{{ post.excerpt }}
+	      <div class="post-categories">
+		{% if post %}
+		{% assign categories = post.categories %}
+		{% else %}
+		{% assign categories = page.categories %}
+		{% endif %}
+		{% for category in categories %}
+		<a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
+		{% unless forloop.last %}&nbsp;{% endunless %}
+		{% endfor %}
+	      </div>
   	  </article>
           {% endfor %}
 
@@ -90,10 +102,9 @@ changefreq: weekly
 	<!-- Footer -->
 	<footer>
           <ul class="actions">
-            <li><a href="{{ "/blog/" | absolute_url }}" class="button">Blog</a></li>
+            <li><a href="{{ "/blog/" | absolute_url }}" class="button">All Projects</a></li>
           </ul>
 	</footer>
-
       </div>
 
       <!-- Footer -->

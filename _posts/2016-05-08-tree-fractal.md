@@ -5,6 +5,7 @@ date:   2016-05-08
 excerpt: "Generation and visualization of a Pythagoras tree"
 image: ""
 cimage: "/images/tree_fractal/FractalTree_45_white.png"
+categories: math
 ---
  <figure>
   <img src="/images/tree_fractal/fractal_tree_multi.jpg" alt="" height="99%" width="99%">
