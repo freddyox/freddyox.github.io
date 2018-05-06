@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Double Pendulum"
-date:   2015-07-27
-excerpt: "Simulating the double pendulum using RK4."
+date:   2017-07-27
+excerpt: "Simulating the double pendulum with RK4"
 comments: true
 image:  ""
 cimage: "/images/double_pend/double_pend_thumbnail_v2.png"
@@ -10,7 +10,7 @@ categories: simulation
 ---
 
 <span class="image left">
-<img src="{{ "/images/double_pend/double_pend_v1.png" | absolute_url }}" alt="" />
+<img src="/images/double_pend/double_pend_v1.png" alt="" width="99%" height="99%"/>
 </span>
 
 <p>

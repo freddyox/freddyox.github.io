@@ -20,9 +20,9 @@
     </url>
   
     <url>
-      <loc>/blog/plinko/</loc>
+      <loc>/blog/double-pendulum/</loc>
       
-        <lastmod>2017-08-27T00:00:00-04:00</lastmod>
+        <lastmod>2017-07-27T00:00:00-04:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
@@ -65,16 +65,16 @@
     </url>
   
     <url>
-      <loc>/blog/brownian/</loc>
+      <loc>/blog/plinko/</loc>
       
-        <lastmod>2015-07-27T00:00:00-04:00</lastmod>
+        <lastmod>2015-08-27T00:00:00-04:00</lastmod>
       
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
     </url>
   
     <url>
-      <loc>/blog/double-pendulum/</loc>
+      <loc>/blog/brownian/</loc>
       
         <lastmod>2015-07-27T00:00:00-04:00</lastmod>
       

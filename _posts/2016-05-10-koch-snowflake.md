@@ -10,7 +10,7 @@ categories: math
 ---
 
 <figure>
-<img src="/images/koch_snowflake/flake_thumbnail.png" alt="" title="Koch" width="99%"/>
+<img src="/images/koch_snowflake/flake_thumbnail.png" alt="" title="Koch" width="99%" height="99%"/>
 </figure>
 
 <span class="image left"><img src="{{ "/images/koch_snowflake/idea.png" | absolute_url }}" alt="" /></span>
@@ -35,7 +35,7 @@ where <i>n</i> is the iteration number. Therefore, the animation displays the fi
 <p></p>
 
 <figure>
-<img src="/images/koch_snowflake/asymm.gif" alt="" title="Koch snowflake animation" width="80%"/>
+<img src="/images/koch_snowflake/asymm.gif" alt="" title="Koch snowflake animation" width="80%" height="80%"/>
 <figcaption>Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
 the area of the fractal converges rapidly, the perimeter tends towards infinity, see
 Fig. 3.</figcaption>
@@ -44,7 +44,7 @@ Fig. 3.</figcaption>
 <p></p>
 
 <figure>
-<img src="/images/koch_snowflake/results.png" alt="" title="Koch snowflake animation" width="99%"/>
+<img src="/images/koch_snowflake/results.png" alt="" title="Koch snowflake animation" width="99%" height="99%"/>
 <figcaption>Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
 animation). The area converges quickly while the perimeter diverges towards infinity.
 The convergence of the fractal area is suppose to be 8/5 times the original

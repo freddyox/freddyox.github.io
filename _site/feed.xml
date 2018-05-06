@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-06T16:53:16-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;Working on it…&lt;/p&gt;</content><summary type="html">An interactive word search game (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-06T18:18:04-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;Working on it…&lt;/p&gt;</content><summary type="html">An interactive word search game (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill-climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
@@ -75,77 +75,40 @@ convolution matrices or image masks (google kernel image processing).
   &lt;img src=&quot;/images/mona_lisa/mona_lisa_rs.gif&quot; alt=&quot;&quot; height=&quot;30%&quot; width=&quot;30%&quot; /&gt;
   &lt;figcaption&gt;Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
   as I currently do not know how to control/pause the .gif.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2017-08-27T00:00:00-04:00</published><updated>2017-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
-&lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
-gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
-each of which are worth up to $10,000.
-The idea then is quite simple; the contestant chooses an initial starting point at the top
-of the board and releases the plinko chip, and hopes to win some money
-($0, $100, $500, $1k, $10k are possible outcomes). The fun part, though, is watching
-the chip traverse the plinko board. The board is an array of metal pegs,
-each row is offset by half a lattice spacing, which forces the chip to change its
-trajectory many times. The bin where the chip ends up dictates
-how much money is awarded, if any at all, to the contestant. On the show, there are
-9 bins and the center bin is the $10k prize. Naively, the odds of obtaining
-the big bucks are 1/9, but the odds are initial-condition dependent as we will see.&lt;/p&gt;
+&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2017-07-27T00:00:00-04:00</published><updated>2017-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
+&lt;img src=&quot;/images/double_pend/double_pend_v1.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;
+The double pendulum is a canonical classical mechanics problem to introduce
+the concept of chaos; the description will therefore be brief.
+First, find the equations of motion (EOM) using forces or
+the Lagrangian method; this describes the angles and angular velocities of the two masses.
+All physics students typically do the derivation as an undergrad, and the EOM
+may be found on the web if interested.
+The masses and pendula arm-lengths can be different which gives rise to interesting behavior.
+The initial angles are chosen with a flat random number generator.
+The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
+otherwise known as RK4. The last piece of the project is the visualization, so we need
+a method to update the angles and angular velocities using a time variable. I added a simple
+tracer routine to follow the position of the masses, and the alpha component
+decays as a function of position within the tracer C++ vector.
+Additionally, it is a simple extension to change
+the tracer color as a function of time or coordinates, see Fig. 1.
+A small video displaying the simulation output may be seen on my
+&lt;a href=&quot;https://youtu.be/CuhPbDQs3eY&quot;&gt;youtube channel&lt;/a&gt;. Note that with very little
+effort, the double pendulum simulation may be used as a spirograph generator. In this
+case, the RK4 method (and equations of motion) is discarded and one simply chooses angular velocities
+and arm-lengths.
+&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/images/plinko/plinko_summary_scaled.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - Results of the plinko simulation for a varying number of attempts.
-  From top to bottom and left to right, the number of simulations
-  is 10&lt;sup&gt;2&lt;/sup&gt;, 10&lt;sup&gt;3&lt;/sup&gt;, 10&lt;sup&gt;4&lt;/sup&gt;, 10&lt;sup&gt;5&lt;/sup&gt;,
-  and 10&lt;sup&gt;6&lt;/sup&gt;. Note that the initial condition is the same.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;simulation&quot;&gt;Simulation&lt;/h2&gt;
-&lt;p&gt;The simulation setup is summarized by Fig. 1 in which an NxN lattice is generated
-where every other row is horizontally offset by half a lattice spacing. The initial
-condition is chosen to be roughly the center as it provides the most interesting
-results visually. I initially wanted to do the simulation using billiard ball
-collisions and forces (momentum and energy conservation, etc.), but
-the situation can be dramatically simplified. When a plinko chip encounters a peg,
-let's randomly choose a direction to go, left or right, and  propagate this strategy
-down the plinko board. If we repeat the game many times then
-we've achieved a simple Monte Carlo simulation. The situation
-is actually identical to a one-dimensional random walk (or drunken walk)
-which follows a binomial distribution. After many steps,
-the binomial may be well approximated by a Gaussian, and
-the most probable ending spot for the 1D drunkard is exactly where he started.
-Therefore, a naive expectation for the plinko simulation is the chip end-bin
-distribution to look like a Gaussian with a mean corresponding to the starting
-position and a standard deviation that depends on the lattice size or granularity
-of the board.&lt;/p&gt;
-
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/plinko/ssplinko_nsim_350.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
-The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
-We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
-be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
-A simple radius clustering search may be used, but we are only interested in the two closest pegs
-&lt;i&gt;below&lt;/i&gt; as they dictate where the chip will move next. Lastly, the path of the chip needs to be traced, where
-a path consists of many line segments that connect the left/right decisions throughout the board.
-Since we are dealing with coordinates in a lattice,
-I Gaussian-smeared the line segment coordinates to avoid an overlap of many paths in addition to
-giving the path a more fluid feel. This is what gives the horizontal spread in the observed paths, and explains
-why a path occasionally crosses a peg.&lt;/p&gt;
-
-&lt;p&gt;The end-bin plinko chip distribution is plotted within Fig. 2 where the bin size corresponds
-to the lattice spacing in the simulation. The left (right) panel throws 100 (10&lt;sup&gt;4&lt;/sup&gt;)
-plinko chips, and essentially a perfect Gaussian distribution is observed if the number
-of events is large as expected.
-Therefore, the ideal starting-position to get the 10k per chip
-on &quot;The Price is Right&quot; is the bin that aligns with the 10k bin. Note that I actually did
-watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see 
-&lt;a href=&quot;https://www.youtube.com/watch?v=naUppHrHJpI&quot;&gt;this youtube video&lt;/a&gt;, and won
-$31.5k!&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/plinko/plinko_results.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
-  of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
-  of events yields a probability distribution.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; /&gt;
+&lt;img src=&quot;/images/double_pend/double_pend_rainbow.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;figcaption&gt;
+Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
+&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum with RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/koch_snowflake/idea.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
@@ -170,7 +133,7 @@ where &lt;i&gt;n&lt;/i&gt; is the iteration number. Therefore, the animation dis
 &lt;p&gt;&lt;/p&gt;
 
 &lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;80%&quot; /&gt;
+&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;
 &lt;figcaption&gt;Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
 the area of the fractal converges rapidly, the perimeter tends towards infinity, see
 Fig. 3.&lt;/figcaption&gt;
@@ -179,7 +142,7 @@ Fig. 3.&lt;/figcaption&gt;
 &lt;p&gt;&lt;/p&gt;
 
 &lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; /&gt;
+&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
 &lt;figcaption&gt;Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
 animation). The area converges quickly while the perimeter diverges towards infinity.
 The convergence of the fractal area is suppose to be 8/5 times the original
@@ -241,7 +204,7 @@ a spectacular demonstration of the variety of tree fractals.
 &lt;figcaption&gt;Fig. 2 - Scanning over branch generation angles of 0 to 360 degrees in 1 degree
 increments, and stitching all the images together to create an animation.&lt;/figcaption&gt;
 &lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Self-Avoiding Walk</title><link href="/blog/saw/" rel="alternate" type="text/html" title="Self-Avoiding Walk" /><published>2016-02-10T00:00:00-05:00</published><updated>2016-02-10T00:00:00-05:00</updated><id>/blog/saw</id><content type="html" xml:base="/blog/saw/">&lt;figure&gt;
-&lt;img src=&quot;/images/saw/quadrants.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/saw/quadrants.png&quot; alt=&quot;&quot; style=&quot;height: 100%; width: 100%; object-fit: contain&quot; /&gt;
 &lt;figcaption&gt;
 Fig. 1 - Four self-avoiding random walks in which the lattice size is varied. The starting
 position is the top-left node in all cases. Note the 9x9 success took approximately 1M
@@ -276,47 +239,84 @@ with a significantly larger spread (mean and standard deviation
 jumps to roughly 360 and 350, respectively).&lt;/p&gt;
 
 &lt;figure&gt;
-&lt;img src=&quot;/images/saw/lattice_4.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/saw/lattice_4.png&quot; alt=&quot;&quot; style=&quot;height: 100%; width: 100%; object-fit: contain&quot; /&gt;
 &lt;figcaption&gt;
 Fig. 2 - The number of SAW attempts needed for a success with a 5x5 lattice.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Collisions</title><link href="/blog/brownian/" rel="alternate" type="text/html" title="Collisions" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/brownian</id><content type="html" xml:base="/blog/brownian/">&lt;p&gt;Working on it…&lt;/p&gt;
+&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2015-08-27T00:00:00-04:00</published><updated>2015-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
+&lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
+gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
+each of which are worth up to $10,000.
+The idea then is quite simple; the contestant chooses an initial starting point at the top
+of the board and releases the plinko chip, and hopes to win some money
+($0, $100, $500, $1k, $10k are possible outcomes). The fun part, though, is watching
+the chip traverse the plinko board. The board is an array of metal pegs,
+each row is offset by half a lattice spacing, which forces the chip to change its
+trajectory many times. The bin where the chip ends up dictates
+how much money is awarded, if any at all, to the contestant. On the show, there are
+9 bins and the center bin is the $10k prize. Naively, the odds of obtaining
+the big bucks are 1/9, but the odds are initial-condition dependent as we will see.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/images/plinko/plinko_summary_scaled.png&quot; alt=&quot;&quot; style=&quot;height: 100%; width: 100%; object-fit: contain&quot; /&gt;
+  &lt;figcaption&gt;Fig. 1 - Results of the plinko simulation for a varying number of attempts.
+  From top to bottom and left to right, the number of simulations
+  is 10&lt;sup&gt;2&lt;/sup&gt;, 10&lt;sup&gt;3&lt;/sup&gt;, 10&lt;sup&gt;4&lt;/sup&gt;, 10&lt;sup&gt;5&lt;/sup&gt;,
+  and 10&lt;sup&gt;6&lt;/sup&gt;. Note that the initial condition is the same.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;simulation&quot;&gt;Simulation&lt;/h2&gt;
+&lt;p&gt;The simulation setup is summarized by Fig. 1 in which an NxN lattice is generated
+where every other row is horizontally offset by half a lattice spacing. The initial
+condition is chosen to be roughly the center as it provides the most interesting
+results visually. I initially wanted to do the simulation using billiard ball
+collisions and forces (momentum and energy conservation, etc.), but
+the situation can be dramatically simplified. When a plinko chip encounters a peg,
+let's randomly choose a direction to go, left or right, and  propagate this strategy
+down the plinko board. If we repeat the game many times then
+we've achieved a simple Monte Carlo simulation. The situation
+is actually identical to a one-dimensional random walk (or drunken walk)
+which follows a binomial distribution. After many steps,
+the binomial may be well approximated by a Gaussian, and
+the most probable ending spot for the 1D drunkard is exactly where he started.
+Therefore, a naive expectation for the plinko simulation is the chip end-bin
+distribution to look like a Gaussian with a mean corresponding to the starting
+position and a standard deviation that depends on the lattice size or granularity
+of the board.&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/plinko/ssplinko_nsim_350.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
+The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
+We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
+be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
+A simple radius clustering search may be used, but we are only interested in the two closest pegs
+&lt;i&gt;below&lt;/i&gt; as they dictate where the chip will move next. Lastly, the path of the chip needs to be traced, where
+a path consists of many line segments that connect the left/right decisions throughout the board.
+Since we are dealing with coordinates in a lattice,
+I Gaussian-smeared the line segment coordinates to avoid an overlap of many paths in addition to
+giving the path a more fluid feel. This is what gives the horizontal spread in the observed paths, and explains
+why a path occasionally crosses a peg.&lt;/p&gt;
+
+&lt;p&gt;The end-bin plinko chip distribution is plotted within Fig. 2 where the bin size corresponds
+to the lattice spacing in the simulation. The left (right) panel throws 100 (10&lt;sup&gt;4&lt;/sup&gt;)
+plinko chips, and essentially a perfect Gaussian distribution is observed if the number
+of events is large as expected.
+Therefore, the ideal starting-position to get the 10k per chip
+on &quot;The Price is Right&quot; is the bin that aligns with the 10k bin. Note that I actually did
+watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see 
+&lt;a href=&quot;https://www.youtube.com/watch?v=naUppHrHJpI&quot;&gt;this youtube video&lt;/a&gt;, and won
+$31.5k!&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/images/plinko/plinko_results.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
+  of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
+  of events yields a probability distribution.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Collisions</title><link href="/blog/brownian/" rel="alternate" type="text/html" title="Collisions" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/brownian</id><content type="html" xml:base="/blog/brownian/">&lt;p&gt;Working on it…&lt;/p&gt;
 
 &lt;figure&gt;
 &lt;img src=&quot;/images/brownian/brownian.png&quot; alt=&quot;&quot; /&gt;
 &lt;figcaption&gt;
 Fig. 1 - The double pendulum simulation for two different initial conditions.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating many collisions (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
-&lt;img src=&quot;/images/double_pend/double_pend_v1.png&quot; alt=&quot;&quot; /&gt;
-&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;
-The double pendulum is a canonical classical mechanics problem to introduce
-the concept of chaos; the description will therefore be brief.
-First, find the equations of motion (EOM) using forces or
-the Lagrangian method; this describes the angles and angular velocities of the two masses.
-All physics students typically do the derivation as an undergrad, and the EOM
-may be found on the web if interested.
-The masses and pendula arm-lengths can be different which gives rise to interesting behavior.
-The initial angles are chosen with a flat random number generator.
-The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
-otherwise known as RK4. The last piece of the project is the visualization, so we need
-a method to update the angles and angular velocities using a time variable. I added a simple
-tracer routine to follow the position of the masses, and the alpha component
-decays as a function of position within the tracer C++ vector.
-Additionally, it is a simple extension to change
-the tracer color as a function of time or coordinates, see Fig. 1.
-A small video displaying the simulation output may be seen on my
-&lt;a href=&quot;https://youtu.be/CuhPbDQs3eY&quot;&gt;youtube channel&lt;/a&gt;. Note that with very little
-effort, the double pendulum simulation may be used as a spirograph generator. In this
-case, the RK4 method (and equations of motion) is discarded and one simply chooses angular velocities
-and arm-lengths.
-&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/double_pend/double_pend_rainbow.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
-&lt;figcaption&gt;
-Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
-&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">Simulating many collisions (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
