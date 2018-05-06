@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "Word Search"
-date:   2018-01-04
-excerpt: "An interactive word search game (under maintenance)"
+title:  "Snake"
+date:   2016-07-18
+excerpt: "An interactive snake game (under maintenance)"
 comments: false
 image:  ""
 cimage: "/images/word_search/word_search_thumbnail.png"

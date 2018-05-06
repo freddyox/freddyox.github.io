@@ -3,6 +3,7 @@ layout: post
 title:  "Tree Fractal"
 date:   2016-05-08
 excerpt: "Generation and visualization of a Pythagoras tree"
+comments: true
 image: ""
 cimage: "/images/tree_fractal/FractalTree_45_white.png"
 categories: math

@@ -39,10 +39,6 @@
 	{% if page.comments %}
 	<div id="disqus_thread"></div>
 	<script>
-
-	  /**
-	  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-	  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 	  /*
 	  var disqus_config = function () {
 	  this.page.url = "{{page.url | absolute_url}}";
@@ -56,20 +52,20 @@
 	  (d.head || d.body).appendChild(s);
 	  })();
 	</script>
-	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        
+	<noscript>Please enable JavaScript to view the
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	{% endif %}
 
 	<!-- Footer -->
 	<footer>
           <ul class="actions">
-            <li><a href="{{ "/blog/" | absolute_url }}" class="button">Our Blog</a></li>
+            <li><a href="{{ "/blog/" | absolute_url }}" class="button">Back to Projects</a></li>
           </ul>
 	</footer>
       </div>
 
       <!-- Footer -->
-      {% include foot.html %}
+      <!--{% include foot.html %}-->
 
     </div>
 

@@ -38,6 +38,15 @@
     </url>
   
     <url>
+      <loc>/blog/slither/</loc>
+      
+        <lastmod>2016-07-18T00:00:00-04:00</lastmod>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>/blog/tree-fractal/</loc>
       
         <lastmod>2016-05-08T00:00:00-04:00</lastmod>

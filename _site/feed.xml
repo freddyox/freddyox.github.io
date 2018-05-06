@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-06T12:56:48-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/"></content><summary type="html">An interactive word search game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-06T13:52:06-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;Working on it…&lt;/p&gt;</content><summary type="html">An interactive word search game (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill-climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
@@ -184,7 +184,7 @@ Fig. 3.&lt;/figcaption&gt;
 animation). The area converges quickly while the perimeter diverges towards infinity.
 The convergence of the fractal area is suppose to be 8/5 times the original
 area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Snake</title><link href="/blog/slither/" rel="alternate" type="text/html" title="Snake" /><published>2016-07-18T00:00:00-04:00</published><updated>2016-07-18T00:00:00-04:00</updated><id>/blog/slither</id><content type="html" xml:base="/blog/slither/">&lt;p&gt;Working on it…&lt;/p&gt;</content><summary type="html">An interactive snake game (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/fractal_tree_multi.jpg&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
   and 60 (right) degrees.&lt;/figcaption&gt;
@@ -240,35 +240,43 @@ a spectacular demonstration of the variety of tree fractals.
 &lt;img src=&quot;/images/tree_fractal/fractal2.gif&quot; alt=&quot;&quot; title=&quot;Tree fractal animation&quot; width=&quot;99%&quot; /&gt;
 &lt;figcaption&gt;Fig. 2 - Scanning over branch generation angles of 0 to 360 degrees in 1 degree
 increments, and stitching all the images together to create an animation.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Collisions</title><link href="/blog/brownian/" rel="alternate" type="text/html" title="Collisions" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/brownian</id><content type="html" xml:base="/blog/brownian/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Collisions</title><link href="/blog/brownian/" rel="alternate" type="text/html" title="Collisions" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/brownian</id><content type="html" xml:base="/blog/brownian/">&lt;p&gt;Working on it…&lt;/p&gt;
+
+&lt;figure&gt;
 &lt;img src=&quot;/images/brownian/brownian.png&quot; alt=&quot;&quot; /&gt;
 &lt;figcaption&gt;
 Fig. 1 - The double pendulum simulation for two different initial conditions.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating many collisions (close to brownian motion)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;figure&gt;
-&lt;img src=&quot;/images/double_pend/double_pend_v3.png&quot; alt=&quot;&quot; /&gt;
-&lt;figcaption&gt;
-Fig. 1 - The double pendulum simulation for two different initial conditions.
-&lt;/figcaption&gt;
-&lt;/figure&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating many collisions (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
+&lt;img src=&quot;/images/double_pend/double_pend_v1.png&quot; alt=&quot;&quot; /&gt;
+&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;
 The double pendulum is a canonical classical mechanics problem to introduce
 the concept of chaos; the description will therefore be brief.
-First, find the equations of motion using forces or
+First, find the equations of motion (EOM) using forces or
 the Lagrangian method; this describes the angles and angular velocities of the two masses.
-No attempt will be made to derive the EOM as I've done it many times and do not have
-an interest in latexing classical mechanics.
+All physics students typically do the derivation as an undergrad, and the EOM
+may be found on the web if interested.
 The masses and pendula arm-lengths can be different which gives rise to interesting behavior.
 The initial angles are chosen with a flat random number generator.
 The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
 otherwise known as RK4. The last piece of the project is the visualization, so we need
 a method to update the angles and angular velocities using a time variable. I added a simple
 tracer routine to follow the position of the masses, and the alpha component
-decays as a function of time. Additionally, it is a simple extension to change
-the tracer color as a function of time or coordinates.
-A small video displaying
-the simulation output may be seen on my
+decays as a function of position within the tracer C++ vector.
+Additionally, it is a simple extension to change
+the tracer color as a function of time or coordinates, see Fig. 1.
+A small video displaying the simulation output may be seen on my
 &lt;a href=&quot;https://youtu.be/CuhPbDQs3eY&quot;&gt;youtube channel&lt;/a&gt;. Note that with very little
-effort, the double pendulum simulation may be used as a spirograph generator.
-&lt;/p&gt;</content><summary type="html">Simulating the double pendulum using RK4.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+effort, the double pendulum simulation may be used as a spirograph generator. In this
+case, the RK4 method (and equations of motion) is discarded and one simply chooses angular velocities
+and arm-lengths.
+&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/double_pend/double_pend_rainbow.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;figcaption&gt;
+Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
+&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
