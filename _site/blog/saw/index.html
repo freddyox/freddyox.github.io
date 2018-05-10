@@ -79,9 +79,12 @@ must be touched once (no more and no less) in order for the walk to be a success
 The walker only moves in the vertical and horizontal directions so only
 four directions need to be considered. For efficiency, a table that maps
 each node to a list of its nearest neighbors (four neighbors is max) is constructed. 
-The algorithm then starts in the top left corner and generates a random move. 
-When a node has been visited, it is removed from the list of neighbors and
-will not be considered in subsequent maneuvers.
+The algorithm then starts in the top left corner and generates a random move.
+Two algorithms have been considered. First, when a node has been visited,
+it is removed from the list of neighbors and will not be considered in subsequent maneuvers.
+Second, no node removal is done, and if the walker hits a previously visited node then
+the walker must start over. For the remainder of this post, though, I will discuss
+the former.
 If the random walker touches
 every node, then the simulation is said to be a success. On the other hand,
 if the random walker encounters a situation when no neighbors are available then
@@ -93,7 +96,9 @@ The distribution of attempts needed for a success with a 5x5 lattice may be
 seen within Fig. 2 which includes 5,000 SAW simulations. The exercise
 has been repeated for 6x6 resulting in a similar distribution in shape
 with a significantly larger spread (mean and standard deviation
-jumps to roughly 360 and 350, respectively).</p>
+jumps to roughly 360 and 350, respectively). See
+<a href="https://pdfs.semanticscholar.org/4787/ca37e6d4e06ee243c02e755dcd403b5b4fcd.pdf">this paper</a> for really cool information on the subject and how
+they may be used in physics.</p>
 
 <figure>
 <img src="/images/saw/lattice_4.png" alt="" style="height: 100%; width: 100%; object-fit: contain">
