@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-13T12:10:58-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-13T14:28:08-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
   &lt;img src=&quot;/images/fern/mod_ferns.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Selected color schemes of a modified Barnsley fern. The
   fern is plotted in a two dimensional histogram, and the color gradient
@@ -119,7 +119,53 @@ and may be seen by Fig. 3:&lt;/p&gt;
   &lt;img src=&quot;/images/fern/fern.gif&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
   &lt;figcaption&gt;Fig. 4 - An animation of the fern seen in Fig. 1 where the iteration is in
   powers of 10, &lt;i&gt;i.e.&lt;/i&gt; 1 to &lt;i&gt;10&lt;sup&gt;8&lt;/sup&gt;&lt;/i&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;Working on it…&lt;/p&gt;</content><summary type="html">An interactive word search game (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
+I found myself making a generator. The word search game is complete and user-interactive,
+and the entire project has been coded using the bare-bones tools of SFML which
+requires significant &lt;i&gt;behind-the-scenes&lt;/i&gt; routines.
+The code is mostly book-keeping tasks, but a decent strategy needs to be developed when it
+comes to placing many strings of varying size in a grid.
+First, I need a dictionary, or a text file
+with hundreds of thousands of words; I chose
+&lt;a href=&quot;http://www.math.sjsu.edu/~foster/dictionary.txt&quot;&gt;this one&lt;/a&gt; which explains
+why some of the words to find are not commonly accepted words in my opinion (but who cares this
+is trivial to change). The code imports
+300 randomly selected words from the dictionary, which are organized based on the string length 
+allowing for a method to choose between easy, medium, and hard words (typically
+smaller words are harder to find). The lattice is generated using SFML
+vertex arrays, and the word placement algorithm is designed as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Start with the strings with the largest length as the geometric constraints are stricter.&lt;/li&gt;
+&lt;li&gt;Randomly select a starting position in the grid and generate a list of possible directions
+based on geometric considerations; there are 8 possibilities (vertical, horizontal,
+and the diagonals). Randomly select a possible direction, and place the first word.&lt;/li&gt;
+&lt;li&gt;Continue the procedure for all words to find, typically 15 words (5 from each hardness category).&lt;/li&gt;
+&lt;li&gt;When a new word is randomly positioned, an overlap check is performed. If an overlap exists,
+check to see if the character is the same. If it is then keep it, otherwise discard the word
+and move on to another. There are many smarter approaches, I imagine, but this is what I how
+I positioned many words in a grid.&lt;/li&gt;
+&lt;li&gt;Fill the in the empty spaces with randomly generated letters.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The game may be seen &lt;a href=&quot;https://youtu.be/YexCgQyk7TE&quot;&gt;here&lt;/a&gt;. A cheat button is achieved
+by simply toggling between two sprites (a checked/unchecked box). Mouse events are handled
+using&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-C++&quot;&gt; sf::Mouse::isButtonPressed(sf::Mouse::Left)
+ sf::Event::MouseButtonPressed	
+ sf::Event::MouseMoved
+ sf::Event::MouseButtonReleased
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;logic methods. For example, when the mouse button is clicked &lt;i&gt;once&lt;/i&gt; the cell must turn red;
+when the mouse moves, the cells turn red in verical/horizontal/diagonal preferences
+which is achieved using simple vectors and angular cuts. When the mouse button is released,
+a method must be invoked to check if the highlighted region is in fact a word on the list. If
+it is, turn the blocks green, otherwise reset the blocks and cue the audio for failure.
+The words to find list has been sorted by string length, and a strike-out effect is achieved
+by using vertex arrays. The audio clips are handled by SFML’s audio module which is
+simple to use for this task.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src=&quot;/images/word_search/word_search_thumbnail.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;/figure&gt;</content><summary type="html">An interactive word search generator/game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa from Triangles?</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa from Triangles?" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill-climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
