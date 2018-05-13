@@ -6,7 +6,7 @@ excerpt: "Generation and visualization of a Pythagoras tree"
 comments: true
 image: ""
 cimage: "/images/tree_fractal/FractalTree_45_white.png"
-categories: math
+categories: [math,ROOT]
 ---
  <figure>
   <img src="/images/tree_fractal/fractal_tree_multi.jpg" alt="" height="99%" width="99%">

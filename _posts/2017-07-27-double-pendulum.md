@@ -6,7 +6,7 @@ excerpt: "Simulating the double pendulum with RK4"
 comments: true
 image:  ""
 cimage: "/images/double_pend/double_pend_thumbnail_v2.png"
-categories: simulation
+categories: [simulation,SFML]
 ---
 
 <span class="image left">

@@ -6,7 +6,7 @@ excerpt: "An interactive word search game (under maintenance)"
 comments: false
 image:  ""
 cimage: "/images/word_search/word_search_thumbnail.png"
-categories: games
+categories: [games,SFML]
 ---
 
 Working on it...

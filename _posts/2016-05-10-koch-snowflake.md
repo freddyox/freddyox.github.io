@@ -6,7 +6,7 @@ excerpt: "A variation of the Koch snowflake"
 comments: true
 image: ""
 cimage: "/images/koch_snowflake/flake_thumbnail.png"
-categories: math
+categories: [math,ROOT]
 ---
 
 <figure>
