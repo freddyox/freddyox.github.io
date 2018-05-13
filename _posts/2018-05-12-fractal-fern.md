@@ -84,6 +84,7 @@ $$
 $$
 <p></p>
 which is quite similar to the Barnsley parameters with the exception of the translational terms.
+An animation of the fern development is seen by Fig. 4.
 The trick to getting the colors observed in Fig. 1 is to plot the fern in a two-dimensional histogram
 which contains more information than a simple xy plot. Why? Well, certain points are chosen more
 frequently than others, and this information may be captured by a histogram. For example, I used a
@@ -119,7 +120,7 @@ $$
 \begin{pmatrix} x_{n+1} \\ y_{n+1} \end{pmatrix}
        &= \begin{pmatrix} -0.04 & 0.20 \\ 0.16 & 0.04 \end{pmatrix}
        \begin{pmatrix} x_n \\ y_n   \end{pmatrix} +
-       \begin{pmatrix} 0.083 \\ 0.12 \end{pmatrix} \hspace{1cm} P=0.07, \\
+       \begin{pmatrix} 0.083 \\ 0.12 \end{pmatrix} \hspace{1cm} P=0.07. \\
 \end{align}
 $$
 <p></p>
