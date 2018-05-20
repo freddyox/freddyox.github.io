@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-13T22:21:02-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-20T19:32:09-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal Round II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal Round II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/tree_road_trip.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
+  with the black/white option turned ON. The tree has been placed on top of a photograph
+  of the Badlands that I took during a roadtrip (summer of 2012).&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;overview-of-the-improvements&quot;&gt;Overview of the Improvements&lt;/h2&gt;
+&lt;p&gt;I realized that I wanted to play with the fractal tree a bit more… My first
+post may be seen &lt;a href=&quot;/blog/tree-fractal/&quot;&gt;here&lt;/a&gt;
+which includes an overview of the algorithm. The code has been significantly extended
+to handle a variety of options in additin to a GUI interface; this is how the tree
+gets interesting which I ignored the first time!
+While I have written sliders, buttons, and number entries from scratch, I used the C++
+&lt;a href=&quot;https://root.cern.ch/root/htmldoc/guides/users-guide/WritingGUI.html&quot;&gt;ROOT GUI widgets&lt;/a&gt;
+for this project which has been an absolute pleasure, making life much easier.
+Furthermore, instead of simply representing a branch as a line, I included an option to
+toggle between lines or user-adjustable trapezoids to give the effect that the diameter
+or a branch/trunk decreases with height. Parameters that are now adjustable
+using GUI widgets:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; the number of iterations to display &lt;/li&gt;
+&lt;li&gt; the number of branches to generate at a particular node (previously I only did 2, but
+     this may now run up to 17 which gets computationally slow &lt;i&gt;very&lt;/i&gt; fast)&lt;/li&gt;
+&lt;li&gt; the generation angle which controls the angle of branches in the &lt;i&gt;n+1&lt;/i&gt; iteration
+     relative to the &lt;i&gt;n&lt;sup&gt;th&lt;/sup&gt;&lt;/i&gt; iteration &lt;/li&gt;
+&lt;li&gt; the length and width of the trunk &lt;/li&gt;
+&lt;li&gt; the trapezoidal gradient of a trunk &lt;/li&gt;
+&lt;li&gt; the branch width and length relative to the trunk &lt;/li&gt;
+&lt;li&gt; an asymmetry angle offset which yields asymmetric or biased towards one direction trees&lt;/li&gt;
+&lt;li&gt; an offset for the starting point of a branch &lt;/li&gt;
+&lt;li&gt; an option to turn the background back/white which automatically renders the
+     tree white/black, respectively &lt;/li&gt;
+&lt;li&gt; an option to draw the branches in order/reverse (sometimes branches cover previous
+     iterations, therefore this option is for convenience) &lt;/li&gt;
+&lt;li&gt; the option to change the tree color palette (15 options) which automatically applies
+     a pretty gradient ranging from the trunk to the smallest branch. &lt;/li&gt;
+&lt;li&gt; the ability to randomly generate a tree in which the above parameters are tweaked
+     according to various probability distributions. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/assortment_nsplits_small.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 2 - Going clockwise and starting at the top left, the number of branches
+  to generate at a new node is 3, 5, 8, and 9. All fractals have a fundamental angle of 360 degrees
+  and the trunk length and branch ratio relative to the trunk have been adjusted to get a
+  pretty picture (hence why GUI widgets are wonderful for this project).&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;The ability to increase the number of branches to generate significantly changes the
+structure of the fractal, &lt;i&gt;e.g.&lt;/i&gt; see Fig. 2 which displays the unexpected
+generation of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Sierpinski_triangle&quot;&gt;Sierpinski triangle&lt;/a&gt;
+among others.&lt;/p&gt;
+
+&lt;p&gt;The random tree generator is particularly interesting&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
   &lt;img src=&quot;/images/fern/mod_ferns.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Selected color schemes of a modified Barnsley fern. The
   fern is plotted in a two dimensional histogram, and the color gradient
@@ -175,7 +231,7 @@ While the results are pleasing, the algorithm is not practical (at least mine). 
 
 &lt;h2 id=&quot;concept&quot;&gt;Concept&lt;/h2&gt;
 &lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;/images/mona_lisa/original.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;The goal is to mimick or replicate an input image using polygons, or triangles in this case.
+&lt;p&gt;The goal is to mimic or replicate an input image using polygons, or triangles in this case.
 The main components of the algorithm are as follows:
 &lt;ol&gt;
 &lt;li&gt;Have an input image that we wish to copy, &lt;i&gt;e.g.&lt;/i&gt; the Mona Lisa&lt;/li&gt;
@@ -242,8 +298,8 @@ convolution matrices or image masks (google kernel image processing).
   &lt;img src=&quot;/images/mona_lisa/mona_lisa_rs.gif&quot; alt=&quot;&quot; height=&quot;30%&quot; width=&quot;30%&quot; /&gt;
   &lt;figcaption&gt;Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
   as I currently do not know how to control/pause the .gif.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimick an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2017-07-27T00:00:00-04:00</published><updated>2017-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
-&lt;img src=&quot;/images/double_pend/double_pend_v1.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimic an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2017-07-27T00:00:00-04:00</published><updated>2017-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
+&lt;img src=&quot;/images/double_pend/double_pend_long.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
 &lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;
@@ -251,19 +307,18 @@ The double pendulum is a canonical classical mechanics problem to introduce
 the concept of chaos; the description will therefore be brief.
 First, find the equations of motion (EOM) using forces or
 the Lagrangian method; this describes the angles and angular velocities of the two masses.
-All physics students typically do the derivation as an undergrad, and the EOM
-may be found on the web if interested.
-The masses and pendula arm-lengths can be different which gives rise to interesting behavior.
-The initial angles are chosen with a flat random number generator.
+The derivation will not be done here as it is beyond the scope of this website, but
+it is a must-do mechanics problem to solve for undergraduates.
+The masses and pendula arm-lengths can be different which gives rise to interesting behavior, and
+the initial angles are chosen with a flat random number generator.
 The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
-otherwise known as RK4. The last piece of the project is the visualization, so we need
-a method to update the angles and angular velocities using a time variable. I added a simple
-tracer routine to follow the position of the masses, and the alpha component
-decays as a function of position within the tracer C++ vector.
-Additionally, it is a simple extension to change
-the tracer color as a function of time or coordinates, see Fig. 1.
-A small video displaying the simulation output may be seen on my
-&lt;a href=&quot;https://youtu.be/CuhPbDQs3eY&quot;&gt;youtube channel&lt;/a&gt;. Note that with very little
+otherwise known as RK4. In order to proceed with the simulation, a time variable is
+needed to keep track of the evolution of the angles/angular velocities given some random initial
+condition. A simple tracer routine has been added to follow the position of the masses,
+and the alpha component decays as a function of position within the tracer C++ vector (I limit
+the number of traces to roughly 200-300 to avoid messy patterns).
+A small video displaying the simulation output may be seen 
+&lt;a href=&quot;https://youtu.be/CuhPbDQs3eY&quot;&gt;here&lt;/a&gt;. Note that with very little
 effort, the double pendulum simulation may be used as a spirograph generator. In this
 case, the RK4 method (and equations of motion) is discarded and one simply chooses angular velocities
 and arm-lengths.
@@ -274,7 +329,7 @@ and arm-lengths.
 &lt;figcaption&gt;
 Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum with RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
 &lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
 &lt;/figure&gt;
 
@@ -325,7 +380,7 @@ area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
 and patterns, symmetric and asymmetric, as even small changes to the initial length and/or
 angle gives interesting results. I will only describe &lt;i&gt;my&lt;/i&gt; fractal as I am not a
 fractal expert; the goal for me was to generate a symmetric tree fractal,
-and then to tweak parameters and make an animation.&lt;/p&gt;
+and then to tweak parameters (such as angle) and make an animation.&lt;/p&gt;
 
 &lt;p&gt;The fractal starts with a tree trunk of length &lt;i&gt;l&lt;/i&gt;, and think of
 the top of the trunk as a node where we will connect branches. Fractals
@@ -357,7 +412,7 @@ and the red/pink buds. Obviously a great deal of time could be invested tweaking
 various parameters and checking the result; the tweaking can be intensified by
 considering asymmetric parameters for left/right branch generation at any particular node.
 The algorithm can easily be extended to scan over a range of branch generation angles,
-say 0 to 360 degrees, and the output can be stringed together to create a .gif using
+say 0 to 360 degrees, and the output can be strung together to create a .gif using
 conventional linux facilities. The results of such a procedure may be seen by Fig. 2,
 and if the .gif does not work then see the video on my
 &lt;a href=&quot;https://youtu.be/7bijV3FGrBk&quot;&gt;youtube channel&lt;/a&gt;.
@@ -484,11 +539,4 @@ $31.5k!&lt;/p&gt;
   &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
   of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
   of events yields a probability distribution.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Collisions</title><link href="/blog/brownian/" rel="alternate" type="text/html" title="Collisions" /><published>2015-07-27T00:00:00-04:00</published><updated>2015-07-27T00:00:00-04:00</updated><id>/blog/brownian</id><content type="html" xml:base="/blog/brownian/">&lt;p&gt;Working on it…&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/brownian/brownian.png&quot; alt=&quot;&quot; /&gt;
-&lt;figcaption&gt;
-Fig. 1 - The double pendulum simulation for two different initial conditions.
-&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating many collisions (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>

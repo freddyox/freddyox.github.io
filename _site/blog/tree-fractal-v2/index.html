@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-<title>Double Pendulum</title>
+<title>Tree Fractal Round II</title>
 <meta name="description" content="">
 
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
@@ -54,44 +54,69 @@
       <div id="main">
         <section class="post">
     	  <header class="major">
-      	    <span class="date">27 Jul 2017</span>
-      	    <h1>Double Pendulum</h1>
-      	    <p>Simulating the double pendulum using RK4</p>
+      	    <span class="date">20 May 2018</span>
+      	    <h1>Tree Fractal Round II</h1>
+      	    <p>A significant upgrade to the previous tree fractal post</p>
       	  </header>
       	  <div class="image main"><img src="" alt=""></div>
-      	  <p></p>
-<p><span class="image left">
-<img src="/images/double_pend/double_pend_long.png" alt="" width="99%" height="99%">
-</span></p>
-
-<p>
-The double pendulum is a canonical classical mechanics problem to introduce
-the concept of chaos; the description will therefore be brief.
-First, find the equations of motion (EOM) using forces or
-the Lagrangian method; this describes the angles and angular velocities of the two masses.
-The derivation will not be done here as it is beyond the scope of this website, but
-it is a must-do mechanics problem to solve for undergraduates.
-The masses and pendula arm-lengths can be different which gives rise to interesting behavior, and
-the initial angles are chosen with a flat random number generator.
-The equations of motion need to be approximated, and in this case I used the Runge-Kutta method
-otherwise known as RK4. In order to proceed with the simulation, a time variable is
-needed to keep track of the evolution of the angles/angular velocities given some random initial
-condition. A simple tracer routine has been added to follow the position of the masses,
-and the alpha component decays as a function of position within the tracer C++ vector (I limit
-the number of traces to roughly 200-300 to avoid messy patterns).
-A small video displaying the simulation output may be seen 
-<a href="https://youtu.be/CuhPbDQs3eY">here</a>. Note that with very little
-effort, the double pendulum simulation may be used as a spirograph generator. In this
-case, the RK4 method (and equations of motion) is discarded and one simply chooses angular velocities
-and arm-lengths.
-</p>
-
-<figure>
-<img src="/images/double_pend/double_pend_rainbow.png" alt="" width="99%" height="99%">
-<figcaption>
-Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
-</figcaption>
+      	  <p><figure>
+  <img src="/images/tree_fractal/tree_road_trip.png" alt="" height="99%" width="99%">
+  <figcaption>Fig. 1 - A fractal tree using my "random tree generator"
+  with the black/white option turned ON. The tree has been placed on top of a photograph
+  of the Badlands that I took during a roadtrip (summer of 2012).</figcaption>
 </figure>
+
+</p>
+<h2 id="overview-of-the-improvements">Overview of the Improvements</h2>
+<p>I realized that I wanted to play with the fractal tree a bit more… My first
+post may be seen <a href="/blog/tree-fractal/">here</a>
+which includes an overview of the algorithm. The code has been significantly extended
+to handle a variety of options in additin to a GUI interface; this is how the tree
+gets interesting which I ignored the first time!
+While I have written sliders, buttons, and number entries from scratch, I used the C++
+<a href="https://root.cern.ch/root/htmldoc/guides/users-guide/WritingGUI.html">ROOT GUI widgets</a>
+for this project which has been an absolute pleasure, making life much easier.
+Furthermore, instead of simply representing a branch as a line, I included an option to
+toggle between lines or user-adjustable trapezoids to give the effect that the diameter
+or a branch/trunk decreases with height. Parameters that are now adjustable
+using GUI widgets:</p>
+<ol>
+<li> the number of iterations to display </li>
+<li> the number of branches to generate at a particular node (previously I only did 2, but
+     this may now run up to 17 which gets computationally slow <i>very</i> fast)</li>
+<li> the generation angle which controls the angle of branches in the <i>n+1</i> iteration
+     relative to the <i>n<sup>th</sup></i> iteration </li>
+<li> the length and width of the trunk </li>
+<li> the trapezoidal gradient of a trunk </li>
+<li> the branch width and length relative to the trunk </li>
+<li> an asymmetry angle offset which yields asymmetric or biased towards one direction trees</li>
+<li> an offset for the starting point of a branch </li>
+<li> an option to turn the background back/white which automatically renders the
+     tree white/black, respectively </li>
+<li> an option to draw the branches in order/reverse (sometimes branches cover previous
+     iterations, therefore this option is for convenience) </li>
+<li> the option to change the tree color palette (15 options) which automatically applies
+     a pretty gradient ranging from the trunk to the smallest branch. </li>
+<li> the ability to randomly generate a tree in which the above parameters are tweaked
+     according to various probability distributions. </li>
+</ol>
+
+<p></p>
+<figure>
+  <img src="/images/tree_fractal/assortment_nsplits_small.png" alt="" height="100%" width="100%">
+  <figcaption>Fig. 2 - Going clockwise and starting at the top left, the number of branches
+  to generate at a new node is 3, 5, 8, and 9. All fractals have a fundamental angle of 360 degrees
+  and the trunk length and branch ratio relative to the trunk have been adjusted to get a
+  pretty picture (hence why GUI widgets are wonderful for this project).</figcaption>
+</figure>
+<p></p>
+
+<p>The ability to increase the number of branches to generate significantly changes the
+structure of the fractal, <i>e.g.</i> see Fig. 2 which displays the unexpected
+generation of a <a href="https://en.wikipedia.org/wiki/Sierpinski_triangle">Sierpinski triangle</a>
+among others.</p>
+
+<p>The random tree generator is particularly interesting</p>
 
       	</section>	
 
@@ -100,8 +125,8 @@ Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on t
 	<script>
 	  /*
 	  var disqus_config = function () {
-	  this.page.url = "/blog/double-pendulum/";
-	  this.page.identifier = "/blog/double-pendulum/";
+	  this.page.url = "/blog/tree-fractal-v2/";
+	  this.page.identifier = "/blog/tree-fractal-v2/";
 	  };
 	  */
 	  (function() { // DON'T EDIT BELOW THIS LINE
