@@ -59,20 +59,20 @@
       	    <p>A significant upgrade to the previous tree fractal post and includes a random tree generator</p>
       	  </header>
       	  <div class="image main"><img src="" alt=""></div>
-      	  <p><figure>
+      	  <p> <figure>
   <img src="/images/tree_fractal/tree_road_trip.png" alt="" height="99%" width="99%">
   <figcaption>Fig. 1 - A fractal tree using my "random tree generator"
   with the black/white option turned ON. The tree has been placed on top of a photograph
-  of the Badlands that I took during a road trip (summer of 2012).</figcaption>
+  of the Badlands that I took during a roadtrip (summer of 2012).</figcaption>
 </figure>
 
-</p>
-<h2 id="overview-of-the-improvements">Overview of the Improvements</h2>
-<p>The tree fractal program may be seen by this video (not yet made, soon though).</p>
+## Overview of the Improvements
+The tree fractal program may be seen by this video (not yet made, soon though).
 
+</p>
 <p></p>
-<p>I realized that I wanted to play with the fractal tree a bit more… My first
-post may be seen <a href="/blog/tree-fractal/">here</a>
+I realized that I wanted to play with the fractal tree a bit more... My first
+post may be seen [here](/blog/tree-fractal/)
 which includes an overview of the algorithm. The code has been extended/reformulated
 to handle a variety of options in addition to a GUI interface; this is how the tree
 gets interesting which I ignored the first time!
@@ -81,8 +81,8 @@ While I have written sliders, buttons, and number entries from scratch, I used t
 for this project which has been an absolute pleasure, making life much easier.
 Furthermore, instead of simply representing a branch as a line, I included an option to
 toggle between lines or user-adjustable trapezoids to give the effect that the diameter
-of a branch/trunk decreases with height. The parameters that are now adjustable
-using GUI widgets are the following:</p>
+or a branch/trunk decreases with height. Parameters that are now adjustable
+using GUI widgets:
 <ol>
 <li> the number of iterations to display </li>
 <li> the number of branches to generate at a particular node (previously I only did 2, but
@@ -105,7 +105,7 @@ using GUI widgets are the following:</p>
 </ol>
 
 <p></p>
-<figure>
+ <figure>
   <img src="/images/tree_fractal/assortment_nsplits_small.png" alt="" height="100%" width="100%">
   <figcaption>Fig. 2 - Going clockwise and starting at the top left, the number of branches
   to generate at a new node is 3, 5, 8, and 9. The trunk length and branch ratio relative
@@ -114,26 +114,24 @@ using GUI widgets are the following:</p>
 </figure>
 <p></p>
 
-<p>The ability to increase the number of branches at a node significantly changes the
+The ability to increase the number of branches at a node significantly changes the
 structure of the fractal, <i>e.g.</i> see Fig. 2 which displays the unexpected
 generation of a <a href="https://en.wikipedia.org/wiki/Sierpinski_triangle">Sierpinski triangle</a>
 among others; this behavior was a huge surprise for me. See Fig. 3 for an example
 of a tree with 4 branches generated a every node; it resembles the previous post but
-much fuller. Note that the number of branch iterations needs to be monitored when tweaking
-the number of branches to generated, otherwise too many lines are drawn and the program
-inevitably crashes.</p>
+much fuller.
 <p></p>
-<figure>
+ <figure>
   <img src="/images/tree_fractal/nsplit_4_thickness.png" alt="" height="100%" width="100%">
   <figcaption>Fig. 3 - The number of branches generated at each node is 4, and the fractal
   has been generated with a modest angle of approximately 100 degrees.</figcaption>
 </figure>
 <p></p>
 
-<h2 id="random-tree-generator">Random Tree Generator</h2>
-<p>The random tree generator is useful for creating trees that visually look “natural” in
+## Random Tree Generator
+The random tree generator is useful for creating trees that visually look "natural" in
 structure, see Fig. 1. There are a great deal of parameters to randomize; however, this
-is what I did:</p>
+is what I did:
 <ol>
 <li> Change the number of branches to be generated at a particular node 10%
      of the time using a flat random generator - I do not want the change to be large, and
@@ -147,11 +145,11 @@ is what I did:</p>
      the normal branch length, and we must take an absolute value to avoid strange behavior)
      40% of the time </li>
 </ol>
-<p>These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
+These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
 it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4
-for another example of the random generator with a color gradient.</p>
+for another example of the random generator with a color gradient.
 <p></p>
-<figure>
+ <figure>
   <img src="/images/tree_fractal/random_v2.png" alt="" height="100%" width="100%">
   <figcaption>Fig. 4 - An example of the random tree generator; note that Fig. 1 also
   is randomly generated, but in black and white (and placed on another image using
@@ -159,7 +157,6 @@ for another example of the random generator with a color gradient.</p>
   </figcaption>
 </figure>
 <p></p>
-
       	</section>	
 
 	
@@ -167,8 +164,8 @@ for another example of the random generator with a color gradient.</p>
 	<script>
 	  /*
 	  var disqus_config = function () {
-	  this.page.url = "/blog/tree-fractal-v2/";
-	  this.page.identifier = "/blog/tree-fractal-v2/";
+	  this.page.url = "/blog/tree-fractal-v2.md/";
+	  this.page.identifier = "/blog/tree-fractal-v2.md/";
 	  };
 	  */
 	  (function() { // DON'T EDIT BELOW THIS LINE

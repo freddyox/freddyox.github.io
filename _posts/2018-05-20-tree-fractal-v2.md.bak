@@ -14,7 +14,7 @@ categories: [math,ROOT]
   <img src="/images/tree_fractal/tree_road_trip.png" alt="" height="99%" width="99%">
   <figcaption>Fig. 1 - A fractal tree using my "random tree generator"
   with the black/white option turned ON. The tree has been placed on top of a photograph
-  of the Badlands that I took during a road trip (summer of 2012).</figcaption>
+  of the Badlands that I took during a roadtrip (summer of 2012).</figcaption>
 </figure>
 
 ## Overview of the Improvements
@@ -31,8 +31,8 @@ While I have written sliders, buttons, and number entries from scratch, I used t
 for this project which has been an absolute pleasure, making life much easier.
 Furthermore, instead of simply representing a branch as a line, I included an option to
 toggle between lines or user-adjustable trapezoids to give the effect that the diameter
-of a branch/trunk decreases with height. The parameters that are now adjustable
-using GUI widgets are the following:
+or a branch/trunk decreases with height. Parameters that are now adjustable
+using GUI widgets:
 <ol>
 <li> the number of iterations to display </li>
 <li> the number of branches to generate at a particular node (previously I only did 2, but
@@ -69,9 +69,7 @@ structure of the fractal, <i>e.g.</i> see Fig. 2 which displays the unexpected
 generation of a <a href="https://en.wikipedia.org/wiki/Sierpinski_triangle">Sierpinski triangle</a>
 among others; this behavior was a huge surprise for me. See Fig. 3 for an example
 of a tree with 4 branches generated a every node; it resembles the previous post but
-much fuller. Note that the number of branch iterations needs to be monitored when tweaking
-the number of branches to generated, otherwise too many lines are drawn and the program
-inevitably crashes.
+much fuller.
 <p></p>
  <figure>
   <img src="/images/tree_fractal/nsplit_4_thickness.png" alt="" height="100%" width="100%">

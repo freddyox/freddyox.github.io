@@ -1,15 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-20T19:32:09-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal Round II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal Round II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
-  &lt;img src=&quot;/images/tree_fractal/tree_road_trip.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-20T20:10:56-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2.md/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2.md</id><content type="html" xml:base="/blog/tree-fractal-v2.md/">&lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/tree_road_trip.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot;&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
   of the Badlands that I took during a roadtrip (summer of 2012).&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h2 id=&quot;overview-of-the-improvements&quot;&gt;Overview of the Improvements&lt;/h2&gt;
-&lt;p&gt;I realized that I wanted to play with the fractal tree a bit more… My first
-post may be seen &lt;a href=&quot;/blog/tree-fractal/&quot;&gt;here&lt;/a&gt;
-which includes an overview of the algorithm. The code has been significantly extended
-to handle a variety of options in additin to a GUI interface; this is how the tree
+## Overview of the Improvements
+The tree fractal program may be seen by this video (not yet made, soon though).
+
+&lt;p&gt;&lt;/p&gt;
+I realized that I wanted to play with the fractal tree a bit more... My first
+post may be seen [here](/blog/tree-fractal/)
+which includes an overview of the algorithm. The code has been extended/reformulated
+to handle a variety of options in addition to a GUI interface; this is how the tree
 gets interesting which I ignored the first time!
 While I have written sliders, buttons, and number entries from scratch, I used the C++
 &lt;a href=&quot;https://root.cern.ch/root/htmldoc/guides/users-guide/WritingGUI.html&quot;&gt;ROOT GUI widgets&lt;/a&gt;
@@ -17,7 +20,103 @@ for this project which has been an absolute pleasure, making life much easier.
 Furthermore, instead of simply representing a branch as a line, I included an option to
 toggle between lines or user-adjustable trapezoids to give the effect that the diameter
 or a branch/trunk decreases with height. Parameters that are now adjustable
-using GUI widgets:&lt;/p&gt;
+using GUI widgets:
+&lt;ol&gt;
+&lt;li&gt; the number of iterations to display &lt;/li&gt;
+&lt;li&gt; the number of branches to generate at a particular node (previously I only did 2, but
+     this may now run up to 17 which gets computationally slow &lt;i&gt;very&lt;/i&gt; fast)&lt;/li&gt;
+&lt;li&gt; the generation angle which controls the angle of branches in the &lt;i&gt;n+1&lt;/i&gt; iteration
+     relative to the &lt;i&gt;n&lt;sup&gt;th&lt;/sup&gt;&lt;/i&gt; iteration &lt;/li&gt;
+&lt;li&gt; the length and width of the trunk &lt;/li&gt;
+&lt;li&gt; the trapezoidal gradient of a trunk &lt;/li&gt;
+&lt;li&gt; the branch width and length relative to the trunk &lt;/li&gt;
+&lt;li&gt; an asymmetry angle offset which yields asymmetric or biased towards one direction trees&lt;/li&gt;
+&lt;li&gt; an offset for the starting point of a branch &lt;/li&gt;
+&lt;li&gt; an option to turn the background back/white which automatically renders the
+     tree white/black, respectively &lt;/li&gt;
+&lt;li&gt; an option to draw the branches in order/reverse (sometimes branches cover previous
+     iterations, therefore this option is for convenience) &lt;/li&gt;
+&lt;li&gt; the option to change the tree color palette (15 options) which automatically applies
+     a pretty gradient ranging from the trunk to the smallest branch. &lt;/li&gt;
+&lt;li&gt; the ability to randomly generate a tree in which the above parameters are tweaked
+     according to various probability distributions. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;/p&gt;
+ &lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/assortment_nsplits_small.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot;&gt;
+  &lt;figcaption&gt;Fig. 2 - Going clockwise and starting at the top left, the number of branches
+  to generate at a new node is 3, 5, 8, and 9. The trunk length and branch ratio relative
+  to the trunk have been adjusted to get a
+  pretty picture (hence why GUI widgets are wonderful for this project).&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;
+
+The ability to increase the number of branches at a node significantly changes the
+structure of the fractal, &lt;i&gt;e.g.&lt;/i&gt; see Fig. 2 which displays the unexpected
+generation of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Sierpinski_triangle&quot;&gt;Sierpinski triangle&lt;/a&gt;
+among others; this behavior was a huge surprise for me. See Fig. 3 for an example
+of a tree with 4 branches generated a every node; it resembles the previous post but
+much fuller.
+&lt;p&gt;&lt;/p&gt;
+ &lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/nsplit_4_thickness.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot;&gt;
+  &lt;figcaption&gt;Fig. 3 - The number of branches generated at each node is 4, and the fractal
+  has been generated with a modest angle of approximately 100 degrees.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;
+
+## Random Tree Generator
+The random tree generator is useful for creating trees that visually look &quot;natural&quot; in
+structure, see Fig. 1. There are a great deal of parameters to randomize; however, this
+is what I did:
+&lt;ol&gt;
+&lt;li&gt; Change the number of branches to be generated at a particular node 10%
+     of the time using a flat random generator - I do not want the change to be large, and
+     I adjusted this number by +/- 1 &lt;/li&gt;
+&lt;li&gt; 10% of the time, change the length of the branch using a Gaussian distribution
+     where the standard deviation is small, specifically 10% of the length of the branches
+     that would normally be generated &lt;/li&gt;
+&lt;li&gt; Change the generation angle with a Gaussian distribution (std dev = 10 degrees)
+     33.3% of the time &lt;/li&gt;
+&lt;li&gt; Change the branch starting position with a Gaussian distribution (std dev = 10% of
+     the normal branch length, and we must take an absolute value to avoid strange behavior)
+     40% of the time &lt;/li&gt;
+&lt;/ol&gt;
+These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
+it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4
+for another example of the random generator with a color gradient.
+&lt;p&gt;&lt;/p&gt;
+ &lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/random_v2.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot;&gt;
+  &lt;figcaption&gt;Fig. 4 - An example of the random tree generator; note that Fig. 1 also
+  is randomly generated, but in black and white (and placed on another image using
+  &lt;a href=&quot;https://www.gimp.org/&quot;&gt;GIMP&lt;/a&gt;).
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post and includes a random tree generator</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/tree_road_trip.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
+  with the black/white option turned ON. The tree has been placed on top of a photograph
+  of the Badlands that I took during a road trip (summer of 2012).&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;overview-of-the-improvements&quot;&gt;Overview of the Improvements&lt;/h2&gt;
+&lt;p&gt;The tree fractal program may be seen by this video (not yet made, soon though).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;I realized that I wanted to play with the fractal tree a bit more… My first
+post may be seen &lt;a href=&quot;/blog/tree-fractal/&quot;&gt;here&lt;/a&gt;
+which includes an overview of the algorithm. The code has been extended/reformulated
+to handle a variety of options in addition to a GUI interface; this is how the tree
+gets interesting which I ignored the first time!
+While I have written sliders, buttons, and number entries from scratch, I used the C++
+&lt;a href=&quot;https://root.cern.ch/root/htmldoc/guides/users-guide/WritingGUI.html&quot;&gt;ROOT GUI widgets&lt;/a&gt;
+for this project which has been an absolute pleasure, making life much easier.
+Furthermore, instead of simply representing a branch as a line, I included an option to
+toggle between lines or user-adjustable trapezoids to give the effect that the diameter
+of a branch/trunk decreases with height. The parameters that are now adjustable
+using GUI widgets are the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt; the number of iterations to display &lt;/li&gt;
 &lt;li&gt; the number of branches to generate at a particular node (previously I only did 2, but
@@ -43,18 +142,57 @@ using GUI widgets:&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/assortment_nsplits_small.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 2 - Going clockwise and starting at the top left, the number of branches
-  to generate at a new node is 3, 5, 8, and 9. All fractals have a fundamental angle of 360 degrees
-  and the trunk length and branch ratio relative to the trunk have been adjusted to get a
+  to generate at a new node is 3, 5, 8, and 9. The trunk length and branch ratio relative
+  to the trunk have been adjusted to get a
   pretty picture (hence why GUI widgets are wonderful for this project).&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;p&gt;The ability to increase the number of branches to generate significantly changes the
+&lt;p&gt;The ability to increase the number of branches at a node significantly changes the
 structure of the fractal, &lt;i&gt;e.g.&lt;/i&gt; see Fig. 2 which displays the unexpected
 generation of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Sierpinski_triangle&quot;&gt;Sierpinski triangle&lt;/a&gt;
-among others.&lt;/p&gt;
+among others; this behavior was a huge surprise for me. See Fig. 3 for an example
+of a tree with 4 branches generated a every node; it resembles the previous post but
+much fuller. Note that the number of branch iterations needs to be monitored when tweaking
+the number of branches to generated, otherwise too many lines are drawn and the program
+inevitably crashes.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/nsplit_4_thickness.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 3 - The number of branches generated at each node is 4, and the fractal
+  has been generated with a modest angle of approximately 100 degrees.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;
 
-&lt;p&gt;The random tree generator is particularly interesting&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
+&lt;h2 id=&quot;random-tree-generator&quot;&gt;Random Tree Generator&lt;/h2&gt;
+&lt;p&gt;The random tree generator is useful for creating trees that visually look “natural” in
+structure, see Fig. 1. There are a great deal of parameters to randomize; however, this
+is what I did:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; Change the number of branches to be generated at a particular node 10%
+     of the time using a flat random generator - I do not want the change to be large, and
+     I adjusted this number by +/- 1 &lt;/li&gt;
+&lt;li&gt; 10% of the time, change the length of the branch using a Gaussian distribution
+     where the standard deviation is small, specifically 10% of the length of the branches
+     that would normally be generated &lt;/li&gt;
+&lt;li&gt; Change the generation angle with a Gaussian distribution (std dev = 10 degrees)
+     33.3% of the time &lt;/li&gt;
+&lt;li&gt; Change the branch starting position with a Gaussian distribution (std dev = 10% of
+     the normal branch length, and we must take an absolute value to avoid strange behavior)
+     40% of the time &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
+it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4
+for another example of the random generator with a color gradient.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/tree_fractal/random_v2.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 4 - An example of the random tree generator; note that Fig. 1 also
+  is randomly generated, but in black and white (and placed on another image using
+  &lt;a href=&quot;https://www.gimp.org/&quot;&gt;GIMP&lt;/a&gt;).
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post and includes a random tree generator</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
   &lt;img src=&quot;/images/fern/mod_ferns.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Selected color schemes of a modified Barnsley fern. The
   fern is plotted in a two dimensional histogram, and the color gradient
@@ -470,73 +608,4 @@ they may be used in physics.&lt;/p&gt;
 &lt;figcaption&gt;
 Fig. 2 - The number of SAW attempts needed for a success with a 5x5 lattice.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2015-08-27T00:00:00-04:00</published><updated>2015-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
-&lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
-gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
-each of which are worth up to $10,000.
-The idea then is quite simple; the contestant chooses an initial starting point at the top
-of the board and releases the plinko chip, and hopes to win some money
-($0, $100, $500, $1k, $10k are possible outcomes). The fun part, though, is watching
-the chip traverse the plinko board. The board is an array of metal pegs,
-each row is offset by half a lattice spacing, which forces the chip to change its
-trajectory many times. The bin where the chip ends up dictates
-how much money is awarded, if any at all, to the contestant. On the show, there are
-9 bins and the center bin is the $10k prize. Naively, the odds of obtaining
-the big bucks are 1/9, but the odds are initial-condition dependent as we will see.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/plinko/plinko_summary_scaled.png&quot; alt=&quot;&quot; style=&quot;height: 100%; width: 100%; object-fit: contain&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - Results of the plinko simulation for a varying number of attempts.
-  From top to bottom and left to right, the number of simulations
-  is 10&lt;sup&gt;2&lt;/sup&gt;, 10&lt;sup&gt;3&lt;/sup&gt;, 10&lt;sup&gt;4&lt;/sup&gt;, 10&lt;sup&gt;5&lt;/sup&gt;,
-  and 10&lt;sup&gt;6&lt;/sup&gt;. Note that the initial condition is the same.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;simulation&quot;&gt;Simulation&lt;/h2&gt;
-&lt;p&gt;The simulation setup is summarized by Fig. 1 in which an NxN lattice is generated
-where every other row is horizontally offset by half a lattice spacing. The initial
-condition is chosen to be roughly the center as it provides the most interesting
-results visually. I initially wanted to do the simulation using billiard ball
-collisions and forces (momentum and energy conservation, etc.), but
-the situation can be dramatically simplified. When a plinko chip encounters a peg,
-let's randomly choose a direction to go, left or right, and  propagate this strategy
-down the plinko board. If we repeat the game many times then
-we've achieved a simple Monte Carlo simulation. The situation
-is actually identical to a one-dimensional random walk (or drunken walk)
-which follows a binomial distribution. After many steps,
-the binomial may be well approximated by a Gaussian, and
-the most probable ending spot for the 1D drunkard is exactly where he started.
-Therefore, a naive expectation for the plinko simulation is the chip end-bin
-distribution to look like a Gaussian with a mean corresponding to the starting
-position and a standard deviation that depends on the lattice size or granularity
-of the board.&lt;/p&gt;
-
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/plinko/ssplinko_nsim_350.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
-The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
-We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
-be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
-A simple radius clustering search may be used, but we are only interested in the two closest pegs
-&lt;i&gt;below&lt;/i&gt; as they dictate where the chip will move next. Lastly, the path of the chip needs to be traced, where
-a path consists of many line segments that connect the left/right decisions throughout the board.
-Since we are dealing with coordinates in a lattice,
-I Gaussian-smeared the line segment coordinates to avoid an overlap of many paths in addition to
-giving the path a more fluid feel. This is what gives the horizontal spread in the observed paths, and explains
-why a path occasionally crosses a peg.&lt;/p&gt;
-
-&lt;p&gt;The end-bin plinko chip distribution is plotted within Fig. 2 where the bin size corresponds
-to the lattice spacing in the simulation. The left (right) panel throws 100 (10&lt;sup&gt;4&lt;/sup&gt;)
-plinko chips, and essentially a perfect Gaussian distribution is observed if the number
-of events is large as expected.
-Therefore, the ideal starting-position to get the 10k per chip
-on &quot;The Price is Right&quot; is the bin that aligns with the 10k bin. Note that I actually did
-watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see 
-&lt;a href=&quot;https://www.youtube.com/watch?v=naUppHrHJpI&quot;&gt;this youtube video&lt;/a&gt;, and won
-$31.5k!&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/plinko/plinko_results.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
-  of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
-  of events yields a probability distribution.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
