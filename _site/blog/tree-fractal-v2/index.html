@@ -56,19 +56,20 @@
     	  <header class="major">
       	    <span class="date">20 May 2018</span>
       	    <h1>Tree Fractal II</h1>
-      	    <p>A significant upgrade to the previous tree fractal post and includes a random tree generator</p>
+      	    <p>A significant upgrade to the previous tree fractal post including a random tree generator</p>
       	  </header>
       	  <div class="image main"><img src="" alt=""></div>
       	  <p><figure>
-  <img src="/images/tree_fractal/tree_road_trip.png" alt="" height="99%" width="99%">
+  <img src="/images/tree_fractal/tree_road_trip_small.png" alt="" height="99%" width="99%">
   <figcaption>Fig. 1 - A fractal tree using my "random tree generator"
   with the black/white option turned ON. The tree has been placed on top of a photograph
   of the Badlands that I took during a road trip (summer of 2012).</figcaption>
 </figure>
 
 </p>
-<h2 id="overview-of-the-improvements">Overview of the Improvements</h2>
-<p>The tree fractal program may be seen by this video (not yet made, soon though).</p>
+<p></p>
+<h2 id="improvements">Improvements</h2>
+<p><a href="https://youtu.be/yIIv5fRgoSY">The tree fractal program may be seen by this video</a>.</p>
 
 <p></p>
 <p>I realized that I wanted to play with the fractal tree a bit more… My first
@@ -78,27 +79,27 @@ to handle a variety of options in addition to a GUI interface; this is how the t
 gets interesting which I ignored the first time!
 While I have written sliders, buttons, and number entries from scratch, I used the C++
 <a href="https://root.cern.ch/root/htmldoc/guides/users-guide/WritingGUI.html">ROOT GUI widgets</a>
-for this project which has been an absolute pleasure, making life much easier.
+for this project which has been an absolute pleasure.
 Furthermore, instead of simply representing a branch as a line, I included an option to
-toggle between lines or user-adjustable trapezoids to give the effect that the diameter
-of a branch/trunk decreases with height. The parameters that are now adjustable
-using GUI widgets are the following:</p>
+toggle between lines or user-adjustable trapezoids, where the latter is designed
+to give the effect that the diameter of a branch/trunk decreases with height.
+The parameters that are now adjustable using GUI widgets are the following:</p>
 <ol>
 <li> the number of iterations to display </li>
 <li> the number of branches to generate at a particular node (previously I only did 2, but
-     this may now run up to 17 which gets computationally slow <i>very</i> fast)</li>
+     now it is possible to choose between [1,10])</li>
 <li> the generation angle which controls the angle of branches in the <i>n+1</i> iteration
      relative to the <i>n<sup>th</sup></i> iteration </li>
-<li> the length and width of the trunk </li>
-<li> the trapezoidal gradient of a trunk </li>
+<li> the length and width of the trunk which affects subsequent branches as well </li>
+<li> the trapezoidal gradient of a branch </li>
 <li> the branch width and length relative to the trunk </li>
-<li> an asymmetry angle offset which yields asymmetric or biased towards one direction trees</li>
+<li> an asymmetry angle offset which yields trees that are biased towards one direction</li>
 <li> an offset for the starting point of a branch </li>
 <li> an option to turn the background back/white which automatically renders the
      tree white/black, respectively </li>
 <li> an option to draw the branches in order/reverse (sometimes branches cover previous
      iterations, therefore this option is for convenience) </li>
-<li> the option to change the tree color palette (15 options) which automatically applies
+<li> an option to change the tree color palette (15 options) which automatically applies
      a pretty gradient ranging from the trunk to the smallest branch. </li>
 <li> the ability to randomly generate a tree in which the above parameters are tweaked
      according to various probability distributions. </li>
@@ -135,21 +136,21 @@ inevitably crashes.</p>
 structure, see Fig. 1. There are a great deal of parameters to randomize; however, this
 is what I did:</p>
 <ol>
-<li> Change the number of branches to be generated at a particular node 10%
+<li> change the number of branches to be generated at a particular node 10%
      of the time using a flat random generator - I do not want the change to be large, and
      I adjusted this number by +/- 1 </li>
 <li> 10% of the time, change the length of the branch using a Gaussian distribution
      where the standard deviation is small, specifically 10% of the length of the branches
      that would normally be generated </li>
-<li> Change the generation angle with a Gaussian distribution (std dev = 10 degrees)
-     33.3% of the time </li>
-<li> Change the branch starting position with a Gaussian distribution (std dev = 10% of
+<li> 33.3% of the time, change the generation angle with a Gaussian distribution of
+     standard deviation equal to 10 degrees</li>
+<li> change the branch starting position with a Gaussian distribution (std dev = 10% of
      the normal branch length, and we must take an absolute value to avoid strange behavior)
      40% of the time </li>
 </ol>
 <p>These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
-it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4
-for another example of the random generator with a color gradient.</p>
+it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4 and
+the figures beyond for examples of the random generator with various options turned ON/OFF.</p>
 <p></p>
 <figure>
   <img src="/images/tree_fractal/random_v2.png" alt="" height="100%" width="100%">
@@ -157,6 +158,16 @@ for another example of the random generator with a color gradient.</p>
   is randomly generated, but in black and white (and placed on another image using
   <a href="https://www.gimp.org/">GIMP</a>).
   </figcaption>
+</figure>
+<p></p>
+
+<p></p>
+<figure>
+  <img src="/images/tree_fractal/more_trees_white.png" alt="" height="100%" width="100%">
+</figure>
+<figure>
+  <img src="/images/tree_fractal/random_v6.png" alt="" height="100%" width="100%">
+  <figcaption>Fig. 5 - The original tree used in Fig. 1.</figcaption>
 </figure>
 <p></p>
 
