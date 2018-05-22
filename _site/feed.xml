@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-21T19:06:41-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-22T18:55:23-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -422,7 +422,37 @@ Fig. 3.&lt;/figcaption&gt;
 animation). The area converges quickly while the perimeter diverges towards infinity.
 The convergence of the fractal area is suppose to be 8/5 times the original
 area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Snake</title><link href="/blog/slither/" rel="alternate" type="text/html" title="Snake" /><published>2016-07-18T00:00:00-04:00</published><updated>2016-07-18T00:00:00-04:00</updated><id>/blog/slither</id><content type="html" xml:base="/blog/slither/">&lt;p&gt;Working on it…&lt;/p&gt;</content><summary type="html">An interactive snake game (under maintenance)</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Snake</title><link href="/blog/slither/" rel="alternate" type="text/html" title="Snake" /><published>2016-07-18T00:00:00-04:00</published><updated>2016-07-18T00:00:00-04:00</updated><id>/blog/slither</id><content type="html" xml:base="/blog/slither/">&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;There are times when a student begins a coding project and the end-goal turns out to be
+absolutely worthless, and admittedly this is one of posts.
+I wanted to replicate a complete game from scratch (menus, high scores, user-interactions,
+and a purpose), but a Snake game is not that much fun to play anymore! However,
+the Snake project, which was inspired by &lt;a href=&quot;http://slither.io/&quot;&gt;slither.io&lt;a&gt;&lt;/a&gt; combined
+with the game from the late 70s, was fun to make and a great learning experience.
+The game is simple: eat food and grow, but do not run in to the wall or cross over yourself.
+The program was coded from scratch with C++
+and the SFML libraries for drawing primitive shapes and basic event-handling (e.g. hitting
+a letter on the keyboard), and includes the following:&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;a menu framework including high scores and a screen for the player to type the name&lt;/li&gt;
+&lt;li&gt;a snake made out of overlapping circles in an alternating rainbow pattern&lt;/li&gt;
+&lt;li&gt;randomly placed food of varying sizes (larger sizes increase the score/snake more) and the
+    food moves in a circular path of some random radius to make it more difficult&lt;/li&gt;
+&lt;li&gt;a point system based on food consumption&lt;/li&gt;
+&lt;li&gt;the snake is controlled by the arrows, and may be accelerated to larger speeds with the spacebar&lt;/li&gt;
+&lt;li&gt;when the snake hits the wall or itself (which requires simple collision detection),
+   a death method is invoked which includes increasing the radii of the circles making up the snake.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The game is silly, obviously, and I probably could not even get my 5 year old nephew to play this
+even if I paid him… BUT this was the first game and it was important to finish what I started.
+Making the game more advanced, e.g. adding
+other competing snakes with some automation, is now simply a matter of investing more time.
+See the figure for some screenshots of the menus, game, and death.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/slither/game_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+&lt;/figure&gt;</content><summary type="html">An interactive snake game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/fractal_tree_multi.jpg&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
   and 60 (right) degrees.&lt;/figcaption&gt;
