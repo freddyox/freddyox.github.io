@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Buffon's Needle"
+date:   2015-07-15
+excerpt: "A simulation to estimate pi"
+comments: true
+image:  ""
+cimage: "/images/saw/saw_thumbnail_v2.png"
+categories: [math,SFML]
+---
