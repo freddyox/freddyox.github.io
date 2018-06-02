@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-22T20:07:30-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-02T16:10:52-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -228,7 +228,55 @@ and may be seen by Fig. 3:&lt;/p&gt;
   &lt;img src=&quot;/images/fern/fern.gif&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
   &lt;figcaption&gt;Fig. 4 - An animation of the fern seen in Fig. 1 where the iteration is in
   powers of 10, &lt;i&gt;i.e.&lt;/i&gt; 1 to &lt;i&gt;10&lt;sup&gt;8&lt;/sup&gt;&lt;/i&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
+&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Convex Hull</title><link href="/blog/convex_hull/" rel="alternate" type="text/html" title="Convex Hull" /><published>2018-03-20T00:00:00-04:00</published><updated>2018-03-20T00:00:00-04:00</updated><id>/blog/convex_hull</id><content type="html" xml:base="/blog/convex_hull/">&lt;h2 id=&quot;overview-of-algorithm&quot;&gt;Overview of Algorithm&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/convex/convex_for_span.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
+The idea is simple: find minimum number of data points which represent a perimeter polygon
+about a data set. There are many variations of this algorithm and the applications can
+be critical; for example, an introductory machine learning problem would be to construct
+a boundary (a straight line with 2 weights in the simplest case) between two linearly
+separable data sets, where linearly separable means that there exists some line that
+perfectly differentiates the two data sets (all the data from one set fall on one side of
+the line, and all the data from the other set fall on the other side).
+However, how does one know if the two data sets are &lt;i&gt;linearly separable&lt;/i&gt;?
+One method is to apply the convex hull algorithm to both data sets individually in order
+to construct two polygons, then the polygons may be tested for overlaps in order to confirm (or not)
+linearly separablity. Here are the major components of my algorithm, which essentially consists
+of calculating angles and finding the minimum (See Fig. 1 for an example in which
+the data are labeled):
+&lt;ol&gt;
+&lt;li&gt; Generate a data set. I generated points based on a Gaussian distribution with a mean
+     and sigma of 0.5 and 0.25, respectively, as I did not want to points to wander too far.&lt;/li&gt;
+&lt;li&gt; Each point needs to be indexed using some book-keeping integer for tracking purposes.&lt;/li&gt;
+&lt;li&gt; Find the algorithm's starting point - I chose the point with the minimum y value, and
+     if there are duplicates then I choose the point with the lowest x and y values, or the
+     bottom-left point. The starting point in Fig. 1 is labeled as 8.&lt;/li&gt;
+&lt;li&gt; Make a hull container which will be used to keep track of the points making
+     up the perimeter polygon (or the hull), and insert the starting point as by definition this
+     point must be apart of the hull.
+     Also, it is useful to make a storage container that contains all
+     the data points, which allows for element removal as we traverse the hull;
+     this is the container that is used to find points to add to the hull.&lt;/li&gt;
+&lt;li&gt; Construct a vector using information from the hull container;
+     the first iteration consists of the first hull point 8 and the origin. The
+     direction is important as we want to calculate minimum angles. &lt;/li&gt;
+&lt;li&gt; Find the minimum angle between a test-case and the hull vector (origin and point 8);
+     the test-point with the minimum angle is the next hull point, which
+     is labeled by 1 and may now be removed from storage. &lt;/li&gt;
+&lt;li&gt; Repeat. The next hull vector is built by points 8 and 1, then the minimum angle
+     between this vector and a test-vector is the next hull point;
+     in this case, it is given by point 7. Note that this strategy
+     allows angles to be calculated by a simple dot product.&lt;/li&gt;
+&lt;li&gt; Continue until we reach the starting point, hence the utility of the book-keeping device &lt;/li&gt;     
+&lt;/ol&gt;
+&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/convex/example.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig 1. - An example of the algorithm in which the starting point is labeled as 8. Note
+  that the numbers are simply a book-keeping device and should not be interpretted as anything more.
+  The ordering of the next points are 1, 7, 2, 0, 3, and 8 (return to the starting point),
+  which collectively define the hull polygon.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt; &lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
 I found myself making a generator. The word search game is complete and user-interactive,
 and the entire project has been coded using the bare-bones tools of SFML which
 requires significant &lt;i&gt;behind-the-scenes&lt;/i&gt; routines.
@@ -553,73 +601,4 @@ they may be used in physics.&lt;/p&gt;
 &lt;figcaption&gt;
 Fig. 2 - The number of SAW attempts needed for a success with a 5x5 lattice.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Plinko</title><link href="/blog/plinko/" rel="alternate" type="text/html" title="Plinko" /><published>2015-08-27T00:00:00-04:00</published><updated>2015-08-27T00:00:00-04:00</updated><id>/blog/plinko</id><content type="html" xml:base="/blog/plinko/">&lt;h2 id=&quot;objective&quot;&gt;Objective&lt;/h2&gt;
-&lt;p&gt;Plinko is a popular game perhaps due to “The Price is Right”. A contestant
-gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
-each of which are worth up to $10,000.
-The idea then is quite simple; the contestant chooses an initial starting point at the top
-of the board and releases the plinko chip, and hopes to win some money
-($0, $100, $500, $1k, $10k are possible outcomes). The fun part, though, is watching
-the chip traverse the plinko board. The board is an array of metal pegs,
-each row is offset by half a lattice spacing, which forces the chip to change its
-trajectory many times. The bin where the chip ends up dictates
-how much money is awarded, if any at all, to the contestant. On the show, there are
-9 bins and the center bin is the $10k prize. Naively, the odds of obtaining
-the big bucks are 1/9, but the odds are initial-condition dependent as we will see.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/plinko/plinko_summary_scaled.png&quot; alt=&quot;&quot; style=&quot;height: 100%; width: 100%; object-fit: contain&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - Results of the plinko simulation for a varying number of attempts.
-  From top to bottom and left to right, the number of simulations
-  is 10&lt;sup&gt;2&lt;/sup&gt;, 10&lt;sup&gt;3&lt;/sup&gt;, 10&lt;sup&gt;4&lt;/sup&gt;, 10&lt;sup&gt;5&lt;/sup&gt;,
-  and 10&lt;sup&gt;6&lt;/sup&gt;. Note that the initial condition is the same.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;simulation&quot;&gt;Simulation&lt;/h2&gt;
-&lt;p&gt;The simulation setup is summarized by Fig. 1 in which an NxN lattice is generated
-where every other row is horizontally offset by half a lattice spacing. The initial
-condition is chosen to be roughly the center as it provides the most interesting
-results visually. I initially wanted to do the simulation using billiard ball
-collisions and forces (momentum and energy conservation, etc.), but
-the situation can be dramatically simplified. When a plinko chip encounters a peg,
-let's randomly choose a direction to go, left or right, and  propagate this strategy
-down the plinko board. If we repeat the game many times then
-we've achieved a simple Monte Carlo simulation. The situation
-is actually identical to a one-dimensional random walk (or drunken walk)
-which follows a binomial distribution. After many steps,
-the binomial may be well approximated by a Gaussian, and
-the most probable ending spot for the 1D drunkard is exactly where he started.
-Therefore, a naive expectation for the plinko simulation is the chip end-bin
-distribution to look like a Gaussian with a mean corresponding to the starting
-position and a standard deviation that depends on the lattice size or granularity
-of the board.&lt;/p&gt;
-
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/plinko/ssplinko_nsim_350.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
-The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
-We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
-be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
-A simple radius clustering search may be used, but we are only interested in the two closest pegs
-&lt;i&gt;below&lt;/i&gt; as they dictate where the chip will move next. Lastly, the path of the chip needs to be traced, where
-a path consists of many line segments that connect the left/right decisions throughout the board.
-Since we are dealing with coordinates in a lattice,
-I Gaussian-smeared the line segment coordinates to avoid an overlap of many paths in addition to
-giving the path a more fluid feel. This is what gives the horizontal spread in the observed paths, and explains
-why a path occasionally crosses a peg.&lt;/p&gt;
-
-&lt;p&gt;The end-bin plinko chip distribution is plotted within Fig. 2 where the bin size corresponds
-to the lattice spacing in the simulation. The left (right) panel throws 100 (10&lt;sup&gt;4&lt;/sup&gt;)
-plinko chips, and essentially a perfect Gaussian distribution is observed if the number
-of events is large as expected.
-Therefore, the ideal starting-position to get the 10k per chip
-on &quot;The Price is Right&quot; is the bin that aligns with the 10k bin. Note that I actually did
-watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see 
-&lt;a href=&quot;https://www.youtube.com/watch?v=naUppHrHJpI&quot;&gt;this youtube video&lt;/a&gt;, and won
-$31.5k!&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;img src=&quot;/images/plinko/plinko_results.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 2 - The plinko chip distribution for two simulations
-  of 100 (left) and 10&lt;sup&gt;4&lt;/sup&gt; (right) attempts. Dividing each bin by the total number
-  of events yields a probability distribution.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the famous plinko game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>

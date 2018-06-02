@@ -20,6 +20,15 @@
     </url>
   
     <url>
+      <loc>/blog/convex_hull/</loc>
+      
+        <lastmod>2018-03-20T00:00:00-04:00</lastmod>
+      
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+    </url>
+  
+    <url>
       <loc>/blog/word-search/</loc>
       
         <lastmod>2018-01-04T00:00:00-05:00</lastmod>
@@ -192,6 +201,16 @@
   
     <url>
       <loc>/blog/page2/</loc>
+       <lastmod>2017-11-10T00:20:35+00:00</lastmod>
+      
+       <changefreq>weekly</changefreq>
+      
+       <priority>0.5</priority>
+      
+     </url>
+  
+    <url>
+      <loc>/blog/page3/</loc>
        <lastmod>2017-11-10T00:20:35+00:00</lastmod>
       
        <changefreq>weekly</changefreq>

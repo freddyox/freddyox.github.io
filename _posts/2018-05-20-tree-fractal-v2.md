@@ -6,7 +6,7 @@ excerpt: "A significant upgrade to the previous tree fractal post including a
           random tree generator"
 comments: true
 image: ""
-cimage: "/images/tree_fractal/tree_road_trip_small.png"
+cimage: "/images/tree_fractal/tree_road_trip_tiny.png"
 categories: [math,ROOT]
 ---
 

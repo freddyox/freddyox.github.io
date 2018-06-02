@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  --><html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<title>Convex Hull</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/assets/icon/manifest.json">
+<link rel="mask-icon" href="/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">Projects and Research Interests</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="/">Home</a></li>
+  <li class=""><a href="/about/">About</a></li>
+  <li class=" active "><a href="/blog/">All Projects</a></li>
+  <li class=""><a href="/categories/">Categories</a></li>
+  <li class=""><a href="/elements/">Useful References</a></li>
+</ul>
+
+      </nav>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">20 Mar 2018</span>
+      	    <h1>Convex Hull</h1>
+      	    <p>An algorithm to find the perimeter of a data set</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p></p>
+<h2 id="overview-of-algorithm">Overview of Algorithm</h2>
+<p><span class="image left"><img src="/images/convex/convex_for_span.png" alt=""></span>
+The idea is simple: find minimum number of data points which represent a perimeter polygon
+about a data set. There are many variations of this algorithm and the applications can
+be critical; for example, an introductory machine learning problem would be to construct
+a boundary (a straight line with 2 weights in the simplest case) between two linearly
+separable data sets, where linearly separable means that there exists some line that
+perfectly differentiates the two data sets (all the data from one set fall on one side of
+the line, and all the data from the other set fall on the other side).
+However, how does one know if the two data sets are <i>linearly separable</i>?
+One method is to apply the convex hull algorithm to both data sets individually in order
+to construct two polygons, then the polygons may be tested for overlaps in order to confirm (or not)
+linearly separablity. Here are the major components of my algorithm, which essentially consists
+of calculating angles and finding the minimum (See Fig. 1 for an example in which
+the data are labeled):
+</p>
+<ol>
+<li> Generate a data set. I generated points based on a Gaussian distribution with a mean
+     and sigma of 0.5 and 0.25, respectively, as I did not want to points to wander too far.</li>
+<li> Each point needs to be indexed using some book-keeping integer for tracking purposes.</li>
+<li> Find the algorithm's starting point - I chose the point with the minimum y value, and
+     if there are duplicates then I choose the point with the lowest x and y values, or the
+     bottom-left point. The starting point in Fig. 1 is labeled as 8.</li>
+<li> Make a hull container which will be used to keep track of the points making
+     up the perimeter polygon (or the hull), and insert the starting point as by definition this
+     point must be apart of the hull.
+     Also, it is useful to make a storage container that contains all
+     the data points, which allows for element removal as we traverse the hull;
+     this is the container that is used to find points to add to the hull.</li>
+<li> Construct a vector using information from the hull container;
+     the first iteration consists of the first hull point 8 and the origin. The
+     direction is important as we want to calculate minimum angles. </li>
+<li> Find the minimum angle between a test-case and the hull vector (origin and point 8);
+     the test-point with the minimum angle is the next hull point, which
+     is labeled by 1 and may now be removed from storage. </li>
+<li> Repeat. The next hull vector is built by points 8 and 1, then the minimum angle
+     between this vector and a test-vector is the next hull point;
+     in this case, it is given by point 7. Note that this strategy
+     allows angles to be calculated by a simple dot product.</li>
+<li> Continue until we reach the starting point, hence the utility of the book-keeping device </li>     
+</ol>
+
+<figure>
+  <img src="/images/convex/example.png" alt="" height="99%" width="99%">
+  <figcaption>Fig 1. - An example of the algorithm in which the starting point is labeled as 8. Note
+  that the numbers are simply a book-keeping device and should not be interpretted as anything more.
+  The ordering of the next points are 1, 7, 2, 0, 3, and 8 (return to the starting point),
+  which collectively define the hull polygon.</figcaption>
+</figure>
+<p> </p>
+
+      	</section>	
+
+	
+	<div id="disqus_thread"></div>
+	<script>
+	  /*
+	  var disqus_config = function () {
+	  this.page.url = "/blog/convex_hull/";
+	  this.page.identifier = "/blog/convex_hull/";
+	  };
+	  */
+	  (function() { // DON'T EDIT BELOW THIS LINE
+	  var d = document, s = d.createElement('script');
+	  s.src = 'https://freddyox-github-io.disqus.com/embed.js';
+	  s.setAttribute('data-timestamp', +new Date());
+	  (d.head || d.body).appendChild(s);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+	
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="/blog/" class="button">All Projects</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <!--<footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message" /></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>©
+    <script type="text/javascript">
+      document.write(new Date().getFullYear());
+    </script>
+    Richard F. Obrecht</ul>
+</div>
+--&gt;
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+  </body>
+</html>

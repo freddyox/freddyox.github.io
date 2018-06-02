@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Snake"
+date:   2016-07-18
+excerpt: "An interactive snake game"
+comments: false
+image:  ""
+cimage: "/images/slither/slither_thumbnail.png"
+categories: [games,SFML]
+---
+
+## Overview
+There are times when a student begins a coding project and the end-goal turns out to be
+absolutely worthless, and admittedly this is one of posts.
+I wanted to replicate a complete game from scratch (menus, high scores, user-interactions,
+and a purpose), but a Snake game is not that much fun to play anymore! However,
+the Snake project, which was inspired by <a href="http://slither.io/">slither.io<a/> combined
+with the game from the late 70s, was fun to make and a great learning experience.
+The game is simple: eat food and grow, but do not run in to the wall or cross over yourself.
+The program was coded from scratch with C++
+and the SFML libraries for drawing primitive shapes and basic event-handling (e.g. hitting
+a letter on the keyboard), and includes the following:
+<ol>
+<li>a menu framework including high scores and a screen for the player to type the name</li>
+<li>a snake made out of overlapping circles in an alternating rainbow pattern</li>
+<li>randomly placed food of varying sizes (larger sizes increase the score/snake more) and the
+    food moves in a circular path of some random radius to make it more difficult</li>
+<li>a point system based on food consumption</li>
+<li>the snake is controlled by the arrows, and may be accelerated to larger speeds with the spacebar</li>
+<li>when the snake hits the wall or itself (which requires simple collision detection),
+   a death method is invoked which includes increasing the radii of the circles making up the snake.</li>
+</ol>
+The game is silly, obviously, and I probably could not even get my 5 year old nephew to play this
+even if I paid him... BUT this was the first game and it was important to finish what I started.
+Making the game more advanced, e.g. adding
+other competing snakes with some automation, is now simply a matter of investing more time.
+See the figure for some screenshots of the menus, game, and death. 
+
+<p></p>
+ <figure>
+  <img src="/images/slither/game_small.png" alt="" height="99%" width="99%">
+</figure>
