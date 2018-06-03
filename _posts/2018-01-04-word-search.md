@@ -40,9 +40,9 @@ The game may be seen <a href="https://youtu.be/YexCgQyk7TE">here</a>. A cheat bu
 by simply toggling between two sprites (a checked/unchecked box). Mouse events are handled
 using
 <pre><code>sf::Mouse::isButtonPressed(sf::Mouse::Left)
- sf::Event::MouseButtonPressed	
- sf::Event::MouseMoved
- sf::Event::MouseButtonReleased
+sf::Event::MouseButtonPressed	
+sf::Event::MouseMoved
+sf::Event::MouseButtonReleased
 </code></pre>
 logic methods. For example, when the mouse button is clicked <i>once</i> the cell must turn red;
 when the mouse moves, the cells turn red in vertical/horizontal/diagonal preferences

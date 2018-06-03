@@ -100,7 +100,10 @@ the function returns true, otherwise false.</li>
 points of polygon P<sub>1</sub> live in P<sub>2</sub>.</li>
 <li>Intersection points between P<sub>1</sub> and P<sub>2</sub> also need
     to be tracked if one desires the overlapping polygon; this can
-    be achieved by simple vector intersection.</li></ol>
+    be achieved by simple vector intersection.</li>
+<li>All these points need to be tracked and put into an array in CW or CCW order
+    in order to build a convex polygon.</li>
+</ol>
 The result of the above logic may be seen by Fig. 3. Note that I am only
 concerned about the hull polygons, not the data within the hull (which only matter
 during the construction of the hull).
