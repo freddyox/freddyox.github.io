@@ -9,6 +9,8 @@ cimage: "/images/double_pend/double_pend_thumbnail_v2.png"
 categories: [simulation,SFML]
 ---
 
+## Overview
+
 <span class="image left">
 <img src="/images/double_pend/double_pend_long.png" alt="" width="99%" height="99%"/>
 </span>

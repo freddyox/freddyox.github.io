@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-02T16:10:52-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-02T19:57:03-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -276,7 +276,12 @@ the data are labeled):
   The ordering of the next points are 1, 7, 2, 0, 3, and 8 (return to the starting point),
   which collectively define the hull polygon.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt; &lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
+&lt;p&gt; &lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/convex/example_of_overlap2.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig 2. - An example of a situation in which the two data sets, differentiated by red squares and black triangles,
+   are not linearly separable. The convex hull algorithm may be used to detect this behavior.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">An algorithm to find the perimeter of a data set</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
 I found myself making a generator. The word search game is complete and user-interactive,
 and the entire project has been coded using the bare-bones tools of SFML which
 requires significant &lt;i&gt;behind-the-scenes&lt;/i&gt; routines.
@@ -399,7 +404,9 @@ convolution matrices or image masks (google kernel image processing).
   &lt;img src=&quot;/images/mona_lisa/mona_lisa_rs.gif&quot; alt=&quot;&quot; height=&quot;30%&quot; width=&quot;30%&quot; /&gt;
   &lt;figcaption&gt;Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
   as I currently do not know how to control/pause the .gif.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimic an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2017-07-27T00:00:00-04:00</published><updated>2017-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
+&lt;/figure&gt;</content><summary type="html">A hill climbing method to mimic an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry><entry><title type="html">Double Pendulum</title><link href="/blog/double-pendulum/" rel="alternate" type="text/html" title="Double Pendulum" /><published>2017-07-27T00:00:00-04:00</published><updated>2017-07-27T00:00:00-04:00</updated><id>/blog/double-pendulum</id><content type="html" xml:base="/blog/double-pendulum/">&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;
 &lt;img src=&quot;/images/double_pend/double_pend_long.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
 &lt;/span&gt;&lt;/p&gt;
 
@@ -565,11 +572,13 @@ attempts to achieve.
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;I have simulated many random walks, &lt;i&gt;e.g.&lt;/i&gt; one to three dimensional drunkards,
-plinko, gaussian random walks, brownian motion. The
-self-avoiding walk (SAW) is a nice spin-off of the 2D random walk resulting
-in pictures that are reminscent of
-a maze. The idea is to randomly traverse a lattice without
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+
+&lt;p&gt;Over the years, I have simulated many random walks, &lt;i&gt;e.g.&lt;/i&gt; one to three dimensional drunkards,
+plinko, gaussian random walks, and brownian motion to name a few; the phenomenon is ubiquitous
+in physics. The self-avoiding walk (SAW) is a nice spin-off of the 2D random walk and results
+in pictures that are reminscent of a maze.
+The idea is to randomly traverse a lattice without
 returning to an already visited node; therefore, all lattice nodes
 must be touched once (no more and no less) in order for the walk to be a success.
 The walker only moves in the vertical and horizontal directions so only
@@ -601,4 +610,4 @@ they may be used in physics.&lt;/p&gt;
 &lt;figcaption&gt;
 Fig. 2 - The number of SAW attempts needed for a success with a 5x5 lattice.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">The self-avoiding random walk</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">A self-avoiding random walk generator</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
