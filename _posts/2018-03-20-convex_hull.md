@@ -55,7 +55,7 @@ which at the core consists of calculating smallest angles between carefully chos
  <figure>
   <img src="/images/convex/example.png" alt="" height="99%" width="99%">
   <figcaption>Fig 1. - An example of the algorithm in which the starting point is labeled as 8. Note
-  that the numbers are simply a book-keeping device and should not be interpretted as anything more.
+  that the numbers are simply a book-keeping device and should not be interpreted as anything more.
   The ordering of the next points are 1, 7, 2, 0, 3, and 8 (return to the starting point),
   which collectively define the hull polygon.</figcaption>
 </figure>
@@ -75,7 +75,7 @@ Determining the overlap can be difficult, but here is what I chose to do:
 <li>Break the convex polygon P<sub>1</sub> of <i>N</i> vertices into sub-triangles - I wrote a routine
     that takes the hull coordinates (arrays/vectors of x,y points) and returns
     <i>N-2</i> triangles (in the form of arrays of x,y points). </li>
-<li> Loop through the other hull polygon, denoted by P<sub>2</sub> which has <i>M</i> verticies,
+<li> Loop through the other hull polygon, denoted by P<sub>2</sub> which has <i>M</i> vertices,
      and check to see if any of the x,y points live in the sub-triangles of P<sub>1</sub>.
      The following function was used for this purpose:
 <pre><code>bool in_triangle(point p, double* x, double* y){

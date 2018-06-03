@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-03T13:57:16-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-03T14:13:50-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -273,7 +273,7 @@ which at the core consists of calculating smallest angles between carefully chos
 &lt;figure&gt;
   &lt;img src=&quot;/images/convex/example.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig 1. - An example of the algorithm in which the starting point is labeled as 8. Note
-  that the numbers are simply a book-keeping device and should not be interpretted as anything more.
+  that the numbers are simply a book-keeping device and should not be interpreted as anything more.
   The ordering of the next points are 1, 7, 2, 0, 3, and 8 (return to the starting point),
   which collectively define the hull polygon.&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -293,7 +293,7 @@ Determining the overlap can be difficult, but here is what I chose to do:&lt;/p&
 &lt;li&gt;Break the convex polygon P&lt;sub&gt;1&lt;/sub&gt; of &lt;i&gt;N&lt;/i&gt; vertices into sub-triangles - I wrote a routine
     that takes the hull coordinates (arrays/vectors of x,y points) and returns
     &lt;i&gt;N-2&lt;/i&gt; triangles (in the form of arrays of x,y points). &lt;/li&gt;
-&lt;li&gt; Loop through the other hull polygon, denoted by P&lt;sub&gt;2&lt;/sub&gt; which has &lt;i&gt;M&lt;/i&gt; verticies,
+&lt;li&gt; Loop through the other hull polygon, denoted by P&lt;sub&gt;2&lt;/sub&gt; which has &lt;i&gt;M&lt;/i&gt; vertices,
      and check to see if any of the x,y points live in the sub-triangles of P&lt;sub&gt;1&lt;/sub&gt;.
      The following function was used for this purpose:
 &lt;pre&gt;&lt;code&gt;bool in_triangle(point p, double* x, double* y){
@@ -370,13 +370,13 @@ I positioned many words in a grid.&lt;/li&gt;
 &lt;p&gt;The game may be seen &lt;a href=&quot;https://youtu.be/YexCgQyk7TE&quot;&gt;here&lt;/a&gt;. A cheat button is achieved
 by simply toggling between two sprites (a checked/unchecked box). Mouse events are handled
 using&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-C++&quot;&gt; sf::Mouse::isButtonPressed(sf::Mouse::Left)
+&lt;pre&gt;&lt;code&gt;sf::Mouse::isButtonPressed(sf::Mouse::Left)
  sf::Event::MouseButtonPressed	
  sf::Event::MouseMoved
  sf::Event::MouseButtonReleased
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;logic methods. For example, when the mouse button is clicked &lt;i&gt;once&lt;/i&gt; the cell must turn red;
-when the mouse moves, the cells turn red in verical/horizontal/diagonal preferences
+when the mouse moves, the cells turn red in vertical/horizontal/diagonal preferences
 which is achieved using simple vectors and angular cuts. When the mouse button is released,
 a method must be invoked to check if the highlighted region is in fact a word on the list. If
 it is, turn the blocks green, otherwise reset the blocks and cue the audio for failure.
@@ -406,7 +406,7 @@ The main components of the algorithm are as follows:
 &lt;li&gt;Apply a &lt;q&gt;mutation&lt;/q&gt;, &lt;i&gt;i.e.&lt;/i&gt; randomly tweak a characteristic of the triangle like a vertex
     coordinate or an RGBA value&lt;/li&gt;
 &lt;li&gt;Calculate the &amp;chi;&lt;sup&gt;2&lt;/sup&gt; between the mutated image and the input; if the function determines
-    that the mutatation is more similar to the input then accept the change. Otherwise, discard it, and apply another mutation&lt;/li&gt;
+    that the mutation is more similar to the input then accept the change. Otherwise, discard it, and apply another mutation&lt;/li&gt;
 &lt;li&gt;Repeat until the loss function does not change significantly.&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -553,7 +553,7 @@ a letter on the keyboard), and includes the following:&lt;/a&gt;&lt;/p&gt;
 &lt;li&gt;randomly placed food of varying sizes (larger sizes increase the score/snake more) and the
     food moves in a circular path of some random radius to make it more difficult&lt;/li&gt;
 &lt;li&gt;a point system based on food consumption&lt;/li&gt;
-&lt;li&gt;the snake is controlled by the arrows, and may be accelerated to larger speeds with the spacebar&lt;/li&gt;
+&lt;li&gt;the snake is controlled by the arrows, and may be accelerated to larger speeds with the space-bar&lt;/li&gt;
 &lt;li&gt;when the snake hits the wall or itself (which requires simple collision detection),
    a death method is invoked which includes increasing the radii of the circles making up the snake.&lt;/li&gt;
 &lt;/ol&gt;
@@ -561,7 +561,7 @@ a letter on the keyboard), and includes the following:&lt;/a&gt;&lt;/p&gt;
 even if I paid him… BUT this was the first game and it was important to finish what I started.
 Making the game more advanced, e.g. adding
 other competing snakes with some automation, is now simply a matter of investing more time.
-See the figure for some screenshots of the menus, game, and death.&lt;/p&gt;
+See the figure for some screen shots of the menus, game, and death.&lt;/p&gt;
 
 &lt;p&gt;&lt;/p&gt;
 &lt;figure&gt;
@@ -636,7 +636,7 @@ attempts to achieve.
 &lt;p&gt;Over the years, I have simulated many random walks, &lt;i&gt;e.g.&lt;/i&gt; one to three dimensional drunkards,
 plinko, gaussian random walks, and brownian motion to name a few; the phenomenon is ubiquitous
 in physics. The self-avoiding walk (SAW) is a nice spin-off of the 2D random walk and results
-in pictures that are reminscent of a maze.
+in pictures that are reminiscent of a maze.
 The idea is to randomly traverse a lattice without
 returning to an already visited node; therefore, all lattice nodes
 must be touched once (no more and no less) in order for the walk to be a success.

@@ -90,13 +90,13 @@ I positioned many words in a grid.</li>
 <p>The game may be seen <a href="https://youtu.be/YexCgQyk7TE">here</a>. A cheat button is achieved
 by simply toggling between two sprites (a checked/unchecked box). Mouse events are handled
 using</p>
-<pre><code class="language-C++"> sf::Mouse::isButtonPressed(sf::Mouse::Left)
+<pre><code>sf::Mouse::isButtonPressed(sf::Mouse::Left)
  sf::Event::MouseButtonPressed	
  sf::Event::MouseMoved
  sf::Event::MouseButtonReleased
 </code></pre>
 <p>logic methods. For example, when the mouse button is clicked <i>once</i> the cell must turn red;
-when the mouse moves, the cells turn red in verical/horizontal/diagonal preferences
+when the mouse moves, the cells turn red in vertical/horizontal/diagonal preferences
 which is achieved using simple vectors and angular cuts. When the mouse button is released,
 a method must be invoked to check if the highlighted region is in fact a word on the list. If
 it is, turn the blocks green, otherwise reset the blocks and cue the audio for failure.
