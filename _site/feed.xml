@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-02T19:57:03-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-03T13:57:16-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -228,28 +228,29 @@ and may be seen by Fig. 3:&lt;/p&gt;
   &lt;img src=&quot;/images/fern/fern.gif&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
   &lt;figcaption&gt;Fig. 4 - An animation of the fern seen in Fig. 1 where the iteration is in
   powers of 10, &lt;i&gt;i.e.&lt;/i&gt; 1 to &lt;i&gt;10&lt;sup&gt;8&lt;/sup&gt;&lt;/i&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Convex Hull</title><link href="/blog/convex_hull/" rel="alternate" type="text/html" title="Convex Hull" /><published>2018-03-20T00:00:00-04:00</published><updated>2018-03-20T00:00:00-04:00</updated><id>/blog/convex_hull</id><content type="html" xml:base="/blog/convex_hull/">&lt;h2 id=&quot;overview-of-algorithm&quot;&gt;Overview of Algorithm&lt;/h2&gt;
+&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Convex Hulls</title><link href="/blog/convex_hull/" rel="alternate" type="text/html" title="Convex Hulls" /><published>2018-03-20T00:00:00-04:00</published><updated>2018-03-20T00:00:00-04:00</updated><id>/blog/convex_hull</id><content type="html" xml:base="/blog/convex_hull/">&lt;h2 id=&quot;overview-of-algorithm&quot;&gt;Overview of Algorithm&lt;/h2&gt;
 &lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/convex/convex_for_span.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
-The idea is simple: find minimum number of data points which represent a perimeter polygon
+The idea is simple: find the minimum number of data points which represent the perimeter convex polygon
 about a data set. There are many variations of this algorithm and the applications can
-be critical; for example, an introductory machine learning problem would be to construct
+be critical; for example, an introductory machine learning problem is to construct
 a boundary (a straight line with 2 weights in the simplest case) between two linearly
 separable data sets, where linearly separable means that there exists some line that
 perfectly differentiates the two data sets (all the data from one set fall on one side of
-the line, and all the data from the other set fall on the other side).
+the line while all the data from the other set fall on the other side).
 However, how does one know if the two data sets are &lt;i&gt;linearly separable&lt;/i&gt;?
 One method is to apply the convex hull algorithm to both data sets individually in order
 to construct two polygons, then the polygons may be tested for overlaps in order to confirm (or not)
-linearly separablity. Here are the major components of my algorithm, which essentially consists
-of calculating angles and finding the minimum (See Fig. 1 for an example in which
-the data are labeled):
+linear separability. Here are the major components of my convex hull algorithm,
+which at the core consists of calculating smallest angles between carefully chosen vectors
+(See Fig. 1 for an example in which the data are labeled):
 &lt;ol&gt;
 &lt;li&gt; Generate a data set. I generated points based on a Gaussian distribution with a mean
      and sigma of 0.5 and 0.25, respectively, as I did not want to points to wander too far.&lt;/li&gt;
 &lt;li&gt; Each point needs to be indexed using some book-keeping integer for tracking purposes.&lt;/li&gt;
 &lt;li&gt; Find the algorithm's starting point - I chose the point with the minimum y value, and
      if there are duplicates then I choose the point with the lowest x and y values, or the
-     bottom-left point. The starting point in Fig. 1 is labeled as 8.&lt;/li&gt;
+     bottom-left point; this point by definition is part of the hull.
+     The starting point in Fig. 1 is labeled as 8.&lt;/li&gt;
 &lt;li&gt; Make a hull container which will be used to keep track of the points making
      up the perimeter polygon (or the hull), and insert the starting point as by definition this
      point must be apart of the hull.
@@ -279,9 +280,67 @@ the data are labeled):
 &lt;p&gt; &lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;/images/convex/example_of_overlap2.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig 2. - An example of a situation in which the two data sets, differentiated by red squares and black triangles,
-   are not linearly separable. The convex hull algorithm may be used to detect this behavior.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">An algorithm to find the perimeter of a data set</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
+  &lt;figcaption&gt;Fig 2. - An example of a situation in which the two data sets, differentiated by red squares and black triangles, are not linearly separable.
+  The convex hull algorithm may be used to detect this behavior.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;overlapping-convex-polygons&quot;&gt;Overlapping Convex Polygons&lt;/h2&gt;
+&lt;p&gt;What if we are interested in the overlapping region between two convex hulls? Assuming
+that the hulls overlap, then the boolean AND operation results in another convex polygon.
+Determining the overlap can be difficult, but here is what I chose to do:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Break the convex polygon P&lt;sub&gt;1&lt;/sub&gt; of &lt;i&gt;N&lt;/i&gt; vertices into sub-triangles - I wrote a routine
+    that takes the hull coordinates (arrays/vectors of x,y points) and returns
+    &lt;i&gt;N-2&lt;/i&gt; triangles (in the form of arrays of x,y points). &lt;/li&gt;
+&lt;li&gt; Loop through the other hull polygon, denoted by P&lt;sub&gt;2&lt;/sub&gt; which has &lt;i&gt;M&lt;/i&gt; verticies,
+     and check to see if any of the x,y points live in the sub-triangles of P&lt;sub&gt;1&lt;/sub&gt;.
+     The following function was used for this purpose:
+&lt;pre&gt;&lt;code&gt;bool in_triangle(point p, double* x, double* y){
+  point p0(x[0],y[0],-1); // triangle vertex
+  point p1(x[1],y[1],-1); // triangle vertex
+  point p2(x[2],y[2],-1); // triangle vertex
+  double A = 0.5 * (-p1.Y() * p2.X() + p0.Y() * (-p1.X() + p2.X())
+		    + p0.X() * (p1.Y() - p2.Y()) + p1.X() * p2.Y());
+  double sign = A &amp;lt; 0 ? -1 : 1;
+  double s = (p0.Y() * p2.X() - p0.X() * p2.Y() + (p2.Y() - p0.Y()) * p.X()
+	      + (p0.X() - p2.X()) * p.Y()) * sign;
+  double t = (p0.X() * p1.Y() - p0.Y() * p1.X() + (p0.Y() - p1.Y()) * p.X()
+	      + (p1.X() - p0.X()) * p.Y()) * sign;
+
+  return s &amp;gt; 0 &amp;amp;&amp;amp; t &amp;gt; 0 &amp;amp;&amp;amp; (s + t) &amp;lt; 2 * A * sign;	
+}
+&lt;/code&gt;&lt;/pre&gt;
+where point p is the point to test in order to determine if it lives
+in a triangle of x and y coordinates denoted by p0, p1, and p2; if so, then
+the function returns true, otherwise false.&lt;/li&gt;
+&lt;li&gt;The inverse needs to be checked, &lt;i&gt;i.e.&lt;/i&gt; check to see if any
+points of polygon P&lt;sub&gt;1&lt;/sub&gt; live in P&lt;sub&gt;2&lt;/sub&gt;.&lt;/li&gt;
+&lt;li&gt;Intersection points between P&lt;sub&gt;1&lt;/sub&gt; and P&lt;sub&gt;2&lt;/sub&gt; also need
+    to be tracked if one desires the overlapping polygon; this can
+    be achieved by simple vector intersection.&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;The result of the above logic may be seen by Fig. 3. Note that I am only
+concerned about the hull polygons, not the data within the hull (which only matter
+during the construction of the hull).
+The top-left panel displays the two hulls, denoted by H&lt;sub&gt;red&lt;/sub&gt; and H&lt;sub&gt;blk&lt;/sub&gt;.
+The top-right panel displays the result of the sub-triangularization method,
+and explicitly shows which hull vertices were detected using the above code snippet.
+In other words, the red squares are detected in H&lt;sub&gt;blk&lt;/sub&gt; while the black
+triangle is a point of the hull H&lt;sub&gt;blk&lt;/sub&gt; that has been detected in H&lt;sub&gt;red&lt;/sub&gt;.
+The bottom panel displays the overlapping result in blue, which is another convex polygon.
+The markers are coded by shape where the meaning of the square and triangle markers
+has just been discussed; the circle markers, however, represent intersection points
+between the two convex hulls and must be considered when constructed the overlapping hull.
+Note that in the context of linear separability, none of this is necessary; one only needs
+to check to see if a point of hull H&lt;sub&gt;blk&lt;/sub&gt; exists within H&lt;sub&gt;red&lt;/sub&gt;
+and vice versa.&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/convex/convex_overlap_detection.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig 3 - An overview of the convex hull overlap detection algorithm, which
+  is represented by the blue convex polygon.&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set, and includes convex polygon overlap detection</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
 I found myself making a generator. The word search game is complete and user-interactive,
 and the entire project has been coded using the bare-bones tools of SFML which
 requires significant &lt;i&gt;behind-the-scenes&lt;/i&gt; routines.

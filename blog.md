@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Blog
+title: Projects
 description: Information and references that I find interesting.
 sitemap:
     priority: 1.0
