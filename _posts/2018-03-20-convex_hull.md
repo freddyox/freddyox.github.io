@@ -6,7 +6,7 @@ excerpt: "An algorithm to find the perimeter of a data set, and
           includes convex polygon overlap detection"
 comments: true
 image:  ""
-cimage: "/images/convex/convex_thumb.png"
+cimage: "/images/convex/overlap_thumb2.png"
 categories: [ROOT,math]
 ---
 
