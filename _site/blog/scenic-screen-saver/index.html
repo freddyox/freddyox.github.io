@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  --><html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+<title>Scenic screen saver</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/assets/icon/manifest.json">
+<link rel="mask-icon" href="/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">Projects and Research Interests</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="/">Home</a></li>
+  <li class=""><a href="/about/">About</a></li>
+  <li class=" active "><a href="/blog/">All Projects</a></li>
+  <li class=""><a href="/categories/">Categories</a></li>
+  <li class=""><a href="/elements/">Useful References</a></li>
+</ul>
+
+      </nav>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">15 Jun 2018</span>
+      	    <h1>Scenic screen saver</h1>
+      	    <p>Includes simulated ropes, randomly generated fractal trees, a simulated sunset/sunrise, and Perlin coherent noise</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p><figure>
+  <img src="/images/scenery/scenery.png" alt="" height="99%" width="99%">
+</figure>
+
+</p>
+<p></p>
+<h2 id="overview">Overview</h2>
+<p><a href="https://www.youtube.com/watch?v=lxAgjiuRBeQ">A video may be seen here</a>.</p>
+<p></p>
+
+<p>The original goal was to simulate a rope; however, once the rope/swing was made
+then the project unintentionally grew to something much larger.
+Since I had just created a random tree generator, I thought it would be
+fun to anchor the simulated rope on the branches. Even cooler, let’s move
+the rope according to some fictitious wind force which introduced the
+need for the Perlin noise generator. The project grew to include a simulated sunset/sunrise (which I have
+been wanting to do for quite some time now), lightening bugs, an owl, blades of grass,
+stars, and a moon to make the scenery more interesting.</p>
+
+<p>Ropes may be simulated by connecting masses to springs, and then one or both ends of the rope-object may be
+anchored. When both sides are anchored and all masses are in the presence of gravity,
+the proper catenary curve is reproduced which is a
+canonical calculus of variations result (hyperbolic cosine). Implementing a rope simulation in C++ is
+well described by <a href="http://nehe.gamedev.net/tutorial/rope_physics/17006/">this site</a>,
+and will not be described in detail here. In short, though, the idea is to build a Mass class
+where the position may be updated as</p>
+<pre><code>void Mass::simulate(float dt){
+  fVel.x += (fForce.x / fMass) * dt;
+  fVel.y += (fForce.y / fMass) * dt;
+  fPos.x += fVel.x * dt;
+  fPos.y += fVel.y * dt;
+}
+
+void Mass::applyForce(sf::Vector2f force){
+  fForce.x += force.x;
+  fForce.y += force.y;
+}</code></pre>
+<p>where dt is the intrinsic delta time in between frames (SFML provides sf::Clock
+and sf::Time classes for this purpose). Then, a Spring class is made where one
+spring is connected to two Mass-objects, and a spring force <i>-k(x-x’)</i>
+is used to constrain/connect the two masses; in this case, <i>k</i> is an
+adjustable parameter, <i>x</i> is the distance between the two masses, and <i>x’</i>
+is the length of the spring in absence of forces. This is where the Mass::applyForce(sf::Vector2f)
+comes in handy, which may also be used for gravity, air friction, or anything else that comes to mind
+to alter the behavior. A Rope-object is then built
+out of many Spring classes to realistically simulate the movement of a rope. 
+The rope is continuously perturbed by a
+<a href="http://libnoise.sourceforge.net/">Perlin coherent noise generator</a>
+to simulate the effects of wind. Note that the anchor points need to be
+updated according to the perturbations of the fractal tree.</p>
+
+<p>The generation of the sunset was computationally expensive, and I learned
+how to do it <a href="http://www.scratchapixel.com/lessons/procedural-generation-virtual-worlds/simulating-sky/simulating-colors-of-the-sky">here</a>, which includes Mie and Rayleigh scattering
+models. The calculation needs to be performed for many angles (depending on the
+location of the sun relative to a viewer on Earth) in order to simulate
+a sunset/sunrise. I generated roughly 360 images, and the screen saver cycles through each
+image approximately every 0.5 seconds.</p>
+
+<p>The remainder of the scenery, excluding the tire and
+<a href="http://rosprites.blogspot.com/2012/05/classes-other.html">owl sprites</a>,
+were made completely with SFML vertex arrays. The random tree fractal generator is
+described in a previous post; the blades of grass use the
+same fundamental construction
+(built using a class that accepts 2 points for the bottom/top center points of a box,
+a width parameter, and a parameter to change the width ratio of the top relative to the bottom)
+in order to create the gradient effect. The alpha component of a blade is adjusted once the
+scenery is determined to be dark. The moon is actually 100 sf::CircleShapes
+where the alpha component is adjusted to give the glow effect. The bugs are
+black circles which randomly glow (the glow lasts for a time that is randomly determined
+by a Gaussian distribution); the glow becomes more frequent during the night time.
+The cricket noise was downloaded from
+<a href="http://soundbible.com/tags-crickets.html">here</a>, and the volume increases
+at night. Just about the entire scenery (excluding the sprites and the sunset) are
+randomly generated and positioned, either using a flat or normal distribution using C++11’s
+random-class, which yields variations of the same screen-saver idea.</p>
+
+      	</section>	
+
+	
+	<div id="disqus_thread"></div>
+	<script>
+	  /*
+	  var disqus_config = function () {
+	  this.page.url = "/blog/scenic-screen-saver/";
+	  this.page.identifier = "/blog/scenic-screen-saver/";
+	  };
+	  */
+	  (function() { // DON'T EDIT BELOW THIS LINE
+	  var d = document, s = d.createElement('script');
+	  s.src = 'https://freddyox-github-io.disqus.com/embed.js';
+	  s.setAttribute('data-timestamp', +new Date());
+	  (d.head || d.body).appendChild(s);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
+	
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="/blog/" class="button">All Projects</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <!--<footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message" /></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>©
+    <script type="text/javascript">
+      document.write(new Date().getFullYear());
+    </script>
+    Richard F. Obrecht</ul>
+</div>
+--&gt;
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+  </body>
+</html>

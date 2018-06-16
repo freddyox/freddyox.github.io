@@ -1,4 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-05T15:19:22-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-06-16T13:25:50-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Scenic screen saver</title><link href="/blog/scenic-screen-saver/" rel="alternate" type="text/html" title="Scenic screen saver" /><published>2018-06-15T00:00:00-04:00</published><updated>2018-06-15T00:00:00-04:00</updated><id>/blog/scenic-screen-saver</id><content type="html" xml:base="/blog/scenic-screen-saver/">&lt;figure&gt;
+  &lt;img src=&quot;/images/scenery/scenery.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=lxAgjiuRBeQ&quot;&gt;A video may be seen here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;The original goal was to simulate a rope; however, once the rope/swing was made
+then the project unintentionally grew to something much larger.
+Since I had just created a random tree generator, I thought it would be
+fun to anchor the simulated rope on the branches. Even cooler, let’s move
+the rope according to some fictitious wind force which introduced the
+need for the Perlin noise generator. The project grew to include a simulated sunset/sunrise (which I have
+been wanting to do for quite some time now), lightening bugs, an owl, blades of grass,
+stars, and a moon to make the scenery more interesting.&lt;/p&gt;
+
+&lt;p&gt;Ropes may be simulated by connecting masses to springs, and then one or both ends of the rope-object may be
+anchored. When both sides are anchored and all masses are in the presence of gravity,
+the proper catenary curve is reproduced which is a
+canonical calculus of variations result (hyperbolic cosine). Implementing a rope simulation in C++ is
+well described by &lt;a href=&quot;http://nehe.gamedev.net/tutorial/rope_physics/17006/&quot;&gt;this site&lt;/a&gt;,
+and will not be described in detail here. In short, though, the idea is to build a Mass class
+where the position may be updated as&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;void Mass::simulate(float dt){
+  fVel.x += (fForce.x / fMass) * dt;
+  fVel.y += (fForce.y / fMass) * dt;
+  fPos.x += fVel.x * dt;
+  fPos.y += fVel.y * dt;
+}
+
+void Mass::applyForce(sf::Vector2f force){
+  fForce.x += force.x;
+  fForce.y += force.y;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;where dt is the intrinsic delta time in between frames (SFML provides sf::Clock
+and sf::Time classes for this purpose). Then, a Spring class is made where one
+spring is connected to two Mass-objects, and a spring force &lt;i&gt;-k(x-x’)&lt;/i&gt;
+is used to constrain/connect the two masses; in this case, &lt;i&gt;k&lt;/i&gt; is an
+adjustable parameter, &lt;i&gt;x&lt;/i&gt; is the distance between the two masses, and &lt;i&gt;x’&lt;/i&gt;
+is the length of the spring in absence of forces. This is where the Mass::applyForce(sf::Vector2f)
+comes in handy, which may also be used for gravity, air friction, or anything else that comes to mind
+to alter the behavior. A Rope-object is then built
+out of many Spring classes to realistically simulate the movement of a rope. 
+The rope is continuously perturbed by a
+&lt;a href=&quot;http://libnoise.sourceforge.net/&quot;&gt;Perlin coherent noise generator&lt;/a&gt;
+to simulate the effects of wind. Note that the anchor points need to be
+updated according to the perturbations of the fractal tree.&lt;/p&gt;
+
+&lt;p&gt;The generation of the sunset was computationally expensive, and I learned
+how to do it &lt;a href=&quot;http://www.scratchapixel.com/lessons/procedural-generation-virtual-worlds/simulating-sky/simulating-colors-of-the-sky&quot;&gt;here&lt;/a&gt;, which includes Mie and Rayleigh scattering
+models. The calculation needs to be performed for many angles (depending on the
+location of the sun relative to a viewer on Earth) in order to simulate
+a sunset/sunrise. I generated roughly 360 images, and the screen saver cycles through each
+image approximately every 0.5 seconds.&lt;/p&gt;
+
+&lt;p&gt;The remainder of the scenery, excluding the tire and
+&lt;a href=&quot;http://rosprites.blogspot.com/2012/05/classes-other.html&quot;&gt;owl sprites&lt;/a&gt;,
+were made completely with SFML vertex arrays. The random tree fractal generator is
+described in a previous post; the blades of grass use the
+same fundamental construction
+(built using a class that accepts 2 points for the bottom/top center points of a box,
+a width parameter, and a parameter to change the width ratio of the top relative to the bottom)
+in order to create the gradient effect. The alpha component of a blade is adjusted once the
+scenery is determined to be dark. The moon is actually 100 sf::CircleShapes
+where the alpha component is adjusted to give the glow effect. The bugs are
+black circles which randomly glow (the glow lasts for a time that is randomly determined
+by a Gaussian distribution); the glow becomes more frequent during the night time.
+The cricket noise was downloaded from
+&lt;a href=&quot;http://soundbible.com/tags-crickets.html&quot;&gt;here&lt;/a&gt;, and the volume increases
+at night. Just about the entire scenery (excluding the sprites and the sunset) are
+randomly generated and positioned, either using a flat or normal distribution using C++11’s
+random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, randomly generated fractal trees, a simulated sunset/sunrise, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -576,60 +649,4 @@ See the figure for some screen shots of the menus, game, and death.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;/images/slither/game_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-&lt;/figure&gt;</content><summary type="html">An interactive snake game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal</title><link href="/blog/tree-fractal/" rel="alternate" type="text/html" title="Tree Fractal" /><published>2016-05-08T00:00:00-04:00</published><updated>2016-05-08T00:00:00-04:00</updated><id>/blog/tree-fractal</id><content type="html" xml:base="/blog/tree-fractal/">&lt;figure&gt;
-  &lt;img src=&quot;/images/tree_fractal/fractal_tree_multi.jpg&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
-  and 60 (right) degrees.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2 id=&quot;generating-and-animating-the-fractal&quot;&gt;Generating and Animating the Fractal&lt;/h2&gt;
-&lt;p&gt;There are many ways to generate a simple tree fractal. A quick google search gives many variations
-and patterns, symmetric and asymmetric, as even small changes to the initial length and/or
-angle gives interesting results. I will only describe &lt;i&gt;my&lt;/i&gt; fractal as I am not a
-fractal expert; the goal for me was to generate a symmetric tree fractal,
-and then to tweak parameters (such as angle) and make an animation.&lt;/p&gt;
-
-&lt;p&gt;The fractal starts with a tree trunk of length &lt;i&gt;l&lt;/i&gt;, and think of
-the top of the trunk as a node where we will connect branches. Fractals
-are iterative objects, so in this case the trunk is referred to as level zero.
-Each time we increment the level, 2 branches will be connected to each node
-of the previous level resulting in 2&lt;sup&gt;&lt;i&gt;n&lt;/i&gt;&lt;/sup&gt; new branches where &lt;i&gt;n&lt;/i&gt;
-represents the level. A branch is just a line defined by two coordinates.
-The first level of the fractal, then, generates two branches,
-both assigned a length &lt;i&gt;al&lt;/i&gt; where &lt;i&gt;a&lt;/i&gt; is some fraction to be defined by the coder,
-with the trunk node as the starting coordinate; the end coordinate depends on the fractal generation
-angle. If I choose an angle of say 23 degrees as in Fig. 1, then the first level
-branches have end points that are plus/minus 23 degrees with respect to the vertical, or
-more generally the directional vector of the trunk (or branch of the previous level).
-Level two branches (there are 2&lt;sup&gt;2&lt;/sup&gt;=4)
-use level 1 nodes as input where the length is now &lt;i&gt;a&lt;sup&gt;2&lt;/sup&gt;l&lt;/i&gt;, and the end points
-are defined &lt;i&gt;relative&lt;/i&gt; to the level 1 branch directional vectors. The process
-is iterated to as many levels as one wants, but note that the length of level &lt;i&gt;n&lt;/i&gt;
-branches are reduced relative to the trunk by a factor of &lt;i&gt;a&lt;sup&gt;n&lt;/sup&gt;&lt;/i&gt;. For example,
-if we choose &lt;i&gt;a&lt;/i&gt;=0.7, then the length of level 7 branches is 0.7&lt;sup&gt;7&lt;/sup&gt;=0.08
-or 8% of the trunk's length which quickly becomes difficult to visualize.
-Additionally, the tree fractal naturally gives rise to a curling
-or rotational effect which yields often unexpected behavior, &lt;i&gt;e.g.&lt;/i&gt; the
-right panel of Fig. 1.&lt;/p&gt;
-
-&lt;p&gt;
-I used a value of &lt;i&gt;a&lt;/i&gt;=0.65 and &lt;i&gt;n&lt;/i&gt;=15, and incrementally changed the color of branches
-as the algorithm progresses to higher branch levels, hence the variations of green
-and the red/pink buds. Obviously a great deal of time could be invested tweaking
-various parameters and checking the result; the tweaking can be intensified by
-considering asymmetric parameters for left/right branch generation at any particular node.
-The algorithm can easily be extended to scan over a range of branch generation angles,
-say 0 to 360 degrees, and the output can be strung together to create a .gif using
-conventional linux facilities. The results of such a procedure may be seen by Fig. 2,
-and if the .gif does not work then see the video on my
-&lt;a href=&quot;https://youtu.be/7bijV3FGrBk&quot;&gt;youtube channel&lt;/a&gt;.
-Fractal analysis can be performed on the output, but I stopped here. See
-&lt;a href=&quot;https://www.youtube.com/watch?v=Ec8Q1q9cbbo&quot;&gt;this video&lt;/a&gt; for
-a spectacular demonstration of the variety of tree fractals.
-&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/tree_fractal/fractal2.gif&quot; alt=&quot;&quot; title=&quot;Tree fractal animation&quot; width=&quot;99%&quot; /&gt;
-&lt;figcaption&gt;Fig. 2 - Scanning over branch generation angles of 0 to 360 degrees in 1 degree
-increments, and stitching all the images together to create an animation.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generation and visualization of a Pythagoras tree</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">An interactive snake game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
