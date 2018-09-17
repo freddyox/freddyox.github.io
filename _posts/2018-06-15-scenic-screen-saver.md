@@ -2,7 +2,7 @@
 layout: post
 title:  "Scenic screen saver"
 date:   2018-06-15
-excerpt: "Includes simulated ropes, randomly generated fractal trees, a simulated sunset/sunrise,
+excerpt: "Includes simulated ropes, a sunset/sunrise model,
           and Perlin coherent noise"
 comments: true
 image: ""
