@@ -58,8 +58,8 @@ changefreq: weekly
 	    physics-inspired projects during my spare time, and eventually developed new passion.
 	    The purpose of this site is to organize all my <q>side-projects</q> for my own
 	    satisfaction, and for any one else that may find the projects interesting.
-	    The programming language of choice is typically C++ (not that it matters, but C++ is common
-	    in my field), and I make heavy use of the bare-bones multimedia library
+	    The programming language of choice is typically C++ (not always, but often),
+	    and I make heavy use of the bare-bones multimedia library
 	    <a href="https://www.sfml-dev.org/">SFML</a> in addition to
 	    CERN's scientific framework <a href="https://root.cern.ch/">ROOT</a>
 	    for statistical tools, <i>e.g.</i> plotting, fit functions, and probability
@@ -74,7 +74,7 @@ changefreq: weekly
 	<!-- Posts -->
 	
 	<section class="posts">
-          {% for post in site.posts limit:10 %}
+          {% for post in site.posts limit:20 %}
   	  <article>
   	    <header>
   	      <span class="date">{{ post.date | date_to_string }}</span>

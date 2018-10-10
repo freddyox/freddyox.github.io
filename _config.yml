@@ -52,6 +52,12 @@ gems:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-assets
+
+assets:
+  compress:
+    css:  sass
+    js:   uglifier
 
 paginate: 6
 paginate_path: "/blog/page:num/"

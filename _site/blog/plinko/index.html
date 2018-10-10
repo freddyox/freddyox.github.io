@@ -4,11 +4,11 @@
     html5up.net | @ajlkn
     Jekyll integration by somiibo.com
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-  --><html>
+  -->
+<html>
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
 <title>Plinko</title>
 <meta name="description" content="">
@@ -23,8 +23,8 @@
 <meta name="theme-color" content="#ffffff">
 
 <!-- CSS -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 <!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
 
@@ -59,8 +59,7 @@
       	    <p>Simulating the famous plinko game</p>
       	  </header>
       	  <div class="image main"><img src="" alt=""></div>
-      	  <p></p>
-<h2 id="objective">Objective</h2>
+      	  <p><h2 id="objective">Objective</h2>
 <p>Plinko is a popular game perhaps due to “The Price is Right”. A contestant
 gets up to 5 plinko chips (piece of plastic that resembles a hockey puck),
 each of which are worth up to $10,000.
@@ -75,7 +74,7 @@ how much money is awarded, if any at all, to the contestant. On the show, there 
 the big bucks are 1/9, but the odds are initial-condition dependent as we will see.</p>
 
 <figure>
-  <img src="/images/plinko/plinko_summary_scaled.png" alt="" style="height: 100%; width: 100%; object-fit: contain">
+  <img src="/images/plinko/plinko_summary_scaled.png" alt="" style="height: 100%; width: 100%; object-fit: contain" />
   <figcaption>Fig. 1 - Results of the plinko simulation for a varying number of attempts.
   From top to bottom and left to right, the number of simulations
   is 10<sup>2</sup>, 10<sup>3</sup>, 10<sup>4</sup>, 10<sup>5</sup>,
@@ -102,7 +101,7 @@ distribution to look like a Gaussian with a mean corresponding to the starting
 position and a standard deviation that depends on the lattice size or granularity
 of the board.</p>
 
-<p><span class="image left"><img src="/images/plinko/ssplinko_nsim_350.jpg" alt=""></span>
+<p><span class="image left"><img src="/images/plinko/ssplinko_nsim_350.jpg" alt="" /></span>
 The algorithm to generate a visualization of the plinko simulation uses techniques that I commonly use in my work.
 We need an easy way to track the path of a chip; therefore, I need coordinates of all decisions. This can
 be efficiently done by first creating a map, or table, that relates any given peg to its closest neighbors.
@@ -125,12 +124,12 @@ watch a guy hit the 10k bin 3 out of 5 times which is highly unlikely, see
 $31.5k!</p>
 
 <figure>
-  <img src="/images/plinko/plinko_results.png" alt="" height="99%" width="99%">
+  <img src="/images/plinko/plinko_results.png" alt="" height="99%" width="99%" />
   <figcaption>Fig. 2 - The plinko chip distribution for two simulations
   of 100 (left) and 10<sup>4</sup> (right) attempts. Dividing each bin by the total number
   of events yields a probability distribution.</figcaption>
 </figure>
-
+</p>
       	</section>	
 
 	
@@ -150,8 +149,7 @@ $31.5k!</p>
 	  })();
 	</script>
 	<noscript>Please enable JavaScript to view the
-	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	
 
 	<!-- Footer -->
@@ -196,13 +194,13 @@ $31.5k!</p>
 </footer>
 <!-- Copyright -->
 <div id="copyright">
-  <ul>©
+  <ul>&copy;
     <script type="text/javascript">
       document.write(new Date().getFullYear());
     </script>
     Richard F. Obrecht</ul>
 </div>
---&gt;
+-->
 
     </div>
 

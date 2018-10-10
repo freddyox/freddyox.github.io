@@ -4,11 +4,11 @@
     html5up.net | @ajlkn
     Jekyll integration by somiibo.com
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-  --><html>
+  -->
+<html>
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
 <title>Convex Hulls</title>
 <meta name="description" content="">
@@ -23,8 +23,8 @@
 <meta name="theme-color" content="#ffffff">
 
 <!-- CSS -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 <!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
 
@@ -59,9 +59,8 @@
       	    <p>An algorithm to find the perimeter of a data set, and includes convex polygon overlap detection</p>
       	  </header>
       	  <div class="image main"><img src="" alt=""></div>
-      	  <p></p>
-<h2 id="overview-of-algorithm">Overview of Algorithm</h2>
-<p><span class="image left"><img src="/images/convex/convex_for_span.png" alt=""></span>
+      	  <p><h2 id="overview-of-algorithm">Overview of Algorithm</h2>
+<p><span class="image left"><img src="/images/convex/convex_for_span.png" alt="" /></span>
 The idea is simple: find the minimum number of data points which represent the perimeter convex polygon
 about a data set. There are many variations of this algorithm and the applications can
 be critical; for example, an introductory machine learning problem is to construct
@@ -75,7 +74,6 @@ to construct two polygons, then the polygons may be tested for overlaps in order
 linear separability. Here are the major components of my convex hull algorithm,
 which at the core consists of calculating smallest angles between carefully chosen vectors
 (See Fig. 1 for an example in which the data are labeled):
-</p>
 <ol>
 <li> Generate a data set. I generated points based on a Gaussian distribution with a mean
      and sigma of 0.5 and 0.25, respectively, as I did not want to points to wander too far.</li>
@@ -102,9 +100,9 @@ which at the core consists of calculating smallest angles between carefully chos
      allows angles to be calculated by a simple dot product.</li>
 <li> Continue until we reach the starting point, hence the utility of the book-keeping device </li>     
 </ol>
-
+</p>
 <figure>
-  <img src="/images/convex/example.png" alt="" height="99%" width="99%">
+  <img src="/images/convex/example.png" alt="" height="99%" width="99%" />
   <figcaption>Fig 1. - An example of the algorithm in which the starting point is labeled as 8. Note
   that the numbers are simply a book-keeping device and should not be interpreted as anything more.
   The ordering of the next points are 1, 7, 2, 0, 3, and 8 (return to the starting point),
@@ -112,7 +110,7 @@ which at the core consists of calculating smallest angles between carefully chos
 </figure>
 <p> </p>
 <figure>
-  <img src="/images/convex/example_of_overlap2.png" alt="" height="99%" width="99%">
+  <img src="/images/convex/example_of_overlap2.png" alt="" height="99%" width="99%" />
   <figcaption>Fig 2. - An example of a situation in which the two data sets, differentiated by red squares and black triangles, are not linearly separable.
   The convex hull algorithm may be used to detect this behavior.</figcaption>
 </figure>
@@ -172,12 +170,12 @@ to check to see if a point of hull H<sub>blk</sub> exists within H<sub>red</sub>
 and vice versa.</p>
 <p> </p>
 <figure>
-  <img src="/images/convex/convex_overlap_detection.png" alt="" height="99%" width="99%">
+  <img src="/images/convex/convex_overlap_detection.png" alt="" height="99%" width="99%" />
   <figcaption>Fig 3 - An overview of the convex hull overlap detection algorithm, which
   is represented by the blue convex polygon.</figcaption>
 </figure>
 <p></p>
-
+</p>
       	</section>	
 
 	
@@ -197,8 +195,7 @@ and vice versa.</p>
 	  })();
 	</script>
 	<noscript>Please enable JavaScript to view the
-	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	
 
 	<!-- Footer -->
@@ -243,13 +240,13 @@ and vice versa.</p>
 </footer>
 <!-- Copyright -->
 <div id="copyright">
-  <ul>©
+  <ul>&copy;
     <script type="text/javascript">
       document.write(new Date().getFullYear());
     </script>
     Richard F. Obrecht</ul>
 </div>
---&gt;
+-->
 
     </div>
 

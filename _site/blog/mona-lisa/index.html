@@ -4,11 +4,11 @@
     html5up.net | @ajlkn
     Jekyll integration by somiibo.com
     Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-  --><html>
+  -->
+<html>
   <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
 <title>Mona Lisa from Triangles?</title>
 <meta name="description" content="">
@@ -23,8 +23,8 @@
 <meta name="theme-color" content="#ffffff">
 
 <!-- CSS -->
-<link rel="stylesheet" href="/assets/css/main.css">
-<noscript><link rel="stylesheet" href="/assets/css/noscript.css"></noscript>
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 <!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
 
@@ -59,28 +59,26 @@
       	    <p>A hill climbing method to mimic an input image with randomly generated triangles</p>
       	  </header>
       	  <div class="image main"><img src="/images/mona_lisa/mona_lisa.jpg" alt=""></div>
-      	  <p></p>
-<p><i>Disclaimer</i>: I got the idea from <a href="https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/">this blogging site</a>,
+      	  <p><p><i>Disclaimer</i>: I got the idea from <a href="https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/">this blogging site</a>,
 but the implementation/algorithms are mine. The blogger calls this a "genetic algorithm" but it's just a simple hill-climbing
-method defined by some χ<sup>2</sup>, a common technique in my work.
+method defined by some &chi;<sup>2</sup>, a common technique in my work.
 Additionally, I used the bare-bones <a href="https://www.sfml-dev.org/">SFML library</a> which required
 significant image processing and filtering methods to be developed; this has been done on purpose for my own education!
 While the results are pleasing, the algorithm is not practical (at least mine). An animation of the algorithm is located at the bottom.
 </p>
 
 <h2 id="concept">Concept</h2>
-<p><span class="image right"><img src="/images/mona_lisa/original.jpg" alt=""></span></p>
+<p><span class="image right"><img src="/images/mona_lisa/original.jpg" alt="" /></span></p>
 <p>The goal is to mimic or replicate an input image using polygons, or triangles in this case.
 The main components of the algorithm are as follows:
-</p>
 <ol>
 <li>Have an input image that we wish to copy, <i>e.g.</i> the Mona Lisa</li>
 <li>Randomly generate an initial set of <i>N</i> triangles, typically 50-500</li>
-<li>Define an appropriate χ<sup>2</sup> function, often referred to as a loss or fitness function, which
+<li>Define an appropriate &chi;<sup>2</sup> function, often referred to as a loss or fitness function, which
     will allow us to quantify the difference between the triangle image and the input image </li> 
 <li>Apply a <q>mutation</q>, <i>i.e.</i> randomly tweak a characteristic of the triangle like a vertex
     coordinate or an RGBA value</li>
-<li>Calculate the χ<sup>2</sup> between the mutated image and the input; if the function determines
+<li>Calculate the &chi;<sup>2</sup> between the mutated image and the input; if the function determines
     that the mutation is more similar to the input then accept the change. Otherwise, discard it, and apply another mutation</li>
 <li>Repeat until the loss function does not change significantly.</li>
 </ol>
@@ -102,19 +100,19 @@ it is easy for the code to get stuck in a local minima, but if it is too large t
 I used a flat random number generator for all parameters, and kept the coordinate mutations loose while keeping tight
 mutations on the color components. There is a lot of room for improvement in these choices, I think.</p>
 
-The χ<sup>2</sup> function is defined to be the square difference of R,G,B,A components for all pixels between the input
+The &chi;<sup>2</sup> function is defined to be the square difference of R,G,B,A components for all pixels between the input
 and mutated image, and is normalized by <i>(N pixels)*4*256*256</i> such that
-the loss function <i>L = 1-</i>χ<sup>2</sup> yields a number less than or equal to 1 where 1 is a perfect match.
+the loss function <i>L = 1-</i>&chi;<sup>2</sup> yields a number less than or equal to 1 where 1 is a perfect match.
 This can be computationally slow if you have large images as the code is simply brute force. The heart of the
 algorithm depends on this function as the newly mutated image gets compared to the input image via the loss function. If
 the loss function is calculated to be better than the previous triangle image, then the mutation is kept; otherwise,
 the code will discard the mutation and randomly try again.
 The mutation rate, <i>i.e.</i> the number of accepted mutations over the total number of mutation attempts,
-at first is acceptable but then quickly becomes linear resulting in a slow algorithm (still fun though).
+at first is acceptable but then quickly becomes linear resulting in a slow algorithm (still fun though).</p>
 
 <figure>
-  <img src="/images/mona_lisa/mutation_rate.png" alt="" height="99%" width="99%">
-  <figcaption>Fig. 1 - The normalized loss (L=1-χ<sup>2</sup>) as a function of mutation number.</figcaption>
+  <img src="/images/mona_lisa/mutation_rate.png" alt="" height="99%" width="99%" />
+  <figcaption>Fig. 1 - The normalized loss (L=1-&chi;<sup>2</sup>) as a function of mutation number.</figcaption>
 </figure>
 <p> </p>
 
@@ -135,11 +133,11 @@ convolution matrices or image masks (google kernel image processing).
 </p>
 
 <figure>
-  <img src="/images/mona_lisa/mona_lisa_rs.gif" alt="" height="30%" width="30%">
+  <img src="/images/mona_lisa/mona_lisa_rs.gif" alt="" height="30%" width="30%" />
   <figcaption>Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
   as I currently do not know how to control/pause the .gif.</figcaption>
 </figure>
-
+</p>
       	</section>	
 
 	
@@ -159,8 +157,7 @@ convolution matrices or image masks (google kernel image processing).
 	  })();
 	</script>
 	<noscript>Please enable JavaScript to view the
-	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-</noscript>
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 	
 
 	<!-- Footer -->
@@ -205,13 +202,13 @@ convolution matrices or image masks (google kernel image processing).
 </footer>
 <!-- Copyright -->
 <div id="copyright">
-  <ul>©
+  <ul>&copy;
     <script type="text/javascript">
       document.write(new Date().getFullYear());
     </script>
     Richard F. Obrecht</ul>
 </div>
---&gt;
+-->
 
     </div>
 
