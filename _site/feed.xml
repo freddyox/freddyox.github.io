@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T14:49:39-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T14:56:44-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
 code run on the site, and to gain more experience with tree structures. I had been playing
 around with binary trees and graphs, and wanted to implement a visual
 representation of a tree structure. The quadtree idea and implementation may be seen by many sources
@@ -30,7 +30,7 @@ Since I had just created a random tree generator, I thought it would be
 fun to anchor the simulated rope on the branches. Even cooler, let’s move
 the rope according to some fictitious wind force which introduced the
 need for the Perlin noise generator. The project grew to include a simulated sunset/sunrise (which I have
-been wanting to do for quite some time now), lightening bugs, an owl, blades of grass,
+been wanting to do for quite some time now), lightning bugs, an owl, blades of grass,
 stars, and a moon to make the scenery more interesting.&lt;/p&gt;
 
 &lt;p&gt;Ropes may be simulated by connecting masses to springs, and then one or both ends of the rope-object may be
@@ -278,7 +278,8 @@ the figures beyond for examples of the random generator with various options tur
   depends on the bin content in a log scale.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h1 id=&quot;barnsley-fern&quot;&gt;Barnsley Fern&lt;/h1&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;barnsley-fern&quot;&gt;Barnsley Fern&lt;/h2&gt;
 &lt;p&gt;The generation of ferns is surprisingly easy compared to other fractals that I’ve attempted;
 however, getting pretty color schemes was not obvious (at least for me).
 The fern idea is not mine, but a summary may be seen
@@ -507,7 +508,10 @@ and vice versa.&lt;/p&gt;
   &lt;figcaption&gt;Fig 3 - An overview of the convex hull overlap detection algorithm, which
   is represented by the blue convex polygon.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set, and includes convex polygon overlap detection</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;p&gt;I am not particularly interested in word searches, but for some reason
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set, and includes convex polygon overlap detection</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;The game may be seen &lt;a href=&quot;https://youtu.be/YexCgQyk7TE&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I am not particularly interested in word searches, but for some reason
 I found myself making a generator. The word search game is complete and user-interactive,
 and the entire project has been coded using the bare-bones tools of SFML which
 requires significant &lt;i&gt;behind-the-scenes&lt;/i&gt; routines.
@@ -534,7 +538,7 @@ and move on to another. There are many smarter approaches, I imagine, but this i
 I positioned many words in a grid.&lt;/li&gt;
 &lt;li&gt;Fill the in the empty spaces with randomly generated letters.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The game may be seen &lt;a href=&quot;https://youtu.be/YexCgQyk7TE&quot;&gt;here&lt;/a&gt;. A cheat button is achieved
+&lt;p&gt;A cheat button is achieved
 by simply toggling between two sprites (a checked/unchecked box). Mouse events are handled
 using&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;sf::Mouse::isButtonPressed(sf::Mouse::Left)
@@ -547,7 +551,7 @@ when the mouse moves, the cells turn red in vertical/horizontal/diagonal prefere
 which is achieved using simple vectors and angular cuts. When the mouse button is released,
 a method must be invoked to check if the highlighted region is in fact a word on the list. If
 it is, turn the blocks green, otherwise reset the blocks and cue the audio for failure.
-The words to find list has been sorted by string length, and a strike-out effect is achieved
+The words to find list are sorted by string length, and a strike-out effect is achieved
 by using vertex arrays. The audio clips are handled by SFML’s audio module which is
 simple to use for this task.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;

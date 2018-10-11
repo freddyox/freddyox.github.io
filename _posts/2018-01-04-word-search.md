@@ -9,6 +9,9 @@ cimage: "/images/word_search/word_search_thumbnail.png"
 categories: [games,SFML]
 ---
 
+## Overview
+The game may be seen <a href="https://youtu.be/YexCgQyk7TE">here</a>.
+
 I am not particularly interested in word searches, but for some reason
 I found myself making a generator. The word search game is complete and user-interactive,
 and the entire project has been coded using the bare-bones tools of SFML which
@@ -36,7 +39,7 @@ and move on to another. There are many smarter approaches, I imagine, but this i
 I positioned many words in a grid.</li>
 <li>Fill the in the empty spaces with randomly generated letters.</li>
 </ol>
-The game may be seen <a href="https://youtu.be/YexCgQyk7TE">here</a>. A cheat button is achieved
+A cheat button is achieved
 by simply toggling between two sprites (a checked/unchecked box). Mouse events are handled
 using
 <pre><code>sf::Mouse::isButtonPressed(sf::Mouse::Left)
@@ -49,7 +52,7 @@ when the mouse moves, the cells turn red in vertical/horizontal/diagonal prefere
 which is achieved using simple vectors and angular cuts. When the mouse button is released,
 a method must be invoked to check if the highlighted region is in fact a word on the list. If
 it is, turn the blocks green, otherwise reset the blocks and cue the audio for failure.
-The words to find list has been sorted by string length, and a strike-out effect is achieved
+The words to find list are sorted by string length, and a strike-out effect is achieved
 by using vertex arrays. The audio clips are handled by SFML's audio module which is
 simple to use for this task.
 <p></p>

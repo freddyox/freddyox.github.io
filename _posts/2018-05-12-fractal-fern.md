@@ -16,7 +16,8 @@ categories: [math,ROOT]
   depends on the bin content in a log scale.</figcaption>
 </figure>
 
-# Barnsley Fern
+<p></p>
+## Barnsley Fern
 The generation of ferns is surprisingly easy compared to other fractals that I've attempted;
 however, getting pretty color schemes was not obvious (at least for me).
 The fern idea is not mine, but a summary may be seen
