@@ -1,9 +1,8 @@
 ---
 layout: post
-title:  "Tree Fractal II"
+title:  "Random Tree Generator"
 date:   2018-05-20
-excerpt: "A significant upgrade to the previous tree fractal post including a
-          random tree generator"
+excerpt: "A significant upgrade to the previous tree fractal post"
 comments: true
 image: ""
 cimage: "/images/tree_fractal/tree_road_trip_tiny.png"

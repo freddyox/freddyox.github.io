@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T10:46:37-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T10:50:03-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
 code run on the site, and to gain more experience with tree structures. I had been playing
 around with binary trees and graphs, and wanted to implement a visual
 representation of a tree structure. The quadtree idea and implementation may be seen by many sources
@@ -88,7 +88,7 @@ The cricket noise was downloaded from
 &lt;a href=&quot;http://soundbible.com/tags-crickets.html&quot;&gt;here&lt;/a&gt;, and the volume increases
 at night. Just about the entire scenery (excluding the sprites and the sunset) are
 randomly generated and positioned, either using a flat or normal distribution using C++11’s
-random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, a sunset/sunrise model, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Tree Fractal II</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Tree Fractal II" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, a sunset/sunrise model, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Random Tree Generator</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Random Tree Generator" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -197,7 +197,7 @@ the figures beyond for examples of the random generator with various options tur
   &lt;img src=&quot;/images/tree_fractal/random_v6.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 5 - The original tree used in Fig. 1.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post including a random tree generator</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
   &lt;img src=&quot;/images/fern/mod_ferns.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Selected color schemes of a modified Barnsley fern. The
   fern is plotted in a two dimensional histogram, and the color gradient
@@ -632,7 +632,7 @@ area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
 &lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Square Art</title><link href="/blog/square-art/" rel="alternate" type="text/html" title="Square Art" /><published>2017-02-05T00:00:00-05:00</published><updated>2017-02-05T00:00:00-05:00</updated><id>/blog/square-art</id><content type="html" xml:base="/blog/square-art/">&lt;p&gt;Working on it..&lt;/p&gt;
 
 &lt;figure&gt;
-&lt;img src=&quot;/images/square_art/thumbnail_small.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/square_art/thumbnail_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
 &lt;figcaption&gt;
 Fig. 1 - 
 &lt;/figcaption&gt;

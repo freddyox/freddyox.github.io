@@ -12,7 +12,7 @@ categories: [ROOT,math]
 Working on it..
 
 <figure>
-<img src="{{ "/images/square_art/thumbnail_small.png" | absolute_url }}" alt="" />
+<img src="{{ "/images/square_art/thumbnail_small.png" | absolute_url }}" alt="" height="99%" width="99%">
 <figcaption>
 Fig. 1 - 
 </figcaption>
