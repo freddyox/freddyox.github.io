@@ -21,9 +21,9 @@ class Rectangle{
 
     intersects(range){
 	return !(range.x - range.w > this.x + this.w ||
-		 range.x + this.w  < this.x - this.w ||
+		 range.x + range.w < this.x - this.w ||
 		 range.y - range.h > this.y + this.h ||
-		 range.y + this.h  < this.y - this.h )
+		 range.y + range.h < this.y - this.h )
     }
     
 }
@@ -71,6 +71,27 @@ class QuadTree{
 	    else if( this.northwest.insert(point) ) return true;
 	}
     }
+
+    query(range, found){
+	if( !found ) found = [];
+	
+	if(!this.boundary.intersects(range)){
+	    return;
+	} else {
+	    for( let p in this.points ){
+		if( range.contains(p) ){
+		    found.push(p);
+		}
+	    }
+	    if( this.divided ){
+		this.northwest.query(range, found);
+		this.northeast.query(range, found);
+		this.southwest.query(range, found);
+		this.southeast.query(range, found);
+	    }
+	    return found;
+	}
+    }
     
     show() {
 	stroke(255);
@@ -110,6 +131,10 @@ class Ball{
 	if( this.y - radius < 0 )      this.vy *= -1;
 	if( this.y + radius > height ) this.vy *= -1;
     }
+    intersects(other){
+	let d = dist(this.x, this.y, other.x, other.y);
+	return (d<2*radius);
+    }
 }
 
 function setup() {
@@ -117,7 +142,6 @@ function setup() {
     frameRate(30);
     canvas = createCanvas(winx, winy);
     canvas.parent('mysketch');
-
     for(let p=0; p<Nballs; p++){
 	let btemp = new Ball(random(5,width-radius), random(5,height-radius),
 			     random(-50,50), random(-50,50) );
@@ -133,6 +157,17 @@ function draw(){
     for(let p=0; p<balls.length; p++){
 	//strokeWeight(2);
 	if(simulate) balls[p].move();
+	/*let range = new Rectangle(balls[p].x,balls[p].y,3*radius,3*radius);
+	let temp = qtree.query(range);
+	let neighbors = [];
+	for(let n of temp){
+	    let btemp = new Ball(temp[n].x, temp[n].y, radius, radius);
+	    neighbors[n] = btemp;
+	}	   
+	for(let n of neighbors){
+	    if( balls[n] != neighbors[n] &&
+		balls[n].intersects(neighbors[n]) ) balls[n].fill(255,0,0);
+	}*/
 	ellipse(balls[p].x,balls[p].y,radius,radius);
 	qtree.insert( new Point(balls[p].x,balls[p].y) );
     }
