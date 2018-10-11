@@ -13,7 +13,7 @@ categories: [math,ROOT]
   <figcaption>Fig. 1 - The fractal tree generated with branch angles of 23 (left panel)
   and 60 (right) degrees.</figcaption>
 </figure>
-
+<p></p>
 ## Generating and Animating the Fractal
 <p>There are many ways to generate a simple tree fractal. A quick google search gives many variations
 and patterns, symmetric and asymmetric, as even small changes to the initial length and/or
