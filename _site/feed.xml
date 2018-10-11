@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T14:22:43-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T14:23:32-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
 code run on the site, and to gain more experience with tree structures. I had been playing
 around with binary trees and graphs, and wanted to implement a visual
 representation of a tree structure. The quadtree idea and implementation may be seen by many sources
@@ -88,76 +88,7 @@ The cricket noise was downloaded from
 &lt;a href=&quot;http://soundbible.com/tags-crickets.html&quot;&gt;here&lt;/a&gt;, and the volume increases
 at night. Just about the entire scenery (excluding the sprites and the sunset) are
 randomly generated and positioned, either using a flat or normal distribution using C++11’s
-random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, a sunset/sunrise model, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Perceptron</title><link href="/blog/perceptron.md/" rel="alternate" type="text/html" title="Perceptron" /><published>2018-06-01T00:00:00-04:00</published><updated>2018-06-01T00:00:00-04:00</updated><id>/blog/perceptron.md</id><content type="html" xml:base="/blog/perceptron.md/">&lt;figure&gt;
-  &lt;img src=&quot;/images/perceptron/perceptron_top.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot;&gt;
-    &lt;figcaption&gt;Fig. 1 - Linearly separable data and the result of the perceptron
-    algorithm in which the weights are determined using &lt;i&gt;K&lt;/i&gt;-fold cross validation and averaging.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;
-The perceptron is a simple model for supervised learning of binary classifiers.
-The algorithm makes use of
-ROOT, which has vector and matrix classes for convenience.
-I generated two sets of pseudo-training data,
-which are normally distributed of varying means and sigmas, that are classified
-as blue circle = -1 and red triangle = +1. One may think of a system that needs to classify
-a coin based on radius and mass for example.
-The classification function is
-$$S = \boldsymbol{w} \cdot \boldsymbol{x} + b$$, where $$\boldsymbol{w}$$
-are the weights to be learned and are initially assigned random values,
-$$\boldsymbol{x}$$ are the features (mass and radius in this case), and $$b$$ is a
-threshold or bias constant. A common practice is to absorb $$b$$ into the zeroth
-component of $$\boldsymbol{w}$$ and to set the zeroth component of $$\boldsymbol{x}$$
-to 1, which results in a vector $$\boldsymbol{w}$$ of size 3. Therefore, $$\boldsymbol{w} \cdot \boldsymbol{x}$$
-is simply a vector dot-product.
-If $$S&gt;0$$ ($$S&lt;0$$) and the data point in question is a red triangle (blue circle),
-then the weight vector $$\boldsymbol{w}$$ has done a successful classification.
-On the other hand, if $$S&gt;0$$ ($$S&lt;0$$) and the data point in question
-is a blue circle (red triangle), then the weights (which determine the slope and intercept
-of the linear classification function) need to be updated. The update rule is:
-$$\boldsymbol{w}(t+1) = \boldsymbol{w}(t) + \eta * h(t) * \boldsymbol{x}(t)$$,
-where $$\eta$$ is a learning-rate constant chosen to be 0.05, $$t$$ is the iteration number,
-$$h$$ is the correct classification of the point in question (either +1 or -1),
-and $$\boldsymbol{x}$$ represents the features. In other words, incorrect classifications
-wiggle the linear decision boundary to a position where data are correctly classified,
-&lt;i&gt;i.e.&lt;/i&gt; data of one type falls on one side of the line, and the remaining data
-falls on the other side.
-
- &lt;figure&gt;
-  &lt;img src=&quot;/images/perceptron/updating_w.png&quot; alt=&quot;&quot; height=&quot;75%&quot; width=&quot;75%&quot;&gt;
-    &lt;figcaption&gt;Fig. 2 - The weight parameters are updated until a decision boundary has been found,
-                which may be seen by the black line. Note that many lines may be found, but this line
-		satisfies the naive algorithm's requirements. See &lt;i&gt;K&lt;/i&gt;-folds below.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;
-Assuming that the data is linearly separable, then the algorithm needs to examine the
-full dataset many times. For each iteration, a for-loop
-through the full dataset is implemented in which $$S$$ is calculated for each
-data point. If a data point is incorrectly classified, then update $$\boldsymbol{w}$$.
-If the for-loop scans through all data &lt;i&gt;and&lt;/i&gt; no updates to $$\boldsymbol{w}$$
-are performed, then successfully exit. A linear line may then be constructed with a
-slope of $$-w_{1}/w_{2}$$ and an intercept of $$-w_{0}/w_{2}$$, which are the components
-of the $$\boldsymbol{w}$$ vector. See Fig. 2 for an example of the updating, and
-note that the algorithm simply stops once a correct classification has been reached.
-
-In order to improve upon the previous approach, the training data may be sub-divided
-many times in order to calculate $$\boldsymbol{w}$$ repeatedly for slightly different
-datasets. For this example, one data point is removed the from the training
-dataset, and the algorithm is implemented using the $$N-1$$ data points;
-this procedure is repeated until every data point has been removed (while retaining the
-$$N-1$$ size, so put back the previously removed point), and the average $$\boldsymbol{w}$$
-is taken as the final decision boundary. This approach is sometimes referred to as
-$$K$$-fold cross validation; see Fig. 3 where the left panel displays
-the training (bold line is the result of the K-fold averaging approach). The
-right panel shows how well the classifier does with unseen data, which in this
-case an efficiency of greater than 99% is observed.
- &lt;figure&gt;
-  &lt;img src=&quot;/images/perceptron/example_new.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot;&gt;
-    &lt;figcaption&gt;Fig. 3 - Training (left panel) and a prediction (right). The naive and &lt;i&gt;K&lt;/i&gt;-folds
-    averaging approach are compared in the training phase of the algorithm.
-    &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A simple linear classification algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Perceptron</title><link href="/blog/perceptron/" rel="alternate" type="text/html" title="Perceptron" /><published>2018-06-01T00:00:00-04:00</published><updated>2018-06-01T00:00:00-04:00</updated><id>/blog/perceptron</id><content type="html" xml:base="/blog/perceptron/">&lt;figure&gt;
+random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, a sunset/sunrise model, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Perceptron</title><link href="/blog/perceptron/" rel="alternate" type="text/html" title="Perceptron" /><published>2018-06-01T00:00:00-04:00</published><updated>2018-06-01T00:00:00-04:00</updated><id>/blog/perceptron</id><content type="html" xml:base="/blog/perceptron/">&lt;figure&gt;
   &lt;img src=&quot;/images/perceptron/perceptron_top.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
     &lt;figcaption&gt;Fig. 1 - Linearly separable data and the result of the perceptron
     algorithm in which the weights are determined using &lt;i&gt;K&lt;/i&gt;-fold cross validation and averaging.
@@ -732,4 +663,44 @@ and arm-lengths.
 &lt;figcaption&gt;
 Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/koch_snowflake/idea.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;
+I worked on this project immediately after the tree fractal. Admittedly, the geometry is more
+difficult but the fractal generation concept is the same; find a base operation, and apply
+it iteratively. The fractal begins by defining an
+equilateral triangle, and let's refer to this as iteration 0. Iteration 1 is
+formed by taking each line segment making up the base triangle, splitting it into thirds,
+removing the center segment, and then building a smaller equilateral (with one side missing)
+with two additional line segments. The result is a star.
+Therefore, the base operation of the fractal consists of accepting one line segment
+and returning four in the proper orientation. Repeat the iteration process until satisfied, but
+practically only the first 6 iterations or so make noticeable changes without magnification.
+An animation of my Koch snowflake may be seen by Fig. 2. The area of the fractal
+quickly converges, but the perimeter tends towards infinity; see Fig. 3 for my results.
+Note that the number of line segments to consider grows rapidly: &lt;i&gt;3*4&lt;sup&gt;n&lt;/sup&gt;&lt;/i&gt;
+where &lt;i&gt;n&lt;/i&gt; is the iteration number. Therefore, the animation displays the first
+10 iterations resulting in a fractal with &lt;i&gt;3.14*10&lt;sup&gt;6&lt;/sup&gt;&lt;/i&gt; line segments.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;
+&lt;figcaption&gt;Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
+the area of the fractal converges rapidly, the perimeter tends towards infinity, see
+Fig. 3.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
+&lt;figcaption&gt;Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
+animation). The area converges quickly while the perimeter diverges towards infinity.
+The convergence of the fractal area is suppose to be 8/5 times the original
+area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
