@@ -117,26 +117,20 @@ at first is acceptable but then quickly becomes linear resulting in a slow algor
 <p> </p>
 
 <h2 id="results">Results</h2>
+<p><span class="image left"><img src="/images/mona_lisa/mona_lisa_rs.gif" alt="" height="20%" width="20%" /></span></p>
 <p>In order to make convergence faster, I gridded up the input image and found the average color of each grid.
 I generated 300 triangles with randomly placed vertices and calculated the vertex coordinate average which dictates
 the triangle's initial color based off the average grid colors.
 I let the code do 1e6 mutation attempts (as opposed to successes)
 in which only 23,721 mutations were accepted, which is a mutation rate of 2.4% if I assume linearity.
 The best loss is L=0.9966, and it remained this way for quite some time as the slope is so small (see Fig. 1 at large mutations).
-The quality of the image does converge, meaning that more computational time is most likely futile. The results
-of this project may be seen by the animation in Fig. 2.
+The quality of the image does converge, meaning that more computational time is most likely futile.
 The results may be greatly improved by considering polygons (I've seen ellipses too), but the number of parameters
-to tweak is now <i>N*V*6</i> where <i>V</i> is the number of vertices..
+to tweak is now <i>N*V*6</i> where <i>V</i> is the number of vertices.
 Also, the use of triangles leads to sharp edges in the output image. This can be smoothed out by developing
 filtering techniques, <i>e.g.</i> a Gaussian blur, and I spent a great deal of time learning how to apply
-convolution matrices or image masks (google kernel image processing). 
+convolution matrices or image masks (google 'kernel image processing') from scratch. 
 </p>
-
-<figure>
-  <img src="/images/mona_lisa/mona_lisa_rs.gif" alt="" height="30%" width="30%" />
-  <figcaption>Fig. 2 - An animation of mutation attempts and successes. The page might need to be reloaded
-  as I currently do not know how to control/pause the .gif.</figcaption>
-</figure>
 </p>
       	</section>	
 

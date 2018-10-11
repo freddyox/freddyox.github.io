@@ -10,6 +10,7 @@ categories: [simulation,SFML]
 ---
 
 ## Overview
+A small video displaying the simulation may be seen <a href="https://youtu.be/CuhPbDQs3eY">here</a>.
 
 <span class="image left">
 <img src="/images/double_pend/double_pend_long.png" alt="" width="99%" height="99%"/>
@@ -30,8 +31,7 @@ needed to keep track of the evolution of the angles/angular velocities given som
 condition. A simple tracer routine has been added to follow the position of the masses,
 and the alpha component decays as a function of position within the tracer C++ vector (I limit
 the number of traces to roughly 200-300 to avoid messy patterns).
-A small video displaying the simulation output may be seen 
-<a href="https://youtu.be/CuhPbDQs3eY">here</a>. Note that with very little
+ Note that with very little
 effort, the double pendulum simulation may be used as a spirograph generator. In this
 case, the RK4 method (and equations of motion) is discarded and one simply chooses angular velocities
 and arm-lengths.
