@@ -143,3 +143,6 @@ document.querySelector("button").addEventListener("click", function () {
     simulate = !simulate;
 })
 						  
+function windowResized(){
+    resizeCanvas();
+}

@@ -62,7 +62,20 @@
 	    </div>
 	    <script src="/assets/js/quadtree.js"></script>
 	  </div>
-      	  <p>
+      	  <p><p>The quadtree post serves two purposes: to learn JavaScript in order to make interactive
+code run on the site, and to gain more experience with tree structures. I had been playing
+around with binary trees and graphs, and wanted to implement a visual
+representation of a tree structure. The quadtree idea and implementation may be seen by many sources
+(Wiki has decent pseudocode). In complete analogy to a binary tree, a quadtree
+may be recursively built but now 4 children nodes are possible.
+Of importance to me, though, is that the structure allows for a rapid search or query
+of neighboring balls, which is useful in the context of 2D collisions for example.
+The naive algorithm to search for nearest neighbors is <i>O(N<sup>2</sup>)</i>,
+<i>i.e.</i> for each ball, one must check the position of every other ball which is a
+double for-loop algorithm (with some minor optimizations that are possible). The
+quadtree may be used in order to return a sub-list of balls that are in the vicinity
+of the ball in question; the result may then be used for collision detection, which
+is a significant improvement relative to the naive approach for many balls.</p>
 </p>
       	</section>	
 
