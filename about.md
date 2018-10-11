@@ -8,10 +8,10 @@ sitemap:
     changefreq: weekly
 ---
 ## Overview
-I am currently a nuclear/particle physics Ph.D. student expecting to graduate over the summer of 2018.
-While I am a student at U.Conn., I am stationed at <a href="https://www.jlab.org/">Jefferson Laboratory</a> in Newport News, VA.
-<p>Thesis: <i>Electric form factor ratio of the neutron at Q<sup>2</sup>=1.16 GeV<sup>2</sup>
-from asymmetry measurements</i></p>
+I am currently a nuclear/particle physics Ph.D. student expecting to graduate in 2018.
+While I am a student at U.Conn., I am stationed at
+<a href="https://www.jlab.org/">Jefferson Laboratory</a> in Newport News, VA.
+<p>Thesis: <i>Electric form factor ratio of the neutron from asymmetry measurements</i></p>
 
 ## Ph.D. Research Interests
 <span class="image right"><img src="{{ "/images/ECal_crookedview_white.png" | absolute_url }}" alt="" /></span>
@@ -32,10 +32,11 @@ the prediction of fundamental properties from first principles;
 <i>this represents a central problem in nuclear physics</i>. The theoretical difficulty with 
 the nucleon requires intensive experimentation, which is steadily
 increasing our knowledge of hadron structure and the strong interaction.
-My research interests revolve around utilizing fundamental scattering
+My Ph.D. revolves around utilizing fundamental scattering
 interactions to probe the nucleon structure in order to
 contribute towards a complete understanding of the nucleon.</p>
 
+## Misc. Photos
  <figure>
   <img src="/images/rich.JPG" alt="" height="100%" width="100%">
   <figcaption>Fig. 1 - A Ring Imaging CHerenkov (RICH) detector used for particle
