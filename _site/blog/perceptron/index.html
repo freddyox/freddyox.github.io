@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<title>Perceptron</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/assets/icon/manifest.json">
+<link rel="mask-icon" href="/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">Projects and Research Interests</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="/">Home</a></li>
+  <li class=""><a href="/about/">About</a></li>
+  <li class=" active "><a href="/blog/">All Projects</a></li>
+  <li class=""><a href="/categories/">Categories</a></li>
+  <li class=""><a href="/elements/">Useful References</a></li>
+</ul>
+
+      </nav>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">01 Jun 2018</span>
+      	    <h1>Perceptron</h1>
+      	    <p>A simple linear classification algorithm</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p><figure>
+  <img src="/images/perceptron/perceptron_top.png" alt="" height="99%" width="99%" />
+    <figcaption>Fig. 1 - Linearly separable data and the result of the perceptron
+    algorithm in which the weights are determined using <i>K</i>-fold cross validation and averaging.
+    </figcaption>
+</figure>
+<p></p>
+<p>The perceptron is a simple model for supervised learning of binary classifiers.
+The algorithm makes use of
+ROOT, which has vector and matrix classes for convenience.
+I generated two sets of pseudo-training data,
+which are normally distributed of varying means and sigmas, that are classified
+as blue circle = -1 and red triangle = +1, see Figure 1.
+One may think of a system that needs to classify a coin based on radius and mass for example.
+The classification function is
+<script type="math/tex">S = \boldsymbol{w} \cdot \boldsymbol{x} + b</script>, where <script type="math/tex">\boldsymbol{w}</script>
+are the weights to be learned and are initially assigned random values,
+<script type="math/tex">\boldsymbol{x}</script> are the features (mass and radius in this case), and <script type="math/tex">b</script> is a
+threshold or bias constant. A common practice is to absorb <script type="math/tex">b</script> into the zeroth
+component of <script type="math/tex">\boldsymbol{w}</script> and to set the zeroth component of <script type="math/tex">\boldsymbol{x}</script>
+to 1, which results in a vector <script type="math/tex">\boldsymbol{w}</script> of size 3.
+Therefore, <script type="math/tex">\boldsymbol{w} \cdot \boldsymbol{x}</script>
+is simply a vector dot-product.
+If <script type="math/tex">S>0</script> (<script type="math/tex">% <![CDATA[
+S<0 %]]></script>) and the data point in question is a red triangle (blue circle),
+then the weight vector <script type="math/tex">\boldsymbol{w}</script> has done a successful classification.
+On the other hand, if <script type="math/tex">S>0</script> (<script type="math/tex">% <![CDATA[
+S<0 %]]></script>) and the data point in question
+is a blue circle (red triangle), then the weights (which determine the slope and intercept
+of the linear classification function) need to be updated. The update rule is:
+<script type="math/tex">\boldsymbol{w}(t+1) = \boldsymbol{w}(t) + \eta * h(t) * \boldsymbol{x}(t)</script>,
+where <script type="math/tex">\eta</script> is a learning-rate constant chosen to be 0.05, <script type="math/tex">t</script> is the iteration number,
+<script type="math/tex">h</script> is the correct classification of the point in question (either +1 or -1),
+and <script type="math/tex">\boldsymbol{x}</script> represents the features. In other words, incorrect classifications
+wiggle the linear decision boundary to a position where data are correctly classified,
+<i>i.e.</i> data of one type falls on one side of the line, and the remaining data
+falls on the other side.</p>
+
+<figure>
+  <img src="/images/perceptron/updating_w.png" alt="" height="75%" width="75%" />
+    <figcaption>Fig. 2 - The weight parameters are updated until a decision boundary has been found,
+                which may be seen by the black line. Note that many decision boundaries exist,
+		see <i>K</i>-folds below for a more sophisticated approach.
+    </figcaption>
+</figure>
+<p></p>
+<p>Assuming that the data is linearly separable, then the algorithm needs to examine the
+full data set many times. For each iteration, a for-loop
+through the full data set is implemented in which <script type="math/tex">S</script> is calculated for each
+data point. If a data point is incorrectly classified, then update <script type="math/tex">\boldsymbol{w}</script>.
+If the for-loop scans through all data <i>and</i> no updates to <script type="math/tex">\boldsymbol{w}</script>
+are performed, then successfully exit. A linear line may then be constructed with a
+slope of <script type="math/tex">-w_{1}/w_{2}</script> and an intercept of <script type="math/tex">-w_{0}/w_{2}</script>, which are the components
+of the <script type="math/tex">\boldsymbol{w}</script> vector. See Fig. 2 for an example of the updating, and
+note that the algorithm simply stops once a correct classification of the training data
+has been reached.</p>
+
+<p>In order to improve upon the previous approach, the training data may be sub-divided
+many times in order to calculate <script type="math/tex">\boldsymbol{w}</script> repeatedly for slightly different
+data sets and initial conditions.
+For this example, one data point is removed the from the training
+data set, and the algorithm is implemented using the <script type="math/tex">N-1</script> data points;
+this procedure is repeated until every data point has been removed (while retaining the
+<script type="math/tex">N-1</script> size, so put back the previously removed point), and the average <script type="math/tex">\boldsymbol{w}</script>
+is taken as the final decision boundary. This approach is sometimes referred to as
+<script type="math/tex">K</script>-fold cross validation; see Fig. 3 where the left panel displays
+the training (bold line is the result of the <script type="math/tex">K</script>-fold averaging approach). The
+right panel shows how well the classifier does with unseen data, which in this
+case an efficiency of greater than 99% is observed.</p>
+<figure>
+  <img src="/images/perceptron/example_new.png" alt="" height="99%" width="99%" />
+    <figcaption>Fig. 3 - Training (left panel) and a prediction (right). The naive and <i>K</i>-folds
+    averaging approach are compared in the training phase of the algorithm.
+    </figcaption>
+</figure>
+</p>
+      	</section>	
+
+	
+	<div id="disqus_thread"></div>
+	<script>
+	  /*
+	  var disqus_config = function () {
+	  this.page.url = "/blog/perceptron/";
+	  this.page.identifier = "/blog/perceptron/";
+	  };
+	  */
+	  (function() { // DON'T EDIT BELOW THIS LINE
+	  var d = document, s = d.createElement('script');
+	  s.src = 'https://freddyox-github-io.disqus.com/embed.js';
+	  s.setAttribute('data-timestamp', +new Date());
+	  (d.head || d.body).appendChild(s);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="/blog/" class="button">All Projects</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <!--<footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message" /></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>&copy;
+    <script type="text/javascript">
+      document.write(new Date().getFullYear());
+    </script>
+    Richard F. Obrecht</ul>
+</div>
+-->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+  </body>
+</html>
