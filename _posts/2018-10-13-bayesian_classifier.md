@@ -126,12 +126,12 @@ figure and table below.
 |  1    | A     | 0.9754        | 0.2188   | 0.2227        |  95.813   |
 |  1    | B     | 0.0298        | 0.3125   | 0.2227        |   4.181   |
 |  1    | C     | 0.0000        | 0.4688   | 0.2227        |   0.006   |
-|  2    | A     | 0.0000        | 0.2188   | 0.2227        |   0.000   |
-|  2    | B     | 0.1621        | 0.3125   | 0.2227        | 100.000   |
-|  2    | C     | 0.0000        | 0.4688   | 0.2227        |   0.000   |
-|  3    | A     | 0.2168        | 0.2188   | 0.2227        |  65.394   |
-|  3    | B     | 0.0564        | 0.3125   | 0.2227        |  24.309   |
-|  3    | C     | 0.0159        | 0.4688   | 0.2227        |  10.297   |
+|  2    | A     | 0.0000        | 0.2188   | 0.0507        |   0.000   |
+|  2    | B     | 0.1621        | 0.3125   | 0.0507        | 100.000   |
+|  2    | C     | 0.0000        | 0.4688   | 0.0507        |   0.000   |
+|  3    | A     | 0.2168        | 0.2188   | 0.0724        |  65.394   |
+|  3    | B     | 0.0564        | 0.3125   | 0.0724        |  24.309   |
+|  3    | C     | 0.0159        | 0.4688   | 0.0724        |  10.297   |
 
 Recall that the priors are calculated as the fraction of training objects in
 the class to the total number of training objects; therefore, since each class
@@ -153,5 +153,7 @@ when Class C is a maximum.
   <img src="/images/bayes_classifier/which_class_is_max.png" alt="" height="99%" width="99%">
     <figcaption>Fig. 2 - Summarizing the classification within the feature space, where
     light blue means that the Class A posterior is a maximum, tan is Class B, and dark red
-    is Class C. The binning in both directions is 1/100.</figcaption>
+    is Class C. The binning in both directions is 1/100. Note that this depends
+    on the training data, which is randomly generated, and does not reflect the exact
+    nature of the above plots (but it is close).</figcaption>
 </figure>
