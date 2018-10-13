@@ -1,4 +1,217 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-11T15:12:01-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-13T13:31:32-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Naive Bayes Classifier</title><link href="/blog/bayesian_classifier/" rel="alternate" type="text/html" title="Naive Bayes Classifier" /><published>2018-10-13T00:00:00-04:00</published><updated>2018-10-13T00:00:00-04:00</updated><id>/blog/bayesian_classifier</id><content type="html" xml:base="/blog/bayesian_classifier/">&lt;figure&gt;
+  &lt;img src=&quot;/images/bayes_classifier/bayesian_example.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 1 - There are three data sets labeled A, B, and C. The goal
+  is to understand the class distributions such that when new unlabeled data are presented
+  (red circles labeled 1-3), a class may be assigned based by probability.
+  In this example, the new data point labeled as 1 has an 84% chance
+  of belonging to Class A and only a 14% chance of belonging to Class C; therefore, this
+  point would be assigned as a member of Class A.
+  The procedure is described in more detail below.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;overview-of-the-problem&quot;&gt;Overview of the problem&lt;/h2&gt;
+&lt;p&gt;This topic is thoroughly discussed elsewhere; however, for completeness I’d like to
+simply state the problem, then to explore the Bayes classifier approach.
+Suppose we have &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; training objects, which are described by &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;-dimensional
+features &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{x}_1&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\dots&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{x}_N&lt;/script&gt;. Each object has a
+class label &lt;script type=&quot;math/tex&quot;&gt;C_k&lt;/script&gt;, &lt;i&gt;e.g.&lt;/i&gt; Fig. 1 displays three classes A, B, and C for
+a total of three possible outcomes.
+Our goal, then, is to compute predictive probabilities that an unseen object
+&lt;script type=&quot;math/tex&quot;&gt;x_{\textrm{new}}&lt;/script&gt; belongs to a particular class &lt;script type=&quot;math/tex&quot;&gt;C_k&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the language of Bayesian probability, we are interested in calculating the posterior
+for each of the possible &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; classes, which will then guide the decision-making
+process by accepting the class with the largest probability. The posterior, or
+the probability that an unseen data point belongs to class &lt;script type=&quot;math/tex&quot;&gt;C_k&lt;/script&gt;, is defined as&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(C_k | \boldsymbol{x}) = \frac{p(\boldsymbol{x}|C_k) p(C_k)}{p(\boldsymbol{x})}
+               = \frac{ \textrm{likelihood} \times \textrm{prior} }{ \textrm{marginal} }.&lt;/script&gt;
+
+&lt;p&gt;In order to compute the posteriors, functional forms for the likelihoods, the priors, and
+the marginal (or evidence) are required.
+Class-sized priors are used in this example, &lt;i&gt;i.e.&lt;/i&gt; &lt;script type=&quot;math/tex&quot;&gt;p(C_k) = N_k / N&lt;/script&gt; where
+&lt;script type=&quot;math/tex&quot;&gt;N_k&lt;/script&gt; is the number of training objects in class &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; is the total
+number of training objects. Gaussian class-conditionals are used for the likelihood functions
+for each class. More plainly, the data for class &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; may be analyzed in order to extract
+the mean and covariance matrix, denoted as &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu}_k&lt;/script&gt; and
+&lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\Sigma}_k&lt;/script&gt;, which may be inserted into a multivariate Gaussian to calculate
+probabilities. The maximum likelihood estimates are&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\begin{align}
+\boldsymbol{\mu}_k   &amp;= \frac{1}{N_k} \sum_{n=1}^{N_k} \boldsymbol{x}_n \\
+\boldsymbol{\Sigma}_k &amp;= \frac{1}{N_k} \sum_{n=1}^{N_k} \left( \boldsymbol{x}_n - \boldsymbol{\mu}_k \right) \left( \boldsymbol{x}_n - \boldsymbol{\mu}_k \right)^{\textrm{T}},
+\end{align} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where the superscript T represents vector-transpose. For example, if one where to examine
+class A in Fig. 1, the means in the &lt;script type=&quot;math/tex&quot;&gt;x_1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;x_2&lt;/script&gt; directions need to be computed
+in addition to the covariance matrix (which gives the variances in both features as well
+as the correlation, if any). For each class, the multivariate Gaussian probability may be calculated
+as (generalized to &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;-dimensions)&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p(\boldsymbol{x}) = \frac{1}{ (2\pi)^{D/2} |\boldsymbol{\Sigma}|^{1/2}}
+                    \exp{\left[-\frac{1}{2}\left( \boldsymbol{x}-\boldsymbol{\mu}\right)^{\textrm{T}} \boldsymbol{\Sigma}^{-1} \left(  \boldsymbol{x}-\boldsymbol{\mu} \right)\right]},&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;|\boldsymbol{\Sigma}|&lt;/script&gt; is the determinant and &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\Sigma}^{-1}&lt;/script&gt; is the inverse
+of the &lt;script type=&quot;math/tex&quot;&gt;D \times D&lt;/script&gt; covariance matrix. For example in Fig. 1,
+&lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\Sigma}&lt;/script&gt; is a &lt;script type=&quot;math/tex&quot;&gt;2\times2&lt;/script&gt; symmetric matrix where only three parameters
+need to be determined (the off-diagonals are equal), and &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu}&lt;/script&gt; is a two-dimensional
+vector; therefore, the argument of the exponential is simply a number and easily calculable.
+Lastly, the marginal probability is a weighted sum (over all classes)
+of the above probabilities and acts as a normalization term, &lt;i&gt;i.e.&lt;/i&gt; the sum over all classes
+of the likelihood&lt;script type=&quot;math/tex&quot;&gt;\times&lt;/script&gt;prior.
+This will explicitly be shown below.&lt;/p&gt;
+
+&lt;h2 id=&quot;generating-pseudo-training-data&quot;&gt;Generating pseudo-training data&lt;/h2&gt;
+&lt;p&gt;We will work with only two features, denoted by &lt;script type=&quot;math/tex&quot;&gt;x_1&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;x_2&lt;/script&gt;, for visualization
+reasons. The first order of business is generating data that may be fit or described by
+arbitrarily oriented two-dimensional Gaussians, which requires the ability to generate
+correlated data. Assuming we can randomly sample from a one-dimensional Gaussian
+of a defined mean and variance, or &lt;script type=&quot;math/tex&quot;&gt;\mathcal{N}(\mu,\sigma^2)&lt;/script&gt;, we can generate
+normally independent values for both features, denoted as &lt;script type=&quot;math/tex&quot;&gt;z_{x_1}&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;z_{x_2}&lt;/script&gt;.
+In order to add a correlation &lt;script type=&quot;math/tex&quot;&gt;\rho&lt;/script&gt;, the sampled values become&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;x_1 = z_{x_1} \hspace{1cm} \mathrm{and} \hspace{1cm} x_2=\rho z_{x_1} + \sqrt{1-\rho^2} z_{x_2}.&lt;/script&gt;
+
+&lt;p&gt;If &lt;script type=&quot;math/tex&quot;&gt;\rho=0,1&lt;/script&gt; then there is no correlation; positive (negative) &lt;script type=&quot;math/tex&quot;&gt;\rho&lt;/script&gt; results in
+positive (negative) slopes in the distribution. In Fig. 1, Class A uses &lt;script type=&quot;math/tex&quot;&gt;\rho=0.25&lt;/script&gt; and
+Class C uses &lt;script type=&quot;math/tex&quot;&gt;\rho=-0.5&lt;/script&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;classification&quot;&gt;Classification&lt;/h2&gt;
+&lt;p&gt;The training data, which may be seen by the blue triangles, black crosses, and green diamonds
+in Fig. 1, need to be analyzed in order to extract the mean
+&lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu} = ( \overline{x}_1, \overline{x}_2)^{\textrm{T}}&lt;/script&gt;
+and the covariance matrix &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\Sigma}&lt;/script&gt; for each class.
+Assuming Gaussian class-conditionals,
+we may now calculate the 2-dimensional probability for the three classes, which
+may be seen by the contours in Fig. 1. The contours are built by scanning through
+the &lt;script type=&quot;math/tex&quot;&gt;x_1/x_2&lt;/script&gt; space and constructing a two-dimensional
+histogram where the color-weighting is the normalized multivariate Gaussian.
+We now have all the parts to make some predictions for unseen data.&lt;/p&gt;
+
+&lt;h2 id=&quot;predictions&quot;&gt;Predictions&lt;/h2&gt;
+&lt;p&gt;Fig. 1 has three unseen data labeled as 1-3. The points are randomly chosen using the Class
+probability distributions, &lt;i&gt;i.e.&lt;/i&gt; point 1 is sampled from the Class A normal distribution;
+this is done on purpose as I know where the data came from and I want to see how the calculation
+classifies this object based on the above assumptions. In this case, the red circle labeled
+as 1 has an 84% chance of belonging to Class A, a 1% chance of belonging to Class B, and a
+14% chance of belonging to Class C. This unseen point would therefore be classified as type A.
+Here is another example in which the calculations are explicitly shown, see the
+figure and table below.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/bayes_classifier/bayesian_example2.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+&lt;/figure&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Point #&lt;/th&gt;
+      &lt;th&gt;Class&lt;/th&gt;
+      &lt;th&gt;Likelihood&lt;/th&gt;
+      &lt;th&gt;Prior&lt;/th&gt;
+      &lt;th&gt;Marginal&lt;/th&gt;
+      &lt;th&gt;Posterior (%)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;0.9754&lt;/td&gt;
+      &lt;td&gt;0.2188&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;95.813&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;0.0298&lt;/td&gt;
+      &lt;td&gt;0.3125&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;4.181&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;0.0000&lt;/td&gt;
+      &lt;td&gt;0.4688&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;0.006&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;0.0000&lt;/td&gt;
+      &lt;td&gt;0.2188&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;0.000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;0.1621&lt;/td&gt;
+      &lt;td&gt;0.3125&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;100.000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;0.0000&lt;/td&gt;
+      &lt;td&gt;0.4688&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;0.000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;A&lt;/td&gt;
+      &lt;td&gt;0.2168&lt;/td&gt;
+      &lt;td&gt;0.2188&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;65.394&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;B&lt;/td&gt;
+      &lt;td&gt;0.0564&lt;/td&gt;
+      &lt;td&gt;0.3125&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;24.309&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;C&lt;/td&gt;
+      &lt;td&gt;0.0159&lt;/td&gt;
+      &lt;td&gt;0.4688&lt;/td&gt;
+      &lt;td&gt;0.2227&lt;/td&gt;
+      &lt;td&gt;10.297&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Recall that the priors are calculated as the fraction of training objects in
+the class to the total number of training objects; therefore, since each class
+has a different number of points, the priors are different (Class A has 70,
+Class B has 100, and Class C has 150). The likelihood is calculated as the
+two-dimensional Gaussian using the mean and covariance matrix for that particular
+class, which is determined from the training data. The marginal is simply the sum
+of likelihood&lt;script type=&quot;math/tex&quot;&gt;\times&lt;/script&gt;prior for all three classes. The posterior, or the predictive
+probability of interest, is calculated as likelihood&lt;script type=&quot;math/tex&quot;&gt;\times&lt;/script&gt;prior/marginal.
+The point labeled as 3, which originally has been sampled from the Class C probability distribution,
+is determined to be a member of Class A, which is arguably incorrect.&lt;/p&gt;
+
+&lt;p&gt;The classification may be summarized by the following histogram. One may scan through
+the feature space and calculate the posteriors for all classes; the maximum posterior
+then determines the classification, see the figure below where the light blue represents a situation
+where Class A is a maximum, tan represents when Class B is a maximum, and dark red represents
+when Class C is a maximum.&lt;/p&gt;
+&lt;figure&gt;
+  &lt;img src=&quot;/images/bayes_classifier/which_class_is_max.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+    &lt;figcaption&gt;Fig. 2 - Summarizing the classification within the feature space, where
+    light blue means that the Class A posterior is a maximum, tan is Class B, and dark red
+    is Class C. The binning in both directions is 1/100.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">A probabilistic classifier using Gaussian class-conditionals</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
 code run on the site, and to gain more experience with tree structures. I had been playing
 around with binary trees and graphs, and wanted to implement a visual
 representation of a tree structure. The quadtree idea and implementation may be seen by many sources
@@ -661,45 +874,4 @@ and arm-lengths.
 &lt;figcaption&gt;
 Fig. 1 - The double pendulum simulation with rainbow (fading alpha) tracers on the second (first) mass.
 &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Koch Snowflake</title><link href="/blog/koch-snowflake/" rel="alternate" type="text/html" title="Koch Snowflake" /><published>2017-05-10T00:00:00-04:00</published><updated>2017-05-10T00:00:00-04:00</updated><id>/blog/koch-snowflake</id><content type="html" xml:base="/blog/koch-snowflake/">&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/flake_thumbnail.png&quot; alt=&quot;&quot; title=&quot;Koch&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
-&lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;overview-of-algorithm&quot;&gt;Overview of Algorithm&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/koch_snowflake/idea.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;
-I worked on this project immediately after the tree fractal. Admittedly, the geometry is more
-difficult but the fractal generation concept is the same; find a base operation, and apply
-it iteratively. The fractal begins by defining an
-equilateral triangle, and let's refer to this as iteration 0. Iteration 1 is
-formed by taking each line segment making up the base triangle, splitting it into thirds,
-removing the center segment, and then building a smaller equilateral (with one side missing)
-with two additional line segments. The result is a star.
-Therefore, the base operation of the fractal consists of accepting one line segment
-and returning four in the proper orientation. Repeat the iteration process until satisfied, but
-practically only the first 6 iterations or so make noticeable changes without magnification.
-An animation of my Koch snowflake may be seen by Fig. 2. The area of the fractal
-quickly converges, but the perimeter tends towards infinity; see Fig. 3 for my results.
-Note that the number of line segments to consider grows rapidly: &lt;i&gt;3*4&lt;sup&gt;n&lt;/sup&gt;&lt;/i&gt;
-where &lt;i&gt;n&lt;/i&gt; is the iteration number. Therefore, the animation displays the first
-10 iterations resulting in a fractal with &lt;i&gt;3.14*10&lt;sup&gt;6&lt;/sup&gt;&lt;/i&gt; line segments.
-&lt;/p&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/asymm.gif&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;80%&quot; height=&quot;80%&quot; /&gt;
-&lt;figcaption&gt;Fig. 2 - The first 10 iterations of a variation of the Koch snowflake. While
-the area of the fractal converges rapidly, the perimeter tends towards infinity, see
-Fig. 3.&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;img src=&quot;/images/koch_snowflake/results.png&quot; alt=&quot;&quot; title=&quot;Koch snowflake animation&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
-&lt;figcaption&gt;Fig. 3 - The area and perimeter of a true Koch snowflake (not the the one seen in the
-animation). The area converges quickly while the perimeter diverges towards infinity.
-The convergence of the fractal area is expected to be 8/5 times the original
-area of the base triangle, which is observed in the plot.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A variation of the Koch snowflake</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
+&lt;/figure&gt;</content><summary type="html">Simulating the double pendulum using RK4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry></feed>
