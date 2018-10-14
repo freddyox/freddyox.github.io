@@ -48,9 +48,9 @@ void Mass::applyForce(sf::Vector2f force){
 }</code></pre>
 where dt is the intrinsic delta time in between frames (SFML provides sf::Clock
 and sf::Time classes for this purpose). Then, a Spring class is made where one
-spring is connected to two Mass-objects, and a spring force <i>-k(x-x')</i>
-is used to constrain/connect the two masses; in this case, <i>k</i> is an
-adjustable parameter, <i>x</i> is the distance between the two masses, and <i>x'</i>
+spring is connected to two Mass-objects, and a spring force $$-k(x-x')$$
+is used to constrain/connect the two masses; in this case, $$k$$ is an
+adjustable parameter, $$x$$ is the distance between the two masses, and $$x'$$
 is the length of the spring in absence of forces. This is where the Mass::applyForce(sf::Vector2f)
 comes in handy, which may also be used for gravity, air friction, or anything else that comes to mind
 to alter the behavior. A Rope-object is then built

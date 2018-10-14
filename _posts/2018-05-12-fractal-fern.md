@@ -10,7 +10,7 @@ categories: [math,ROOT]
 ---
 
  <figure>
-  <img src="/images/fern/mod_ferns.png" alt="" height="99%" width="99%">
+  <img src="/images/fern/mod_ferns_rotsmall.png" alt="" height="99%" width="99%">
   <figcaption>Fig. 1 - Selected color schemes of a modified Barnsley fern. The
   fern is plotted in a two dimensional histogram, and the color gradient
   depends on the bin content in a log scale.</figcaption>
