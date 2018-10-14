@@ -144,16 +144,32 @@ probability of interest, is calculated as likelihood$$\times$$prior/marginal.
 The point labeled as 3, which originally has been sampled from the Class C probability distribution,
 is determined to be a member of Class A, which is arguably incorrect.
 
-The classification may be summarized by the following histogram. One may scan through
+The classification may be summarized by the following histograms. One may scan through
 the feature space and calculate the posteriors for all classes; the maximum posterior
 then determines the classification, see the figure below where the light blue represents a situation
 where Class A is a maximum, tan represents when Class B is a maximum, and dark red represents
-when Class C is a maximum.
+when Class C is a maximum. Each class has a small gradient effect which is a result of
+the value of the class posterior when it's determined to be the maximum. Lastly,
+see Fig. 3 for a summary of the three classes where in this case the color weighting
+is equal to the posterior probability.
  <figure>
-  <img src="/images/bayes_classifier/which_class_is_max.png" alt="" height="99%" width="99%">
+  <img src="/images/bayes_classifier/which_class_is_max_better.png" alt="" height="99%" width="99%">
     <figcaption>Fig. 2 - Summarizing the classification within the feature space, where
     light blue means that the Class A posterior is a maximum, tan is Class B, and dark red
-    is Class C. The binning in both directions is 1/100. Note that this depends
+    is Class C. The binning in both directions is 1/150. Note that this depends
     on the training data, which is randomly generated, and does not reflect the exact
     nature of the above plots (but it is close).</figcaption>
 </figure>
+<p></p>
+ <figure>
+  <img src="/images/bayes_classifier/bayesian_summary.png" alt="" height="99%" width="99%">
+    <figcaption>Fig. 3 - Summarizing the classification within the feature space. The
+    color weighting is the posterior probability for the three classes, and white represents
+    a posterior of zero (or extremely close to it). Notice how these plots are
+    slightly different than Fig. 2, and is a consequence of fitting to randomly
+    generated training data (seen in the top-left panel) which slightly alters the predictive
+    mean/covariance matrix. In this case, Class A sampled some
+    data that extend above the Class C negatively correlated data, and explains the
+    features seen in the top-right panel.</figcaption>
+</figure>
+
