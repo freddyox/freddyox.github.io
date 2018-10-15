@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<title>K-means clustering</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="/assets/icon/manifest.json">
+<link rel="mask-icon" href="/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="/" class="logo">Projects and Research Interests</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="/">Home</a></li>
+  <li class=""><a href="/about/">About</a></li>
+  <li class=" active "><a href="/blog/">All Projects</a></li>
+  <li class=""><a href="/categories/">Categories</a></li>
+  <li class=""><a href="/elements/">Useful References</a></li>
+</ul>
+
+      </nav>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">15 Oct 2018</span>
+      	    <h1>K-means clustering</h1>
+      	    <p>An unsupervised clustering algorithm</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p><figure>
+  <img src="/images/kmeans/4Means_example_success.png" alt="" height="100%" width="100%">
+  <figcaption>Fig. 1 - Unlabeled data (left) is clustered or grouped into
+                       4 categories (right). An animation of the algorithm may be seen below.</figcaption>
+</figure>
+<p></p>
+
+## Overview of the problem
+We are given $$N$$ objects each of which have features $$\boldsymbol{x}=(x_1,x_2)$$ but
+no class labels. Therefore, an unsupervised algorithm such as $$K$$-means clustering
+may be utilized in order to group data of similar features; the output of my implementation
+may be seen by Fig. 1.
+The phrase "similar features" is quite ambiguious, however the
+most naive interpretation may be thought in terms of distance. In other words, similar objects
+are defined to be objects that are close together in terms of the square distance:
+
+$$
+D^{2}=(\boldsymbol{x}_i - \boldsymbol{x}_j)^{T}(\boldsymbol{x}_i - \boldsymbol{x}_j)
+ = (x_{i1} - x_{j1})^{2} + (x_{i2} - x_{j2})^{2}, 
+$$
+
+where the simplification is a result of only working with two features, and the superscript
+$$T$$ refers to vector-transpose. In order to automate this procedure for a data set
+that looks like the left-panel of Fig. 1, then a cluster needs to be defined more clearly.
+
+## Clustering algorithm
+In $$K$$-means, there are $$K$$ clusters (<i>e.g.</i> 4 clusters in Fig. 1)
+that are defined by the feature-space mean using the data points constituing the cluster
+in the calculation, <i>i.e.</i> in the $$(x_1,x_2)$$ space one needs to
+calculate the average in both variables but only using data points that have been determined
+to be within the cluster.
+The argument is circular; we need a mean-point to define a cluster and yet the cluster needs
+points to calculate the mean. In order to overcome this strange logic, the mean-vector
+$$\boldsymbol{\mu}$$ for the $$k^{th}$$ cluster is defined as
+
+$$
+\boldsymbol{\mu}_k = \frac{\sum_n z_{nk} \boldsymbol{x}_n}{\sum_n z_{nk}},
+$$
+
+where $$z_{nk}$$ is a binary variable which is equal to 1 if the data
+object is a part of cluster $$k$$, and zero otherwise;
+this is simply a weighted average, and keeps track of how many objects
+are in cluster $$k$$. Randomly initialize $$\boldsymbol{\mu}$$ for the $$k$$ clusters.
+It is best to keep the randomization within the bounds of the data, otherwise a
+cluster may not develop. Randomly assign all unlabeled data to a cluster; therefore, a book-keeping
+device (an integer ranging from 0 to 3 in Fig. 1 for example)
+is required for each data object to track cluster assignment.
+The following procedures are then performed iteratively:
+1. For each data object, calculate the distance between $$\boldsymbol{x}_n$$ and
+   $$\boldsymbol{\mu}_k$$ of the $$k$$ clusters, <i>i.e.</i> find $$k$$ that minimizes
+   $$\sqrt{(\boldsymbol{x}_n - \boldsymbol{\mu}_k)^{T}(\boldsymbol{x}_n - \boldsymbol{\mu}_k)}$$.
+   The data point is assumed to be a member of the cluster
+   that yields the smallest distance, <i>i.e.</i> update the data-object's book-keeping
+   device to reflect this change, if any. If no updates are required, then exit the iterative-loop.
+2. If we are here, then the book-keeping device of at least one data-object has been updated; therefore
+   update $$\boldsymbol{\mu}_k$$ to reflect this change.
+3. Return to procedure 1.
+
+<figure>
+  <img src="/images/kmeans/animation_loop.gif" alt="" height="70%" width="70%">
+  <figcaption>Fig. 2 - An animation of the algorithm where the black stars represent
+  the means of the four clusters.</figcaption>
+</figure>
+<p></p>
+In the above example, the unlabeled data has been classified or organized
+into five clusters (blue square, green triangle, red circle, purple
+upside-down triangle, copper cross). The black stars, which represent $$\boldsymbol{\mu}_k$$
+or the mean of the $$k^{th}$$ cluster, move around due to the above update rule; the algorithm
+stops once the data-object's book-keeping device is no longer updated.
+</p>
+      	</section>	
+
+	
+	<div id="disqus_thread"></div>
+	<script>
+	  /*
+	  var disqus_config = function () {
+	  this.page.url = "/blog/Kmeans.md/";
+	  this.page.identifier = "/blog/Kmeans.md/";
+	  };
+	  */
+	  (function() { // DON'T EDIT BELOW THIS LINE
+	  var d = document, s = d.createElement('script');
+	  s.src = 'https://freddyox-github-io.disqus.com/embed.js';
+	  s.setAttribute('data-timestamp', +new Date());
+	  (d.head || d.body).appendChild(s);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="/blog/" class="button">All Projects</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <!--<footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message" /></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>&copy;
+    <script type="text/javascript">
+      document.write(new Date().getFullYear());
+    </script>
+    Richard F. Obrecht</ul>
+</div>
+-->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.scrollex.min.js"></script>
+<script src="/assets/js/jquery.scrolly.min.js"></script>
+<script src="/assets/js/skel.min.js"></script>
+<script src="/assets/js/util.js"></script>
+<script src="/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+  </body>
+</html>
