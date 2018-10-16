@@ -1,3 +1,5 @@
+[Click here to see the website.](https://freddyox.github.io/)
+
 ## How to Use This Theme
 Just go ahead and read up on [how to install Jekyll](https://jekyllrb.com/). It's not too hard I promise!
 
