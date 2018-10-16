@@ -13,7 +13,7 @@ categories: [machine learning,ROOT]
   <img src="/images/bayes_classifier/bayesian_example.png" alt="" height="99%" width="99%">
   <figcaption>Fig. 1 - There are three data sets labeled A, B, and C. The goal
   is to understand the class distributions such that when new unlabeled data are presented
-  (red circles labeled 1-3), a class may be assigned based by probability.
+  (red circles labeled 1-3), a class may be assigned based on probability.
   In this example, the new data point labeled as 1 has an 84% chance
   of belonging to Class A and only a 14% chance of belonging to Class C; therefore, this
   point would be assigned as a member of Class A.
@@ -58,8 +58,8 @@ $$
 \end{align}
 $$
 
-where the superscript T represents vector-transpose. For example, if one where to examine
-class A in Fig. 1, the means in the $$x_1$$ and $$x_2$$ directions need to be computed
+where the superscript T represents vector-transpose. For example, if one were to examine
+Class A in Fig. 1, the means in the $$x_1$$ and $$x_2$$ directions need to be computed
 in addition to the covariance matrix (which gives the variances in both features as well
 as the correlation, if any). For each class, the multivariate Gaussian probability may be calculated
 as (generalized to $$D$$-dimensions)
@@ -105,7 +105,7 @@ Assuming Gaussian class-conditionals,
 we may now calculate the 2-dimensional probability for the three classes, which
 may be seen by the contours in Fig. 1. The contours are built by scanning through
 the $$x_1/x_2$$ space and constructing a two-dimensional
-histogram where the color-weighting is the normalized multivariate Gaussian.
+histogram where the color-weighting is the normalized multivariate Gaussian probability.
 We now have all the parts to make some predictions for unseen data.
 
 ## Predictions
@@ -114,8 +114,8 @@ probability distributions, <i>i.e.</i> point 1 is sampled from the Class A norma
 this is done on purpose as I know where the data came from and I want to see how the calculation
 classifies this object based on the above assumptions. In this case, the red circle labeled
 as 1 has an 84% chance of belonging to Class A, a 1% chance of belonging to Class B, and a
-14% chance of belonging to Class C. This unseen point would therefore be classified as type A.
-Here is another example in which the calculations are explicitly shown, see the
+14% chance of belonging to Class C. This unseen point would therefore be classified as a member
+of Class A. Here is another example in which the calculations are explicitly shown, see the
 figure and table below.
  <figure>
   <img src="/images/bayes_classifier/bayesian_example2.png" alt="" height="99%" width="99%">
