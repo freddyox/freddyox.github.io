@@ -10,7 +10,7 @@ categories: [simulation,SFML]
 ---
 
 ## Overview
-A small video displaying the simulation may be seen <a href="https://youtu.be/CuhPbDQs3eY">here</a>.
+<a href="https://youtu.be/CuhPbDQs3eY">A small video displaying the simulation may be seen here</a>.
 
 <span class="image left">
 <img src="/images/double_pend/double_pend_long.png" alt="" width="99%" height="99%"/>
