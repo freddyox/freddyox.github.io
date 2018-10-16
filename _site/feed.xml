@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.2.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-16T11:38:59-04:00</updated><id>/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>/blog/Kmeans</id><content type="html" xml:base="/blog/Kmeans/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-16T11:44:32-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/4Means_example_success.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
@@ -64,7 +64,7 @@ update &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu}_k&lt;/script&gt;
 into five clusters (blue square, green triangle, red circle, purple
 upside-down triangle, copper cross). The black stars, which represent &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu}_k&lt;/script&gt;
 or the mean of the &lt;script type=&quot;math/tex&quot;&gt;k^{th}&lt;/script&gt; cluster, move around due to the above update rule; the algorithm
-stops once the data-object’s book-keeping device is no longer updated.&lt;/p&gt;</content><summary type="html">An unsupervised clustering algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Naive Bayes Classifier</title><link href="/blog/bayesian_classifier/" rel="alternate" type="text/html" title="Naive Bayes Classifier" /><published>2018-10-13T00:00:00-04:00</published><updated>2018-10-13T00:00:00-04:00</updated><id>/blog/bayesian_classifier</id><content type="html" xml:base="/blog/bayesian_classifier/">&lt;figure&gt;
+stops once the data-object’s book-keeping device is no longer updated.&lt;/p&gt;</content><summary type="html">An unsupervised clustering algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Naive Bayes Classifier</title><link href="http://localhost:4000/blog/bayesian_classifier/" rel="alternate" type="text/html" title="Naive Bayes Classifier" /><published>2018-10-13T00:00:00-04:00</published><updated>2018-10-13T00:00:00-04:00</updated><id>http://localhost:4000/blog/bayesian_classifier</id><content type="html" xml:base="http://localhost:4000/blog/bayesian_classifier/">&lt;figure&gt;
   &lt;img src=&quot;/images/bayes_classifier/bayesian_example.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - There are three data sets labeled A, B, and C. The goal
   is to understand the class distributions such that when new unlabeled data are presented
@@ -294,7 +294,7 @@ is equal to the posterior probability.&lt;/p&gt;
     mean/covariance matrix. In this case, Class A sampled some
     data that extend above the Class C negatively correlated data, and explains the
     features seen in the top-right panel.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A probabilistic classifier using Gaussian class-conditionals</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Quadtree</title><link href="/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>/blog/quadtree</id><content type="html" xml:base="/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
+&lt;/figure&gt;</content><summary type="html">A probabilistic classifier using Gaussian class-conditionals</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Quadtree</title><link href="http://localhost:4000/blog/quadtree/" rel="alternate" type="text/html" title="Quadtree" /><published>2018-10-09T00:00:00-04:00</published><updated>2018-10-09T00:00:00-04:00</updated><id>http://localhost:4000/blog/quadtree</id><content type="html" xml:base="http://localhost:4000/blog/quadtree/">&lt;p&gt;The quadtree post serves two purposes: to learn JavaScript in order to make interactive
 code run on the site, and to gain more experience with tree structures. I had been playing
 around with binary trees and graphs, and wanted to implement a visual
 representation of a tree structure. The quadtree idea and implementation may be seen by many sources
@@ -311,7 +311,7 @@ is a significant improvement relative to the naive approach for many balls.
 There are other approaches to solve this problem more efficiently,
 and I am not claiming that the use of a quadtree is the best.
 Note that I did not implement a collision routine as I’ve already worked this out in a
-previous post.&lt;/p&gt;</content><summary type="html">Demonstrating the structure for 2D collisions</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Scenic screen saver</title><link href="/blog/scenic-screen-saver/" rel="alternate" type="text/html" title="Scenic screen saver" /><published>2018-06-15T00:00:00-04:00</published><updated>2018-06-15T00:00:00-04:00</updated><id>/blog/scenic-screen-saver</id><content type="html" xml:base="/blog/scenic-screen-saver/">&lt;figure&gt;
+previous post.&lt;/p&gt;</content><summary type="html">Demonstrating the structure for 2D collisions</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Scenic screen saver</title><link href="http://localhost:4000/blog/scenic-screen-saver/" rel="alternate" type="text/html" title="Scenic screen saver" /><published>2018-06-15T00:00:00-04:00</published><updated>2018-06-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/scenic-screen-saver</id><content type="html" xml:base="http://localhost:4000/blog/scenic-screen-saver/">&lt;figure&gt;
   &lt;img src=&quot;/images/scenery/scenery.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
 &lt;/figure&gt;
 
@@ -384,7 +384,7 @@ The cricket noise was downloaded from
 &lt;a href=&quot;http://soundbible.com/tags-crickets.html&quot;&gt;here&lt;/a&gt;, and the volume increases
 at night. Just about the entire scenery (excluding the sprites and the sunset) are
 randomly generated and positioned, either using a flat or normal distribution using C++11’s
-random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, a sunset/sunrise model, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Perceptron</title><link href="/blog/perceptron/" rel="alternate" type="text/html" title="Perceptron" /><published>2018-06-01T00:00:00-04:00</published><updated>2018-06-01T00:00:00-04:00</updated><id>/blog/perceptron</id><content type="html" xml:base="/blog/perceptron/">&lt;figure&gt;
+random-class, which yields variations of the same screen-saver idea.&lt;/p&gt;</content><summary type="html">Includes simulated ropes, a sunset/sunrise model, and Perlin coherent noise</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Perceptron</title><link href="http://localhost:4000/blog/perceptron/" rel="alternate" type="text/html" title="Perceptron" /><published>2018-06-01T00:00:00-04:00</published><updated>2018-06-01T00:00:00-04:00</updated><id>http://localhost:4000/blog/perceptron</id><content type="html" xml:base="http://localhost:4000/blog/perceptron/">&lt;figure&gt;
   &lt;img src=&quot;/images/perceptron/perceptron_top.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
     &lt;figcaption&gt;Fig. 1 - Linearly separable data and the result of the perceptron
     algorithm in which the weights are determined using &lt;i&gt;K&lt;/i&gt;-fold cross validation and averaging.
@@ -458,7 +458,7 @@ case an efficiency of greater than 99% is observed.&lt;/p&gt;
     &lt;figcaption&gt;Fig. 3 - Training (left panel) and a prediction (right). The naive and &lt;i&gt;K&lt;/i&gt;-folds
     averaging approach are compared in the training phase of the algorithm.
     &lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">A simple linear classification algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Random Tree Generator</title><link href="/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Random Tree Generator" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>/blog/tree-fractal-v2</id><content type="html" xml:base="/blog/tree-fractal-v2/">&lt;figure&gt;
+&lt;/figure&gt;</content><summary type="html">A simple linear classification algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Random Tree Generator</title><link href="http://localhost:4000/blog/tree-fractal-v2/" rel="alternate" type="text/html" title="Random Tree Generator" /><published>2018-05-20T00:00:00-04:00</published><updated>2018-05-20T00:00:00-04:00</updated><id>http://localhost:4000/blog/tree-fractal-v2</id><content type="html" xml:base="http://localhost:4000/blog/tree-fractal-v2/">&lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/tree_road_trip_small.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A fractal tree using my &quot;random tree generator&quot;
   with the black/white option turned ON. The tree has been placed on top of a photograph
@@ -567,7 +567,7 @@ the figures beyond for examples of the random generator with various options tur
   &lt;img src=&quot;/images/tree_fractal/random_v6.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 5 - The original tree used in Fig. 1.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Fractal Ferns</title><link href="/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>/blog/fractal-fern</id><content type="html" xml:base="/blog/fractal-fern/">&lt;figure&gt;
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Fractal Ferns</title><link href="http://localhost:4000/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>http://localhost:4000/blog/fractal-fern</id><content type="html" xml:base="http://localhost:4000/blog/fractal-fern/">&lt;figure&gt;
   &lt;img src=&quot;/images/fern/mod_ferns_rotsmall.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Selected color schemes of a modified Barnsley fern. The
   fern is plotted in a two dimensional histogram, and the color gradient
@@ -689,8 +689,8 @@ and may be seen by Fig. 3:&lt;/p&gt;
   &lt;img src=&quot;/images/fern/fern.gif&quot; alt=&quot;&quot; height=&quot;50%&quot; width=&quot;50%&quot; /&gt;
   &lt;figcaption&gt;Fig. 4 - An animation of the fern seen in Fig. 1 where the iteration is in
   powers of 10, &lt;i&gt;i.e.&lt;/i&gt; 1 to &lt;i&gt;10&lt;sup&gt;8&lt;/sup&gt;&lt;/i&gt;.&lt;/figcaption&gt;
-&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Convex Hulls</title><link href="/blog/convex_hull/" rel="alternate" type="text/html" title="Convex Hulls" /><published>2018-03-20T00:00:00-04:00</published><updated>2018-03-20T00:00:00-04:00</updated><id>/blog/convex_hull</id><content type="html" xml:base="/blog/convex_hull/">&lt;h2 id=&quot;overview-of-algorithm&quot;&gt;Overview of Algorithm&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;/images/convex/convex_for_span.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
+&lt;/figure&gt;</content><summary type="html">Generating fractal ferns using iterated function systems</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Convex Hulls</title><link href="http://localhost:4000/blog/convex_hull/" rel="alternate" type="text/html" title="Convex Hulls" /><published>2018-03-20T00:00:00-04:00</published><updated>2018-03-20T00:00:00-04:00</updated><id>http://localhost:4000/blog/convex_hull</id><content type="html" xml:base="http://localhost:4000/blog/convex_hull/">&lt;h2 id=&quot;overview-of-algorithm&quot;&gt;Overview of Algorithm&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&quot;image left&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/convex/convex_for_span.png&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;
 The idea is simple: find the minimum number of data points which represent the perimeter convex polygon
 about a data set. There are many variations of this algorithm and the applications can
 be critical; for example, an introductory machine learning problem is to construct
@@ -804,7 +804,7 @@ and vice versa.&lt;/p&gt;
   &lt;figcaption&gt;Fig 3 - An overview of the convex hull overlap detection algorithm, which
   is represented by the blue convex polygon.&lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;&lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set, and includes convex polygon overlap detection</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Word Search</title><link href="/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>/blog/word-search</id><content type="html" xml:base="/blog/word-search/">&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;/p&gt;</content><summary type="html">An algorithm to find the perimeter of a data set, and includes convex polygon overlap detection</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Word Search</title><link href="http://localhost:4000/blog/word-search/" rel="alternate" type="text/html" title="Word Search" /><published>2018-01-04T00:00:00-05:00</published><updated>2018-01-04T00:00:00-05:00</updated><id>http://localhost:4000/blog/word-search</id><content type="html" xml:base="http://localhost:4000/blog/word-search/">&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
 &lt;p&gt;The game may be seen &lt;a href=&quot;https://youtu.be/YexCgQyk7TE&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I am not particularly interested in word searches, but for some reason
@@ -853,7 +853,7 @@ simple to use for this task.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;figure&gt;
 &lt;img src=&quot;/images/word_search/word_search_thumbnail.png&quot; alt=&quot;&quot; width=&quot;99%&quot; height=&quot;99%&quot; /&gt;
-&lt;/figure&gt;</content><summary type="html">An interactive word search generator/game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="" /></entry><entry><title type="html">Mona Lisa</title><link href="/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>/blog/mona-lisa</id><content type="html" xml:base="/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
+&lt;/figure&gt;</content><summary type="html">An interactive word search generator/game</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Mona Lisa</title><link href="http://localhost:4000/blog/mona-lisa/" rel="alternate" type="text/html" title="Mona Lisa" /><published>2017-08-28T00:00:00-04:00</published><updated>2017-08-28T00:00:00-04:00</updated><id>http://localhost:4000/blog/mona-lisa</id><content type="html" xml:base="http://localhost:4000/blog/mona-lisa/">&lt;p&gt;&lt;i&gt;Disclaimer&lt;/i&gt;: I got the idea from &lt;a href=&quot;https://rogerjohansson.blog/2008/12/07/genetic-programming-evolution-of-mona-lisa/&quot;&gt;this blogging site&lt;/a&gt;,
 but the implementation/algorithms are mine. The blogger calls this a &quot;genetic algorithm&quot; but it's just a simple hill-climbing
 method defined by some &amp;chi;&lt;sup&gt;2&lt;/sup&gt;, a common technique in my work.
 Additionally, I used the bare-bones &lt;a href=&quot;https://www.sfml-dev.org/&quot;&gt;SFML library&lt;/a&gt; which required
@@ -862,7 +862,7 @@ While the results are pleasing, the algorithm is not practical (at least mine). 
 &lt;/p&gt;
 
 &lt;h2 id=&quot;concept&quot;&gt;Concept&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;/images/mona_lisa/original.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&quot;image right&quot;&gt;&lt;img src=&quot;http://localhost:4000/images/mona_lisa/original.jpg&quot; alt=&quot;&quot; /&gt;&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;The goal is to mimic or replicate an input image using polygons, or triangles in this case.
 The main components of the algorithm are as follows:
 &lt;ol&gt;
@@ -924,4 +924,4 @@ to tweak is now &lt;i&gt;N*V*6&lt;/i&gt; where &lt;i&gt;V&lt;/i&gt; is the numbe
 Also, the use of triangles leads to sharp edges in the output image. This can be smoothed out by developing
 filtering techniques, &lt;i&gt;e.g.&lt;/i&gt; a Gaussian blur, and I spent a great deal of time learning how to apply
 convolution matrices or image masks (google 'kernel image processing') from scratch. 
-&lt;/p&gt;</content><summary type="html">A hill climbing method to mimic an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="/images/mona_lisa/mona_lisa.jpg" /></entry></feed>
+&lt;/p&gt;</content><summary type="html">A hill climbing method to mimic an input image with randomly generated triangles</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/mona_lisa/mona_lisa.jpg" /></entry></feed>

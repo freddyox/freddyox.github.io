@@ -46,7 +46,7 @@ location:           Newport News, VA
 email:              richard.obrecht@uconn.edu
 
 # Gems
-gems:
+plugins:
   - jekyll-mentions
   - jekyll-sitemap
   - jekyll-feed
