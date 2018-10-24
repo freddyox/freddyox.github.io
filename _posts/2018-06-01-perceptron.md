@@ -45,7 +45,7 @@ wiggle the linear decision boundary to a position where data are correctly class
 falls on the other side.
 
  <figure>
-  <img src="/images/perceptron/updating_w.png" alt="" height="75%" width="75%">
+  <img src="/images/perceptron/updating_w.png" alt="" height="99%" width="99%">
     <figcaption>Fig. 2 - The weight parameters are updated until a decision boundary has been found,
                 which may be seen by the black line. Note that many decision boundaries exist,
 		see <i>K</i>-folds below for a more sophisticated approach.

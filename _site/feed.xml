@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-24T17:13:31-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-24T18:39:40-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/4Means_example_success.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
@@ -74,7 +74,8 @@ stops once the data-object’s book-keeping device is no longer updated.&lt;/p&g
 We are given the duration of the current eruption in addition to the waiting time
 for the next eruption. The data distribution may be seen by Fig. 3, which is clustered
 into two groups, labeled long and short, using K-means. In short, the eruption time is either
-short &lt;script type=&quot;math/tex&quot;&gt;(\lesssim 3&lt;/script&gt; min&lt;script type=&quot;math/tex&quot;&gt;)&lt;/script&gt; or long &lt;script type=&quot;math/tex&quot;&gt;(\gtrsim 3&lt;/script&gt; min&lt;script type=&quot;math/tex&quot;&gt;)&lt;/script&gt;, which means that we have to wait a
+short &lt;script type=&quot;math/tex&quot;&gt;(\lesssim 3 \textrm{min})&lt;/script&gt; or long &lt;script type=&quot;math/tex&quot;&gt;(\gtrsim 3 \textrm{min})&lt;/script&gt;,
+which means that we have to wait a
 short (roughly 55 min) or long (roughly 80 min) time until the next eruption. Note this
 data is almost 30 years old, and consequently current predictions may differ. The uncertainty
 in this prediction is roughly &lt;script type=&quot;math/tex&quot;&gt;2-3 \sigma&lt;/script&gt;, which comes out to be about &lt;script type=&quot;math/tex&quot;&gt;\pm 10-15&lt;/script&gt; minutes;
@@ -445,7 +446,7 @@ wiggle the linear decision boundary to a position where data are correctly class
 falls on the other side.&lt;/p&gt;
 
 &lt;figure&gt;
-  &lt;img src=&quot;/images/perceptron/updating_w.png&quot; alt=&quot;&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;
+  &lt;img src=&quot;/images/perceptron/updating_w.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
     &lt;figcaption&gt;Fig. 2 - The weight parameters are updated until a decision boundary has been found,
                 which may be seen by the black line. Note that many decision boundaries exist,
 		see &lt;i&gt;K&lt;/i&gt;-folds below for a more sophisticated approach.
