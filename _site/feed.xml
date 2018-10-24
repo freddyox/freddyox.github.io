@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-17T09:44:04-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-24T17:13:31-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/4Means_example_success.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
-		       A, B, C, and D. An animation of the algorithm may be seen below.&lt;/figcaption&gt;
+		       A, B, C, and D. An animation of the algorithm may be seen below.
+		       Lastly, the algorithm is applied to Old Faithful geyser data in order to
+		       make an educated guess on the wait-time for the next eruption.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
@@ -64,7 +66,27 @@ update &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu}_k&lt;/script&gt;
 into five clusters (blue square, green triangle, red circle, purple
 upside-down triangle, copper cross). The black stars, which represent &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{\mu}_k&lt;/script&gt;
 or the mean of the &lt;script type=&quot;math/tex&quot;&gt;k^{th}&lt;/script&gt; cluster, move around due to the above update rule; the algorithm
-stops once the data-object’s book-keeping device is no longer updated.&lt;/p&gt;</content><summary type="html">An unsupervised clustering algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Naive Bayes Classifier</title><link href="http://localhost:4000/blog/bayesian_classifier/" rel="alternate" type="text/html" title="Naive Bayes Classifier" /><published>2018-10-13T00:00:00-04:00</published><updated>2018-10-13T00:00:00-04:00</updated><id>http://localhost:4000/blog/bayesian_classifier</id><content type="html" xml:base="http://localhost:4000/blog/bayesian_classifier/">&lt;figure&gt;
+stops once the data-object’s book-keeping device is no longer updated.&lt;/p&gt;
+
+&lt;h2 id=&quot;application-to-old-faithful&quot;&gt;Application to Old Faithful&lt;/h2&gt;
+&lt;p&gt;Data from more than 270 observations on the Old Faithful geyser
+&lt;a href=&quot;https://www.stat.cmu.edu/~larry/all-of-statistics/=data/faithful.dat&quot;&gt;may be found here&lt;/a&gt;.
+We are given the duration of the current eruption in addition to the waiting time
+for the next eruption. The data distribution may be seen by Fig. 3, which is clustered
+into two groups, labeled long and short, using K-means. In short, the eruption time is either
+short &lt;script type=&quot;math/tex&quot;&gt;(\lesssim 3&lt;/script&gt; min&lt;script type=&quot;math/tex&quot;&gt;)&lt;/script&gt; or long &lt;script type=&quot;math/tex&quot;&gt;(\gtrsim 3&lt;/script&gt; min&lt;script type=&quot;math/tex&quot;&gt;)&lt;/script&gt;, which means that we have to wait a
+short (roughly 55 min) or long (roughly 80 min) time until the next eruption. Note this
+data is almost 30 years old, and consequently current predictions may differ. The uncertainty
+in this prediction is roughly &lt;script type=&quot;math/tex&quot;&gt;2-3 \sigma&lt;/script&gt;, which comes out to be about &lt;script type=&quot;math/tex&quot;&gt;\pm 10-15&lt;/script&gt; minutes;
+so get there early just in case!&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/images/kmeans/old_faithful_summary.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
+  &lt;figcaption&gt;Fig. 3 - Applying K-means (using Python's scikit-learn) to Old Faithful data.
+              The algorithm finds two clusters, labeled as long and short, which
+	      may be used to predict the time one needs to wait until the next eruption given
+	      the duration of the current eruption.&lt;/figcaption&gt;
+&lt;/figure&gt;</content><summary type="html">An unsupervised clustering algorithm</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Naive Bayes Classifier</title><link href="http://localhost:4000/blog/bayesian_classifier/" rel="alternate" type="text/html" title="Naive Bayes Classifier" /><published>2018-10-13T00:00:00-04:00</published><updated>2018-10-13T00:00:00-04:00</updated><id>http://localhost:4000/blog/bayesian_classifier</id><content type="html" xml:base="http://localhost:4000/blog/bayesian_classifier/">&lt;figure&gt;
   &lt;img src=&quot;/images/bayes_classifier/bayesian_example.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - There are three data sets labeled A, B, and C. The goal
   is to understand the class distributions such that when new unlabeled data are presented

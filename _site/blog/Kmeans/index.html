@@ -63,7 +63,9 @@
   <img src="/images/kmeans/4Means_example_success.png" alt="" height="100%" width="100%" />
   <figcaption>Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
-		       A, B, C, and D. An animation of the algorithm may be seen below.</figcaption>
+		       A, B, C, and D. An animation of the algorithm may be seen below.
+		       Lastly, the algorithm is applied to Old Faithful geyser data in order to
+		       make an educated guess on the wait-time for the next eruption.</figcaption>
 </figure>
 <p></p>
 
@@ -126,6 +128,26 @@ into five clusters (blue square, green triangle, red circle, purple
 upside-down triangle, copper cross). The black stars, which represent <script type="math/tex">\boldsymbol{\mu}_k</script>
 or the mean of the <script type="math/tex">k^{th}</script> cluster, move around due to the above update rule; the algorithm
 stops once the data-object’s book-keeping device is no longer updated.</p>
+
+<h2 id="application-to-old-faithful">Application to Old Faithful</h2>
+<p>Data from more than 270 observations on the Old Faithful geyser
+<a href="https://www.stat.cmu.edu/~larry/all-of-statistics/=data/faithful.dat">may be found here</a>.
+We are given the duration of the current eruption in addition to the waiting time
+for the next eruption. The data distribution may be seen by Fig. 3, which is clustered
+into two groups, labeled long and short, using K-means. In short, the eruption time is either
+short <script type="math/tex">(\lesssim 3</script> min<script type="math/tex">)</script> or long <script type="math/tex">(\gtrsim 3</script> min<script type="math/tex">)</script>, which means that we have to wait a
+short (roughly 55 min) or long (roughly 80 min) time until the next eruption. Note this
+data is almost 30 years old, and consequently current predictions may differ. The uncertainty
+in this prediction is roughly <script type="math/tex">2-3 \sigma</script>, which comes out to be about <script type="math/tex">\pm 10-15</script> minutes;
+so get there early just in case!</p>
+
+<figure>
+  <img src="/images/kmeans/old_faithful_summary.png" alt="" height="99%" width="99%" />
+  <figcaption>Fig. 3 - Applying K-means (using Python's scikit-learn) to Old Faithful data.
+              The algorithm finds two clusters, labeled as long and short, which
+	      may be used to predict the time one needs to wait until the next eruption given
+	      the duration of the current eruption.</figcaption>
+</figure>
 </p>
       	</section>	
 
