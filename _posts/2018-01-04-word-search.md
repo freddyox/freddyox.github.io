@@ -2,7 +2,7 @@
 layout: post
 title:  "Word Search"
 date:   2018-01-04
-excerpt: "An interactive word search generator/game"
+excerpt: "An interactive word search generator and game"
 comments: true
 image:  ""
 cimage: "/images/word_search/word_search_thumbnail.png"
@@ -10,7 +10,7 @@ categories: [games,SFML]
 ---
 
 ## Overview
-The game may be seen <a href="https://youtu.be/YexCgQyk7TE">here</a>.
+<a href="https://youtu.be/YexCgQyk7TE">The game may be seen here</a>.
 
 I am not particularly interested in word searches, but for some reason
 I found myself making a generator. The word search game is complete and user-interactive,
