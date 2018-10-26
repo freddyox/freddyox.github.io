@@ -46,7 +46,7 @@
   <li class=""><a href="http://localhost:4000/about/">About</a></li>
   <li class=" active "><a href="http://localhost:4000/blog/">All Projects</a></li>
   <li class=""><a href="http://localhost:4000/categories/">Categories</a></li>
-  <li class=""><a href="http://localhost:4000/elements/">Useful References</a></li>
+  <!--<li class=""><a href="http://localhost:4000/elements/">Useful References</a></li>-->
 </ul>
 
       </nav>
@@ -69,7 +69,14 @@
 </figure>
 <p></p>
 
-<h2 id="overview-of-the-problem">Overview of the problem</h2>
+<h2 id="summary">Summary</h2>
+<ol>
+  <li><a href="#kmeans">K-means clustering</a></li>
+  <li><a href="#animation">Animation of the algorithm</a></li>
+  <li><a href="#old_faithful">Application to Old Faithful</a></li>
+</ol>
+
+<h2 id="overview-of-the-problem-">Overview of the problem <a class="anchor" id="kmeans"></a></h2>
 <p>We are given <script type="math/tex">N</script> objects each of which have features <script type="math/tex">\boldsymbol{x}=\left(x_1, x_2\right)</script> but
 no class labels. Therefore, an unsupervised algorithm such as <script type="math/tex">K</script>-means clustering
 may be utilized in order to group data of similar features; the output of my implementation
@@ -85,7 +92,7 @@ are defined to be objects that are close together in terms of the square distanc
 <script type="math/tex">T</script> refers to vector-transpose. In order to automate this procedure for a data set
 that looks like the left-panel of Fig. 1, then a cluster needs to be defined more clearly.</p>
 
-<h2 id="clustering-algorithm">Clustering algorithm</h2>
+<h2 id="clustering-algorithm--">Clustering algorithm  <a class="anchor" id="animation"></a></h2>
 <p>In <script type="math/tex">K</script>-means, there are <script type="math/tex">k</script> clusters (<i>e.g.</i> 4 clusters in Fig. 1)
 that are defined by the feature-space mean using the data points constituting the cluster
 in the calculation, <i>i.e.</i> in the <script type="math/tex">(x_1,x_2)</script> space one needs to
@@ -129,7 +136,7 @@ upside-down triangle, copper cross). The black stars, which represent <script ty
 or the mean of the <script type="math/tex">k^{th}</script> cluster, move around due to the above update rule; the algorithm
 stops once the data-object’s book-keeping device is no longer updated.</p>
 
-<h2 id="application-to-old-faithful">Application to Old Faithful</h2>
+<h2 id="application-to-old-faithful-">Application to Old Faithful <a class="anchor" id="old_faithful"></a></h2>
 <p>Data from more than 270 observations on the Old Faithful geyser
 <a href="https://www.stat.cmu.edu/~larry/all-of-statistics/=data/faithful.dat">may be found here</a>.
 We are given the duration of the current eruption in addition to the waiting time
@@ -144,7 +151,7 @@ so get there early just in case!</p>
 
 <figure>
   <img src="/images/kmeans/old_faithful_summary.png" alt="" height="99%" width="99%" />
-  <figcaption>Fig. 3 - Applying K-means (using Python's scikit-learn) to Old Faithful data.
+  <figcaption>Fig. 3 - Applying K-means (using Python's scikit-learn for practice) to Old Faithful data.
               The algorithm finds two clusters, labeled as long and short, which
 	      may be used to predict the time one needs to wait until the next eruption given
 	      the duration of the current eruption.</figcaption>

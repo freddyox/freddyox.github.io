@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-24T18:39:40-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-26T19:39:07-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/4Means_example_success.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
@@ -8,7 +8,14 @@
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;overview-of-the-problem&quot;&gt;Overview of the problem&lt;/h2&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;#kmeans&quot;&gt;K-means clustering&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#animation&quot;&gt;Animation of the algorithm&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#old_faithful&quot;&gt;Application to Old Faithful&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;overview-of-the-problem-&quot;&gt;Overview of the problem &lt;a class=&quot;anchor&quot; id=&quot;kmeans&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;We are given &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; objects each of which have features &lt;script type=&quot;math/tex&quot;&gt;\boldsymbol{x}=\left(x_1, x_2\right)&lt;/script&gt; but
 no class labels. Therefore, an unsupervised algorithm such as &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt;-means clustering
 may be utilized in order to group data of similar features; the output of my implementation
@@ -24,7 +31,7 @@ are defined to be objects that are close together in terms of the square distanc
 &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; refers to vector-transpose. In order to automate this procedure for a data set
 that looks like the left-panel of Fig. 1, then a cluster needs to be defined more clearly.&lt;/p&gt;
 
-&lt;h2 id=&quot;clustering-algorithm&quot;&gt;Clustering algorithm&lt;/h2&gt;
+&lt;h2 id=&quot;clustering-algorithm--&quot;&gt;Clustering algorithm  &lt;a class=&quot;anchor&quot; id=&quot;animation&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;In &lt;script type=&quot;math/tex&quot;&gt;K&lt;/script&gt;-means, there are &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; clusters (&lt;i&gt;e.g.&lt;/i&gt; 4 clusters in Fig. 1)
 that are defined by the feature-space mean using the data points constituting the cluster
 in the calculation, &lt;i&gt;i.e.&lt;/i&gt; in the &lt;script type=&quot;math/tex&quot;&gt;(x_1,x_2)&lt;/script&gt; space one needs to
@@ -68,7 +75,7 @@ upside-down triangle, copper cross). The black stars, which represent &lt;script
 or the mean of the &lt;script type=&quot;math/tex&quot;&gt;k^{th}&lt;/script&gt; cluster, move around due to the above update rule; the algorithm
 stops once the data-object’s book-keeping device is no longer updated.&lt;/p&gt;
 
-&lt;h2 id=&quot;application-to-old-faithful&quot;&gt;Application to Old Faithful&lt;/h2&gt;
+&lt;h2 id=&quot;application-to-old-faithful-&quot;&gt;Application to Old Faithful &lt;a class=&quot;anchor&quot; id=&quot;old_faithful&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Data from more than 270 observations on the Old Faithful geyser
 &lt;a href=&quot;https://www.stat.cmu.edu/~larry/all-of-statistics/=data/faithful.dat&quot;&gt;may be found here&lt;/a&gt;.
 We are given the duration of the current eruption in addition to the waiting time
@@ -83,7 +90,7 @@ so get there early just in case!&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/old_faithful_summary.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 3 - Applying K-means (using Python's scikit-learn) to Old Faithful data.
+  &lt;figcaption&gt;Fig. 3 - Applying K-means (using Python's scikit-learn for practice) to Old Faithful data.
               The algorithm finds two clusters, labeled as long and short, which
 	      may be used to predict the time one needs to wait until the next eruption given
 	      the duration of the current eruption.&lt;/figcaption&gt;
