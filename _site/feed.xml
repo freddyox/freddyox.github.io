@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-26T19:50:15-04:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-11-14T09:30:56-05:00</updated><id>http://localhost:4000/</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/4Means_example_success.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
@@ -496,10 +496,15 @@ case an efficiency of greater than 99% is observed.&lt;/p&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;&lt;/p&gt;
-&lt;h2 id=&quot;improvements&quot;&gt;Improvements&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://youtu.be/yIIv5fRgoSY&quot;&gt;The tree fractal program may be seen by this video&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://youtu.be/yIIv5fRgoSY&quot;&gt;The tree fractal program may be seen by this video&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#improve&quot;&gt;Improvements relative to original post&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#randomtree&quot;&gt;Random tree generator&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#pics&quot;&gt;Pretty pictures&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;/p&gt;
+&lt;h2 id=&quot;improvements-&quot;&gt;Improvements &lt;a class=&quot;anchor&quot; id=&quot;improve&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I realized that I wanted to play with the fractal tree a bit more… My first
 post may be seen &lt;a href=&quot;/blog/tree-fractal/&quot;&gt;here&lt;/a&gt;
 which includes an overview of the algorithm. The code has been extended/reformulated
@@ -512,6 +517,7 @@ Furthermore, instead of simply representing a branch as a line, I included an op
 toggle between lines or user-adjustable trapezoids, where the latter is designed
 to give the effect that the diameter of a branch/trunk decreases with height.
 The parameters that are now adjustable using GUI widgets are the following:&lt;/p&gt;
+
 &lt;ol&gt;
 &lt;li&gt; the number of iterations to display &lt;/li&gt;
 &lt;li&gt; the number of branches to generate at a particular node (previously I only did 2, but
@@ -527,15 +533,15 @@ The parameters that are now adjustable using GUI widgets are the following:&lt;/
      tree white/black, respectively &lt;/li&gt;
 &lt;li&gt; an option to draw the branches in order/reverse (sometimes branches cover previous
      iterations, therefore this option is for convenience) &lt;/li&gt;
-&lt;li&gt; an option to change the tree color palette (15 options) which automatically applies
-     a pretty gradient ranging from the trunk to the smallest branch. &lt;/li&gt;
+&lt;li&gt; choose between 15 color palettes which automatically applies
+     a color gradient over the trunk to the smallest branches &lt;/li&gt;
 &lt;li&gt; the ability to randomly generate a tree in which the above parameters are tweaked
      according to various probability distributions. &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;&lt;/p&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/images/tree_fractal/assortment_nsplits_small.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
+  &lt;img src=&quot;/images/tree_fractal/assortment_nsplits_small_white.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 2 - Going clockwise and starting at the top left, the number of branches
   to generate at a new node is 3, 5, 8, and 9. The trunk length and branch ratio relative
   to the trunk have been adjusted to get a
@@ -548,9 +554,9 @@ structure of the fractal, &lt;i&gt;e.g.&lt;/i&gt; see Fig. 2 which displays the 
 generation of a &lt;a href=&quot;https://en.wikipedia.org/wiki/Sierpinski_triangle&quot;&gt;Sierpinski triangle&lt;/a&gt;
 among others; this behavior was a huge surprise for me. See Fig. 3 for an example
 of a tree with 4 branches generated a every node; it resembles the previous post but
-much fuller. Note that the number of branch iterations needs to be monitored when tweaking
+much fuller. Note that the number of iterations needs to be monitored when tweaking
 the number of branches to generated, otherwise too many lines are drawn and the program
-inevitably crashes.&lt;/p&gt;
+unavoidably crashes.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/nsplit_4_thickness.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
@@ -559,7 +565,7 @@ inevitably crashes.&lt;/p&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;random-tree-generator&quot;&gt;Random Tree Generator&lt;/h2&gt;
+&lt;h2 id=&quot;random-tree-generator-&quot;&gt;Random Tree Generator &lt;a class=&quot;anchor&quot; id=&quot;randomtree&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The random tree generator is useful for creating trees that visually look “natural” in
 structure, see Fig. 1. There are a great deal of parameters to randomize; however, this
 is what I did:&lt;/p&gt;
@@ -577,15 +583,11 @@ is what I did:&lt;/p&gt;
      40% of the time &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
-it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4 and
-the figures beyond for examples of the random generator with various options turned ON/OFF.&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
+it is best to control how often a Gaussian (or flat) wiggle occurs. See the
+figures below for examples of the random generator with various options turned ON/OFF.&lt;/p&gt;
+&lt;h2 id=&quot;examples-&quot;&gt;Examples &lt;a class=&quot;anchor&quot; id=&quot;pics&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;figure&gt;
-  &lt;img src=&quot;/images/tree_fractal/random_v2.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 4 - An example of the random tree generator; note that Fig. 1 also
-  is randomly generated, but in black and white (and placed on another image using
-  &lt;a href=&quot;https://www.gimp.org/&quot;&gt;GIMP&lt;/a&gt;).
-  &lt;/figcaption&gt;
+  &lt;img src=&quot;/images/tree_fractal/randomorange.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
@@ -595,7 +597,6 @@ the figures beyond for examples of the random generator with various options tur
 &lt;/figure&gt;
 &lt;figure&gt;
   &lt;img src=&quot;/images/tree_fractal/random_v6.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 5 - The original tree used in Fig. 1.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;</content><summary type="html">A significant upgrade to the previous tree fractal post</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000" /></entry><entry><title type="html">Fractal Ferns</title><link href="http://localhost:4000/blog/fractal-fern/" rel="alternate" type="text/html" title="Fractal Ferns" /><published>2018-05-12T00:00:00-04:00</published><updated>2018-05-12T00:00:00-04:00</updated><id>http://localhost:4000/blog/fractal-fern</id><content type="html" xml:base="http://localhost:4000/blog/fractal-fern/">&lt;figure&gt;
   &lt;img src=&quot;/images/fern/mod_ferns_rotsmall.png&quot; alt=&quot;&quot; height=&quot;99%&quot; width=&quot;99%&quot; /&gt;

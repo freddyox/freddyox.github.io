@@ -17,10 +17,13 @@ categories: [math,ROOT]
 </figure>
 
 <p></p>
-## Improvements
-<a href="https://youtu.be/yIIv5fRgoSY">The tree fractal program may be seen by this video</a>.
+## Summary
+1. <a href="https://youtu.be/yIIv5fRgoSY">The tree fractal program may be seen by this video</a>
+2. [Improvements relative to original post](#improve)
+3. [Random tree generator](#randomtree)
+4. [Pretty pictures](#pics)
 
-<p></p>
+## Improvements <a class="anchor" id="improve"></a>
 I realized that I wanted to play with the fractal tree a bit more... My first
 post may be seen [here]({{ site.baseurl }}{% link _posts/2016-05-08-tree-fractal.md %})
 which includes an overview of the algorithm. The code has been extended/reformulated
@@ -33,6 +36,7 @@ Furthermore, instead of simply representing a branch as a line, I included an op
 toggle between lines or user-adjustable trapezoids, where the latter is designed
 to give the effect that the diameter of a branch/trunk decreases with height.
 The parameters that are now adjustable using GUI widgets are the following:
+
 <ol>
 <li> the number of iterations to display </li>
 <li> the number of branches to generate at a particular node (previously I only did 2, but
@@ -48,15 +52,15 @@ The parameters that are now adjustable using GUI widgets are the following:
      tree white/black, respectively </li>
 <li> an option to draw the branches in order/reverse (sometimes branches cover previous
      iterations, therefore this option is for convenience) </li>
-<li> an option to change the tree color palette (15 options) which automatically applies
-     a pretty gradient ranging from the trunk to the smallest branch. </li>
+<li> choose between 15 color palettes which automatically applies
+     a color gradient over the trunk to the smallest branches </li>
 <li> the ability to randomly generate a tree in which the above parameters are tweaked
      according to various probability distributions. </li>
 </ol>
 
 <p></p>
  <figure>
-  <img src="/images/tree_fractal/assortment_nsplits_small.png" alt="" height="100%" width="100%">
+  <img src="/images/tree_fractal/assortment_nsplits_small_white.png" alt="" height="100%" width="100%">
   <figcaption>Fig. 2 - Going clockwise and starting at the top left, the number of branches
   to generate at a new node is 3, 5, 8, and 9. The trunk length and branch ratio relative
   to the trunk have been adjusted to get a
@@ -69,9 +73,9 @@ structure of the fractal, <i>e.g.</i> see Fig. 2 which displays the unexpected
 generation of a <a href="https://en.wikipedia.org/wiki/Sierpinski_triangle">Sierpinski triangle</a>
 among others; this behavior was a huge surprise for me. See Fig. 3 for an example
 of a tree with 4 branches generated a every node; it resembles the previous post but
-much fuller. Note that the number of branch iterations needs to be monitored when tweaking
+much fuller. Note that the number of iterations needs to be monitored when tweaking
 the number of branches to generated, otherwise too many lines are drawn and the program
-inevitably crashes.
+unavoidably crashes.
 <p></p>
  <figure>
   <img src="/images/tree_fractal/nsplit_4_thickness.png" alt="" height="100%" width="100%">
@@ -80,7 +84,7 @@ inevitably crashes.
 </figure>
 <p></p>
 
-## Random Tree Generator
+## Random Tree Generator <a class="anchor" id="randomtree"></a>
 The random tree generator is useful for creating trees that visually look "natural" in
 structure, see Fig. 1. There are a great deal of parameters to randomize; however, this
 is what I did:
@@ -98,15 +102,11 @@ is what I did:
      40% of the time </li>
 </ol>
 These parameters can all be changed, obviously, but too many changes yields wild results; therefore,
-it is best to control how often a Gaussian (or flat) wiggle occurs. See Fig. 4 and
-the figures beyond for examples of the random generator with various options turned ON/OFF.
-<p></p>
+it is best to control how often a Gaussian (or flat) wiggle occurs. See the
+figures below for examples of the random generator with various options turned ON/OFF.
+## Examples <a class="anchor" id="pics"></a>
  <figure>
-  <img src="/images/tree_fractal/random_v2.png" alt="" height="100%" width="100%">
-  <figcaption>Fig. 4 - An example of the random tree generator; note that Fig. 1 also
-  is randomly generated, but in black and white (and placed on another image using
-  <a href="https://www.gimp.org/">GIMP</a>).
-  </figcaption>
+  <img src="/images/tree_fractal/randomorange.png" alt="" height="100%" width="100%">
 </figure>
 <p></p>
 
@@ -116,6 +116,5 @@ the figures beyond for examples of the random generator with various options tur
 </figure>
  <figure>
   <img src="/images/tree_fractal/random_v6.png" alt="" height="100%" width="100%">
-  <figcaption>Fig. 5 - The original tree used in Fig. 1.</figcaption>
 </figure>
 <p></p>
