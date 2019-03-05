@@ -39,15 +39,14 @@ There are sea quarks in addition to valence quarks that interact strongly
 via the exchange of gluons resulting in a complex vacuum structure, 
 and all of which must collectively give rise to the observed
 properties of the nucleon, <i>e.g.</i> the radius and mass.
-The nucleon is the most well-studied hadron and yet there are still unresolved complexities
-in the calculation of properties from first principles of QCD;
+The nucleon is the most well-studied hadron and yet there are still unresolved
+complexities in the calculations of basic properties;
 <i>this represents a central problem in nuclear physics</i>.
-The theoretical difficulty with  the nucleon requires intensive
+The theoretical difficulty with the nucleon requires intensive
 experimentation, which is steadily increasing our knowledge of hadron
 structure and the strong interaction. My research revolves around
 utilizing fundamental scattering interactions to probe the
-nucleon structure in order to contribute towards a complete understanding
-of the nucleon.</p>
+structure in order to contribute towards a complete understanding.</p>
 
 ## Misc. Photos
  <figure>
