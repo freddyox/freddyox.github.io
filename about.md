@@ -55,10 +55,12 @@ structure in order to contribute towards a complete understanding.</p>
   identification (protons, pions, and kaons). The picture depicts many cables which
   are the signal and high voltage connections to photomultiplier tubes (PMTs). There
   are 1,934 PMTs in this particular RICH detector, and the signals are used
-  in the analysis to reconstruct cherenkov cones. The electronics on the left handle
-  low-level signal processing; the detector is made out of copper/aluminum and vacuum sealed.
+  in the analysis to reconstruct cherenkov cones. On the left-side of the detector,
+  there are electronics that handle
+  low-level signal processing in addition to providing the HV necessary for PMT operation.
+  The detector is made out of copper/aluminum and is vacuum sealed.
   Inside the detector exists a large spherical mirror array, aerogel tiles, and a very
-  expensive/toxic gas (atleast when it was used during the HERMES experiments). The
+  expensive/toxic gas (at least when it was used during the HERMES experiments). The
   detector is currently being re-purposed for use in the upcoming Super BigBite experiments
   that will take place in Jefferson Lab's Hall A.</figcaption>
 </figure>
