@@ -12,10 +12,10 @@ sitemap:
 <a href="https://www.jlab.org/">Jefferson Laboratory</a> in Newport News, VA.
 The research analysis required computational and programming skills that I
 wanted to acquire.  In order to quickly learn, I started working on often
-physics-inspired projects during my spare time, and eventually developed new passion.
+physics-inspired projects during my spare time, and eventually developed a new passion.
 The purpose of this site is to organize all my side-projects for my own
 satisfaction, and for any one else that may find the projects interesting.
-The programming language of choice is typically C++ (sometimes Python, Java, or Javascript),
+The programming language of choice is typically C++ (sometimes Python or Java),
 and I make heavy use of the bare-bones multimedia library
 <a href="https://www.sfml-dev.org/">SFML</a> in addition to
 CERN's scientific framework <a href="https://root.cern.ch/">ROOT</a>
