@@ -8,6 +8,10 @@ sitemap:
     changefreq: weekly
 ---
 # About
+<p>I defended my thesis in January of 2019, but I will not be updating
+the contents below.
+<a href="https://opencommons.uconn.edu/dissertations/2045/">Here is a link to my thesis if interested.</a> - R.F.O. - 2019-09-14</p>
+
 <p>I am a nuclear/particle physics Ph.D. candidate stationed at 
 <a href="https://www.jlab.org/">Jefferson Laboratory</a> in Newport News, VA.
 The research analysis required computational and programming skills that I

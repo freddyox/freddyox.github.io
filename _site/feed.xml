@@ -1,21 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-14T12:08:25-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Particle Classification</title><link href="http://localhost:4000/blog/CNN_PID/" rel="alternate" type="text/html" title="Particle Classification" /><published>2019-09-14T00:00:00-04:00</published><updated>2019-09-14T00:00:00-04:00</updated><id>http://localhost:4000/blog/CNN_PID</id><content type="html" xml:base="http://localhost:4000/blog/CNN_PID/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-14T12:40:55-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Particle Classification using CNN</title><link href="http://localhost:4000/blog/CNN_PID/" rel="alternate" type="text/html" title="Particle Classification using CNN" /><published>2019-09-14T00:00:00-04:00</published><updated>2019-09-14T00:00:00-04:00</updated><id>http://localhost:4000/blog/CNN_PID</id><content type="html" xml:base="http://localhost:4000/blog/CNN_PID/">&lt;figure&gt;
   &lt;img src=&quot;/images/cnn_pid/event_animation.gif&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - Cross-sectional view of the BigHand detector. A neutron enters the detector
-  from the left and deposits energy (red) as it propagates through the detector modules.
+  &lt;figcaption&gt;Fig. 1 - Cross-sectional view of the BigHand detector during a neutron event.
+  A neutron enters the detector
+  from the left and deposits energy (red) as it propagates through the detector planes.
   The goal is to use low-level detector information in order to classify the particle species
+  (we do not know this!)
   which in this case is either proton or neutron.&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#bighand&quot;&gt;BigHand&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bighand&quot;&gt;BigHand Detector Package&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#old&quot;&gt;Old Method for Classification&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#data&quot;&gt;Data&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#rf&quot;&gt;Random Forest&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#cnn&quot;&gt;Convolutional Neural Network&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#new&quot;&gt;New Methods&lt;/a&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;#rf&quot;&gt;Random Forest&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#cnn&quot;&gt;Convolutional Neural Network&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;bighand-detector-&quot;&gt;BigHand Detector &lt;a class=&quot;anchor&quot; id=&quot;bighand&quot;&gt;&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><summary type="html">Particle ID using convolutional neural networks</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/" /></entry><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
+&lt;p&gt;Understanding how neutrons and protons are classified within the BigHand detector package
+represents an important analysis task during my PhD thesis; the original method will be
+discussed briefly. I have revisited the classification problem roughly one year later except
+in this case I will be using machine learning tools, specifically a random forest model and
+a convolution neural network (CNN) approach. Both methods produce outstanding results and have greatly
+increased the classification accuracy. By far the most difficult task was acquiring the appropriate
+data, and conditioning it such that a CNN may be used.&lt;/p&gt;
+
+&lt;h2 id=&quot;bighand-detector-package&quot;&gt;BigHand Detector Package&lt;a class=&quot;anchor&quot; id=&quot;bighand&quot;&gt;&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><summary type="html">Particle identification using convolutional neural networks</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/" /></entry><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
   &lt;img src=&quot;/images/kmeans/4Means_example_success.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - Unlabeled data (left) is clustered or grouped into
                        4 categories (right), which are arbitrarily labeled as
