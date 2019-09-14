@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<!--
+    Massively by HTML5 UP
+    html5up.net | @ajlkn
+    Jekyll integration by somiibo.com
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<title>Particle Classification</title>
+<meta name="description" content="">
+
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:4000/assets/icon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:4000/assets/icon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:4000/assets/icon/favicon-16x16.png">
+<link rel="manifest" href="http://localhost:4000/assets/icon/manifest.json">
+<link rel="mask-icon" href="http://localhost:4000/assets/icon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="http://localhost:4000/assets/icon/favicon.ico">
+<meta name="msapplication-config" content="http://localhost:4000/assets/icon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+<!-- CSS -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="http://localhost:4000/assets/css/noscript.css" /></noscript>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<!--<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: { autoNumber: "AMS" } } }); </script> -->
+
+  </head>
+  <body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+
+      <!-- Header -->
+      <header id="header">
+        <a href="http://localhost:4000/" class="logo">Projects and Research Interests</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+  <li class=""><a href="http://localhost:4000/">Home</a></li>
+  <li class=""><a href="http://localhost:4000/about/">About</a></li>
+  <li class=" active "><a href="http://localhost:4000/blog/">All Projects</a></li>
+  <li class=""><a href="http://localhost:4000/categories/">Categories</a></li>
+  <!--<li class=""><a href="http://localhost:4000/elements/">Useful References</a></li>-->
+</ul>
+
+      </nav>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+    	  <header class="major">
+      	    <span class="date">14 Sep 2019</span>
+      	    <h1>Particle Classification</h1>
+      	    <p>Particle ID using convolutional neural networks</p>
+      	  </header>
+      	  <div class="image main"><img src="" alt=""></div>
+      	  <p><figure>
+  <img src="/images/cnn_pid/event_animation.gif" alt="" height="100%" width="100%" />
+  <figcaption>Fig. 1 - Cross-sectional view of the BigHand detector. A neutron enters the detector
+  from the left and deposits energy (red) as it propagates through the detector modules.
+  The goal is to use low-level detector information in order to classify the particle species
+  which in this case is either proton or neutron.</figcaption>
+</figure>
+<p></p>
+
+<h2 id="summary">Summary</h2>
+<ol>
+  <li><a href="#bighand">BigHand</a></li>
+  <li><a href="#data">Data</a></li>
+  <li><a href="#rf">Random Forest</a></li>
+  <li><a href="#cnn">Convolutional Neural Network</a></li>
+</ol>
+
+<h2 id="bighand-detector-">BigHand Detector <a class="anchor" id="bighand"></a></h2>
+</p>
+      	</section>	
+
+	
+	<div id="disqus_thread"></div>
+	<script>
+	  /*
+	  var disqus_config = function () {
+	  this.page.url = "http://localhost:4000/blog/CNN_PID/";
+	  this.page.identifier = "/blog/CNN_PID/";
+	  };
+	  */
+	  (function() { // DON'T EDIT BELOW THIS LINE
+	  var d = document, s = d.createElement('script');
+	  s.src = 'https://freddyox-github-io.disqus.com/embed.js';
+	  s.setAttribute('data-timestamp', +new Date());
+	  (d.head || d.body).appendChild(s);
+	  })();
+	</script>
+	<noscript>Please enable JavaScript to view the
+	  <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	
+
+	<!-- Footer -->
+	<footer>
+          <ul class="actions">
+            <li><a href="http://localhost:4000/blog/" class="button">All Projects</a></li>
+          </ul>
+	</footer>
+      </div>
+
+      <!-- Footer -->
+      <!--<footer id="footer">
+  <section>
+    <form method="POST" action="https://formspree.io/richard.obrecht@uconn.edu">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="3"></textarea>
+      </div>
+      <ul class="actions">
+        <li><input type="submit" value="Send Message" /></li>
+      </ul>
+    </form>
+  </section>
+  <section class="split contact">
+    <section class="alt">
+      <h3>Location</h3>
+      <p>Newport News, VA</p>
+    </section>
+    <section>
+      <h3>Email</h3>
+      <p><a href="mailto:richard.obrecht@uconn.edu">richard.obrecht@uconn.edu</a></p>
+    </section>
+  </section>
+</footer>
+<!-- Copyright -->
+<div id="copyright">
+  <ul>&copy;
+    <script type="text/javascript">
+      document.write(new Date().getFullYear());
+    </script>
+    Richard F. Obrecht</ul>
+</div>
+-->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- DYN -->
+<script src="http://localhost:4000/assets/js/jquery.min.js"></script>
+<script src="http://localhost:4000/assets/js/jquery.scrollex.min.js"></script>
+<script src="http://localhost:4000/assets/js/jquery.scrolly.min.js"></script>
+<script src="http://localhost:4000/assets/js/skel.min.js"></script>
+<script src="http://localhost:4000/assets/js/util.js"></script>
+<script src="http://localhost:4000/assets/js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=default"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+
+  gtag('config', 'default');
+</script>
+
+  </body>
+</html>
