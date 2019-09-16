@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-15T19:35:37-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Particle Classification</title><link href="http://localhost:4000/blog/CNN_PID/" rel="alternate" type="text/html" title="Particle Classification" /><published>2019-09-14T00:00:00-04:00</published><updated>2019-09-14T00:00:00-04:00</updated><id>http://localhost:4000/blog/CNN_PID</id><content type="html" xml:base="http://localhost:4000/blog/CNN_PID/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-15T20:23:01-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Particle Classification</title><link href="http://localhost:4000/blog/CNN_PID/" rel="alternate" type="text/html" title="Particle Classification" /><published>2019-09-14T00:00:00-04:00</published><updated>2019-09-14T00:00:00-04:00</updated><id>http://localhost:4000/blog/CNN_PID</id><content type="html" xml:base="http://localhost:4000/blog/CNN_PID/">&lt;figure&gt;
   &lt;img src=&quot;/images/cnn_pid/event_animation_v2.gif&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 1 - Cross-sectional view of the BigHand detector during a neutron
+  &lt;figcaption&gt;Fig. 1 - A cross-sectional view of the BigHand detector during a neutron
   event. A neutron enters the detector from the left and deposits energy (red) as
   it propagates through the detector planes. The goal is to use low-level detector
   information to do particle classification.&lt;/figcaption&gt;
@@ -9,7 +9,7 @@
 
 &lt;h2 id=&quot;table-of-contents&quot;&gt;Table of Contents&lt;/h2&gt;
 &lt;ol&gt;
-  &lt;li&gt;&lt;a href=&quot;#bighand&quot;&gt;BigHand Detector Package&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#bighand&quot;&gt;BigHand Detector&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#old&quot;&gt;Physics Inspired Classification&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#new&quot;&gt;Machine Learning Methods&lt;/a&gt;
     &lt;ol&gt;
@@ -34,17 +34,17 @@ and have greatly increased the classification accuracy relative to the original 
 By far the most difficult task was acquiring the appropriate data, and conditioning it
 such that a CNN may be used.&lt;/p&gt;
 
-&lt;h2 id=&quot;bighand-detector-package-&quot;&gt;BigHand Detector Package &lt;a class=&quot;anchor&quot; id=&quot;bighand&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;bighand-detector-&quot;&gt;BigHand Detector &lt;a class=&quot;anchor&quot; id=&quot;bighand&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Let me start with this: the BigHand detector is complicated and analysis tasks
 are generally a mess. I am not going to discuss the detector or geometry in detail as I have
-exhaustively described the detector
+exhaustively described it
 &lt;a href=&quot;https://opencommons.uconn.edu/dissertations/2045/&quot;&gt;in my thesis&lt;/a&gt; and in a
-Phys. Rev. C document that is currently being prepared (99% completed).
+Phys. Rev. C long archival document that is currently being prepared (99% completed).
 The geometry may be seen by Fig. 2.&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/images/cnn_pid/ND_schematic_v1.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
-  &lt;figcaption&gt;Fig. 2 - A cross sectional of the BigHand detector displaying the locations
+  &lt;figcaption&gt;Fig. 2 - A cross-sectional view of the BigHand detector displaying the locations
   of the scintillating bars in addition to the lead and iron. There are 9 planes in total:
   7 (N1-N7) handle nucleon momentum reconstruction via a clustering procedure and 2 (V1/V2)
   are devoted to particle identification via a physics-inspired method.&lt;/figcaption&gt;
@@ -56,10 +56,10 @@ Bars of a particular type were organized into cassettes, or modular units consis
 ten or less scintillating bars for structural integrity, which were stacked to form a plane.
 With the exception of the second veto plane, all cassettes had 1 cm of lead or iron on the
 target side to increase the probability of inducing a hadronic shower. The veto planes
-had 48+48 scintillating bars; from front to back, the seven neutron layers labeled N1-N7
-consisted of 29, 25, 30, 25, 45, 45, and 45 organic plastic scintillating bars. In total,
-the detector had 340 modules, and this structure will serve as the basis of our data input
-to the convolutional neural network.&lt;/p&gt;
+had 48+48 scintillating bars, and the seven neutron layers labeled N1-N7
+consisted of 29, 25, 30, 25, 45, 45, and 45 bars, respectively. In total,
+the detector had 340 modules; the energy deposition in these 340 modules will
+be the features for the machine learning approaches.&lt;/p&gt;
 
 &lt;h2 id=&quot;physics-inspired-classification--&quot;&gt;Physics Inspired Classification  &lt;a class=&quot;anchor&quot; id=&quot;old&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The goal of BigHand was two-fold: 1) reconstruct the momentum of a recoiling proton or neutron
@@ -72,7 +72,8 @@ charged particles like protons emit light (or scintillate) within scintillating 
 uncharged particles like neutrons do not. Therefore, if a cluster
 is formed but no correlated hits are found within the veto layers, then this event is classified
 as a neutron. On the other hand, if a cluster is found in addition to correlated hits within
-the veto layers, then this particle is classified as a proton. See Fig. 3 for a summary.&lt;/p&gt;
+the veto layers, then this particle is classified as a proton. See Fig. 3 for a
+visual summary.&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/images/cnn_pid/MC_ND_events.png&quot; alt=&quot;&quot; height=&quot;75%&quot; width=&quot;75%&quot; /&gt;
@@ -93,14 +94,15 @@ upstream significantly complicates things and 2) we are operating the detector
 in a noisy (or imperfect) environment. This leads to a mediocre neutron classification accuracy
 as our cluster-veto hits are assumed to be spatially correlated; therefore,
 if a neutron deposits energy in the veto layers
-and a cluster is formed, then this particle is assigned proton by the analysis…
+and a cluster is formed, then this particle is assigned proton by the analysis.
 In other words, this approach misidentifies these types of events every time.
 This analysis correctly classifies protons &lt;script type=&quot;math/tex&quot;&gt;\sim 97&lt;/script&gt;% of the time while the neutron
-accuracy is &lt;script type=&quot;math/tex&quot;&gt;\sim 55&lt;/script&gt;%, which is just barely better than random guessing. The
-goal of this re-analysis is to do better with nucleon classification!&lt;/p&gt;
+accuracy is &lt;script type=&quot;math/tex&quot;&gt;\sim 55&lt;/script&gt;% which is just barely better than random guessing. The
+goal of the reanalysis is to do better with neutron classification while keeping
+the proton accuracy as high as possible.&lt;/p&gt;
 
 &lt;h2 id=&quot;machine-learning-methods-&quot;&gt;Machine Learning Methods &lt;a class=&quot;anchor&quot; id=&quot;new&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;h2 id=&quot;data-preparation-&quot;&gt;Data Preparation &lt;a class=&quot;anchor&quot; id=&quot;data&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;data-preparation-&quot;&gt;Data Preparation &lt;a class=&quot;anchor&quot; id=&quot;data&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Acquiring and preparing the data for this machine learning analysis is by far the most
 difficult and time consuming part. When I analyze experimental data from the BigHand
 detector, I do not have access to the truth, &lt;i&gt;i.e.&lt;/i&gt; the labels of the particles.
@@ -119,8 +121,8 @@ Rosenbluth cross section among other things, and 2) a fictitious neutron target 
 the lowest-order QED rules of electron-neutron scattering.
 Both particles are directed towards BigHand with an angular coverage that populates
 the detector acceptance that is consistent with what is expected/observed during experiment.
-The simulated energy deposition in BigHand scintillator bars
-is modeled in multiple ways, &lt;i&gt;i.e.&lt;/i&gt; the gain coefficients of the
+The simulated energy deposition in the BigHand scintillator bars
+is modeled in multiple ways, &lt;i&gt;e.g.&lt;/i&gt; the gain coefficients of the
 photomultiplier tubes are incorporated in addition to the
 bar-dependent attenuation of the scintillation.
 The simulated analysis incorporates the realistic trigger scheme
@@ -132,7 +134,7 @@ For more information, one must seek the details within my thesis.&lt;/p&gt;
 of all BigHand bars are outputted resulting in a table of approximately
 180k rows (corresponding to events) and 341 columns (340 correspond
 to the energy deposition within the BigHand bars and 1 corresponds to the particle label).
-Roughly 61% of this data corresponds to neutron events. This dataset represents
+Neutron events make up roughly 61% of the data. This dataset represents
 the starting point for the machine learning methods.
 We will be using carefully chosen low-level detector information, namely
 energy deposition in scintillator post detector triggering, in order to build
@@ -145,8 +147,8 @@ have developed has been rigorously tested against the real data during the final
 2 years of my PhD.&lt;/b&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;random-forest-classifier-&quot;&gt;Random Forest Classifier &lt;a class=&quot;anchor&quot; id=&quot;rf&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;The features are the energy deposition of all BigHand modules and have been normalized
-by the maximum energy deposition in that particular event. I found that the results
+&lt;p&gt;The features are the energy deposition of all BigHand modules which have been normalized
+by the maximum energy deposition for that event. I found that the results
 may be improved by removing the last two planes of BigHand from my feature space; this
 is not surprising to me because protons/neutrons generally do not propagate through the
 entire detector at this entire scale. The target or label is the proton/neutron
@@ -160,8 +162,8 @@ dataset:&lt;/p&gt;
 &lt;span class=&quot;n&quot;&gt;Ratio&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;neutrons&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;protons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;61&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;As usual, the data is goes through a train-test-split (30% for testing) and is
-fit to a RandomForestClassifier with all default parameters with the exception
-of n_estimators=250. The prediction on the test dataset yields the following:&lt;/p&gt;
+fit to a RandomForestClassifier with all default parameters except n_estimators=250.
+The prediction on the test dataset yields the following:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;Total&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Accuracy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;91.17&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;
 
@@ -172,25 +174,25 @@ of n_estimators=250. The prediction on the test dataset yields the following:&lt
 
 &lt;p&gt;In other words, the Random Forest model correct classifies protons (neutrons)
 87% (94%) of the time which is pretty remarkable. The most important features
-by detector plane may be summarized by the following figure:&lt;/p&gt;
+organized by detector plane is summarized by the following figure:&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;/images/cnn_pid/rf_featimportance_acc.png&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 4 - The feature importance of the Random Forest model organized
-  by BigHand detector plane, &lt;i&gt;i.e.&lt;/i&gt; feature importance within a particular
+  by BigHand detector plane, &lt;i&gt;i.e.&lt;/i&gt; the feature importance of modules within a 
   plane are summed and then normalized by the number of modules within that plane.
   &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
 &lt;p&gt;Fig. 4 indicates that the veto layers (recall that the physics-inspired methodology
-relied heavily upon the response within the veto layers for particle classification)
+relies heavily upon the response within the veto layers for particle classification)
 and neutron plane N1 are the most important in regards to this classification task.
 Planes deeper in the detector become decreasingly important which is not a surprise
-to me. This model will serve as a baseline for the convolutional approach, in other words
-can a CNN do better than 87% and 94% for protons and neutrons, respectively? Note that
-I did not spend additional time optimizing this model as I was more interested
-in the convolutional neural network approach for my own education.&lt;/p&gt;
+to me. The Random Forest model will serve as a baseline for the convolutional approach,
+in other words can a CNN do better than 87% and 94% for protons and neutrons,
+respectively? Note that I did not spend additional time optimizing this model
+as I was more interested in the CNN approach for my own education.&lt;/p&gt;
 
 &lt;h2 id=&quot;convolutional-neural-network-&quot;&gt;Convolutional Neural Network &lt;a class=&quot;anchor&quot; id=&quot;cnn&quot;&gt;&lt;/a&gt;&lt;/h2&gt;
 
@@ -210,11 +212,11 @@ traverses through the 9 detector planes. Here are a few examples:&lt;/p&gt;
 &lt;p&gt;Visually, it is pretty easy to notice a few things: 1) neutrons leave messier patterns,
 2) neutrons often leave signals in the veto layers (which is a flaw in our physics-inspired
 method), and 3) neutrons often travel deeper into the detector which is a consequence
-of the particle having no charge. A little more detail about the third point: neutrons must
-interact with the iron/lead in between detector planes in order to produce charged particles
-via the strong interaction, and then the charged particles scintillate in the BigHand
-modules resulting in a detectable signal. It’s complicated and non-trivial, but let’s ignore
-these complications and think outside of the box.&lt;/p&gt;
+of the particles having no charge. A little more detail about the third point: as neutrons
+have no charge, they must interact with the iron and lead between detector planes
+in order to produce charged particles via the strong interaction. These charged
+particles then propagate through the BigHand modules and produce scintillation,
+resulting in a detectable signal that indirectly allows us to track the neutron.&lt;/p&gt;
 
 &lt;p&gt;Just by visually inspecting which modules fire during a proton/neutron event, we can begin
 to think of the detector as a two-dimensional image where the pixel strength (the 3rd
@@ -239,11 +241,10 @@ Here is an example of the result:&lt;/p&gt;
 &lt;/figure&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;p&gt;The middle and right images are &lt;script type=&quot;math/tex&quot;&gt;9\times50\times1&lt;/script&gt; where the &lt;script type=&quot;math/tex&quot;&gt;9&lt;/script&gt; corresponds to the number
-of detector planes, &lt;script type=&quot;math/tex&quot;&gt;50&lt;/script&gt; is how I chose to discritize the vertical dimension, and the last
-dimension is the image color-scale which is now normalized energy deposition. We will use
-these images as input to a convolutional neural network in order to do an image classification
-task.&lt;/p&gt;
+&lt;p&gt;The middle and right images are 9&lt;script type=&quot;math/tex&quot;&gt;\times&lt;/script&gt;50&lt;script type=&quot;math/tex&quot;&gt;\times&lt;/script&gt;1 where the 9 corresponds to the number
+of detector planes, the 50 is how I chose to discritize the vertical dimension, and the last
+dimension is the image color-scale which is now the normalized energy deposition. We will use
+these images as input to a convolutional neural network to do image classification.&lt;/p&gt;
 
 &lt;h3 id=&quot;architecture-&quot;&gt;Architecture &lt;a class=&quot;anchor&quot; id=&quot;cnnarch&quot;&gt;&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Still working…&lt;/p&gt;</content><author><name></name></author><summary type="html">Particle identification using convolutional neural networks</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/" /></entry><entry><title type="html">K-means clustering</title><link href="http://localhost:4000/blog/Kmeans/" rel="alternate" type="text/html" title="K-means clustering" /><published>2018-10-15T00:00:00-04:00</published><updated>2018-10-15T00:00:00-04:00</updated><id>http://localhost:4000/blog/Kmeans</id><content type="html" xml:base="http://localhost:4000/blog/Kmeans/">&lt;figure&gt;
