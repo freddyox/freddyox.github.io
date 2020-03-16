@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-16T10:37:53-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Particle Classification</title><link href="http://localhost:4000/blog/CNN_PID/" rel="alternate" type="text/html" title="Particle Classification" /><published>2019-09-14T00:00:00-04:00</published><updated>2019-09-14T00:00:00-04:00</updated><id>http://localhost:4000/blog/CNN_PID</id><content type="html" xml:base="http://localhost:4000/blog/CNN_PID/">&lt;figure&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-16T10:53:37-04:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Projects and Research Interests</title><subtitle>Projects and Research Interests</subtitle><entry><title type="html">Particle Classification</title><link href="http://localhost:4000/blog/CNN_PID/" rel="alternate" type="text/html" title="Particle Classification" /><published>2019-09-14T00:00:00-04:00</published><updated>2019-09-14T00:00:00-04:00</updated><id>http://localhost:4000/blog/CNN_PID</id><content type="html" xml:base="http://localhost:4000/blog/CNN_PID/">&lt;figure&gt;
   &lt;img src=&quot;/images/cnn_pid/event_animation_v2.gif&quot; alt=&quot;&quot; height=&quot;100%&quot; width=&quot;100%&quot; /&gt;
   &lt;figcaption&gt;Fig. 1 - A cross-sectional view of the BigHand detector during a neutron
   event. A neutron enters the detector from the left and deposits energy (red) as
@@ -19,9 +19,9 @@
         &lt;ol&gt;
           &lt;li&gt;&lt;a href=&quot;#cnndata&quot;&gt;Converting BigHand Data to an Image&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href=&quot;#cnnarch&quot;&gt;Architecture&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#results&quot;&gt;Results&lt;/a&gt;&lt;/li&gt;
         &lt;/ol&gt;
       &lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#results&quot;&gt;Results&lt;/a&gt;&lt;/li&gt;
     &lt;/ol&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
