@@ -82,6 +82,7 @@
           <li><a href="#cnnarch">Architecture</a></li>
         </ol>
       </li>
+      <li><a href="#results">Results</a></li>
     </ol>
   </li>
 </ol>
@@ -137,7 +138,7 @@ the veto layers, then this particle is classified as a proton. See Fig. 3 for a
 visual summary.</p>
 
 <figure>
-  <img src="/images/cnn_pid/MC_ND_events.png" alt="" height="75%" width="75%" />
+  <img src="/images/cnn_pid/MC_ND_events_label.png" alt="" height="75%" width="75%" />
   <figcaption>Fig. 3 - Summarizing the particle classification concept. The fundamental
   idea rests upon the fact that charged particles like protons produce light or scintillation
   within the modules of the BigHand detector. The presence of a cluster within planes (N1-N7)
@@ -223,7 +224,7 @@ dataset:</p>
 <span class="n">Ratio</span> <span class="n">of</span> <span class="n">neutrons</span> <span class="n">to</span> <span class="n">protons</span><span class="p">:</span> <span class="mi">61</span><span class="o">%</span></code></pre></figure>
 
 <p>As usual, the data is goes through a train-test-split (30% for testing) and is
-fit to a RandomForestClassifier with all default parameters except n_estimators=250.
+fit to a Random Forest classifier with all default parameters except n_estimators=250.
 The prediction on the test dataset yields the following:</p>
 
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">Total</span> <span class="n">Accuracy</span><span class="p">:</span> <span class="mf">91.17</span><span class="o">%</span>
@@ -308,7 +309,77 @@ dimension is the image color-scale which is now the normalized energy deposition
 these images as input to a convolutional neural network to do image classification.</p>
 
 <h3 id="architecture-">Architecture <a class="anchor" id="cnnarch"></a></h3>
-<p>Still working…</p>
+<p>Standard strided convolutional blocks are used:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">ConvModel</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nplanes</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ConvModel3</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nplanes</span> <span class="o">=</span> <span class="n">nplanes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">SELU</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="mi">64</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">conv4</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">norm3</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv4</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">adaptive_max_pool2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span></code></pre></figure>
+
+<p>In other words, the width and height dimensions are reduced while increasing the number of filters. Layers
+are normalized using BatchNorm, and the SELU activation function is used.</p>
+
+<h2 id="results-">Results <a class="anchor" id="results"></a></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Physics Method</th>
+      <th style="text-align: center">Random Forest</th>
+      <th style="text-align: right">CNN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Proton Accuracy</td>
+      <td style="text-align: center">97%</td>
+      <td style="text-align: center">87%</td>
+      <td style="text-align: right">90%</td>
+    </tr>
+    <tr>
+      <td>Neutron Accuracy</td>
+      <td style="text-align: center">55%</td>
+      <td style="text-align: center">94%</td>
+      <td style="text-align: right">94%</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The table above summarizes the performance of BigHand using a variety of classification techniques.
+Each method has a set of advantages and disadvantages that must be assessed prior to use in analysis.</p>
+
+<p>For a neutron form factor measurement, keeping the proton/neutron accuracy high is desirable. An important consequence
+of doing a better job with the neutron accuracy is the reduction in the statistical error on the final result.
+The machine learning methods increase the neutron accuracy by roughly a factor of 2, technically
+1.7 but I am rounding. Therefore, the analysis can use <script type="math/tex">\sim2\times</script> more neutron events in the neutron
+form factor calculation, which means the statistical error bar gets reduced by roughly a factor of <script type="math/tex">\sqrt 2</script>.
+Reducing the error bars on final measurements is always important and time-consuming. In this case, the
+measurement was dominated by the statistical uncertainty (as opposed to the systematic), and an improved
+classification algorithm increases the precision of our neutron form factor measurement.</p>
 </p>
       	</section>	
 
